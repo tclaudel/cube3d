@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/06 10:54:05 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/06 12:16:48 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -76,9 +76,8 @@ fcleanlib: fclean
 relib: re
 	@make -C libft/ re
 
-git %:
-	git add .
-	git commit -m "$(@:git %=%)"
+git-%:
+	git commit -m "$(@:git-%=%)"
 	$(MAKE) push
 
 
