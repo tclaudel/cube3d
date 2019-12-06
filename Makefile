@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/06 10:53:43 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/06 10:54:05 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -63,7 +63,7 @@ re: fclean all
 norme:
 	norminette srcs/*.c includes/*.c
 
-push: fclean norme
+push: fclean
 	git push github master
 	git push origin master
 
