@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/06 10:52:31 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/06 10:53:43 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -79,7 +79,7 @@ relib: re
 git %:
 	git add .
 	git commit -m "$(@:git %=%)"
-	push
+	$(MAKE) push
 
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib
