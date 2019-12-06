@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/04 17:49:27 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 11:50:43 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,8 +44,8 @@ typedef union		u_color
 
 
 void			ft_arg_error(int ac, char *av);
-int				ft_arg_analyser(int fd, t_cube3d *pf);
+int				ft_arg_analyser(int fd, t_cube3d *cub);
 void			ft_error(char *error);
-int				ft_convert_line(char *line, t_cube3d *pf);
+int				ft_convert_line(char *line, t_cube3d *cub);
 
 #endif
