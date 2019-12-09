@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:23:28 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 13:16:13 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 15:38:32 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,11 +25,11 @@ int		ft_arg_analyser(int fd, t_cube3d *cub)
 			break;
 		free(line);
 	}
-	if(!cub->R[0] || !cub->R[1] || !cub->NO || !cub->SO || !cub->WE || !cub->EA || !cub->S)
+	if(!cub->r[0] || !cub->r[1] || !cub->no || !cub->so || !cub->we || !cub->ea || !cub->s)
 		ft_error("Missing args");
 	// while ((width = get_next_line(fd, &line)))
 	// {
-	// 	ft_convert_map(line, cub);
+	// 	// ft_convert_map(line, cub);
 	// }
 	ft_printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
 	ft_printf("\t\t\t\tANALYSIS DONE\n");

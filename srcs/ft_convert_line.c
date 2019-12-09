@@ -6,12 +6,13 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 15:35:45 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 09:47:22 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 15:39:59 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
 void	ft_if_forest(const char **id, const char **token, t_cube3d *cub, int i)
 {
 	if (i == 0 && !strncmp(id[i], token[0], ft_strlen(id[i])))
@@ -26,10 +27,6 @@ void	ft_if_forest(const char **id, const char **token, t_cube3d *cub, int i)
 		ft_ea_convert(token, cub);
 	if (i == 5 && !strncmp(id[i], token[0], ft_strlen(id[i])))
 		ft_s_convert(token, cub);
-	// if (i == 6 && !strncmp(id[i], token[0], ft_strlen(id[i])))
-	// 	ft_rconvert(token, cub);
-	// if (i == 6 && !strncmp(id[i], token[0], ft_strlen(id[i])))
-	// 	ft_rconvert(token, cub);
 }
 
 int		ft_convert_line(char *line, t_cube3d *cub)
@@ -43,9 +40,10 @@ int		ft_convert_line(char *line, t_cube3d *cub)
 	token[2] = ft_strtok(NULL, " ");
 	token[3] = ft_strtok(NULL, " ");
 	if (!token[0])
-		return(1);
-	if (!strncmp(id[i], token[0], ft_strlen(id[i])) && (ft_strlen(token[0]) == ft_strlen(id[i])))
+		return (1);
+	if (!strncmp(id[i], token[0], ft_strlen(id[i])) &&
+		(ft_strlen(token[0]) == ft_strlen(id[i])))
 		ft_if_forest(id, token, cub, i);
 	i++;
-	return(1);
+	return (1);
 }

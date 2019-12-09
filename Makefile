@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 15:07:02 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:18:53 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -17,11 +17,12 @@ PINK = \033[0;38;5;198m
 DARK_BLUE = \033[1;38;5;110m
 GREEN = \033[1;32;111m
 LIGHT_GREEN = \033[0;38;5;121m
-LIGHT_RED = \033[0;38;5;110m
+LIGHT_RED = \033[0;31;5;110m
 FLASH_GREEN = \033[33;32m
 WHITE_BOLD = \033[37m
 GREY = \033[3;90m
 ORANGE = \033[3;91m
+YELLOW = \033[0;33m
 
 SRCS_CONVERT	= $(addprefix converters/, ft_r_convert.c ft_no_convert.c ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c)
 
@@ -53,14 +54,18 @@ FLAG		=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
 LIBFT		=	libft/libft.a
 
-MINILIBX	=	-l mlx -framework OpenGL -framework AppKit -L minilibx minilibx/libmlx.a -I minilibx
+minilibx	=	minilibx/libmlx.a
 
-all: $(OBJ_PATH) $(NAME)
+FRAMEWORK	=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
+
+all: $(OBJ_PATH) $(NAME) minilibx/libmlx.a
 
 $(NAME): $(OBJ) $(HEADER)
-	@make -C libft/
-	@gcc $(FLAG) $(MINILIBX) $(LIBFT) $(OBJ) -o $(NAME)
-	@echo "$'[32m\nCompiling effected successfully!"
+	@if test ! -f $(LIBFT); then $(MAKE) relib ; fi
+	@if test ! -f minilibx/libmlx.a; then make -C ./minilibx; fi
+	@gcc $(FLAG) $(FRAMEWORK) $(LIBFT) $(OBJ) -o $(NAME)
+	@printf "	\033[2K\r$(DARK_BLUE)cube3D:	$(LIGHT_GREEN)Updated\033[0m"
+	@echo ""
 
 $(OBJ_PATH):
 	@mkdir -p bin/ 2> /dev/null
@@ -69,49 +74,54 @@ $(OBJ_PATH):
 	@mkdir -p bin/graphic 2> /dev/null
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
-	@echo "$'[31mCompiling :$'[0m $<$'[0m"
+	@printf "\033[2K\r$(LIGHT_RED)Compiling...	\033[37m$<\033[36m \033[0m"
+	@sleep 0.1
 	@gcc $(FLAG) -I $(HEADER) -I minilibx -c $< -o $@
 
 clean:
-	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
-	@sleep 0.15
-	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
-	@sleep 0.15
-	${RM} ${OBJ_PATH}
-	@printf "\33[2K\r$(ORANGE)Delete successfully!\n\033[0m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs.	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs..	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs...	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs.	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs..	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs...	\033[37m"
+	@sleep 0.1
+	@${RM} ${OBJ_PATH}
+	@printf "\33[2K\r$(LIGHT_RED)Deleted successfully!\n\033[0m"
 
 fclean: clean
-	${RM} ${NAME}
+	@${RM} ${NAME}
 
 re: fclean all
 
 norme:
-	norminette srcs/ includes/
+	@norminette $(SRC_PATH) $(OBJ_PATH)
 
 push: fclean
 	git push github master
 	git push origin master
 
-cleanlib: clean
+cleanlib:
+	@$(MAKE) clean
 	@make -C libft/ clean
 
-fcleanlib: fclean
+fcleanlib:
+	@$(MAKE) fclean
 	@make -C libft/ fclean
 
-relib: re
+relib:
+	@$(MAKE) fclean
 	@make -C libft/ re
+	@$(MAKE) all
 
 continue:
 	@echo ""
@@ -129,4 +139,4 @@ git-%:
 	git commit -m "$(@:git-%=%)"
 	@$(MAKE) push
 
-.PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib
+.PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%

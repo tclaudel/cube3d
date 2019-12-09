@@ -6,14 +6,14 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 12:57:13 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 15:27:39 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 15:27:11 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	ft_arg_error(int ac __attribute__ ((unused)), char *av __attribute__ ((unused)))
+void	ft_arg_error(int ac, char *av)
 {
 	const char	*error;
 
