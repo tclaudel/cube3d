@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:07:04 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 14:12:14 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -94,8 +94,8 @@ git-%:
 	@while [ -z "$$NORME" ]; do \
 		read -r -p "Check norme ? [y/N] " NORME; \
 	done
-	if [[ "$$NORME" == "y" ]] || [[ "$$NORME" == "Y" ]] ; then \
-        $(MAKE) norme; \
+	@if [ $$NORME = "y" ]; then \
+        @echo "pouet"; \
     fi
 	git add .
 	git status
