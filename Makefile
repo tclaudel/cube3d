@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:20:22 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:20:40 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -90,7 +90,7 @@ continue:
 	@while [ -z "$$CONTINUE" ]; do \
 		read -r -p "Press [y/N] to continue : " CONTINUE; \
 	done ; \
-	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; @exit 1;)
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;)
 	@echo "..do more.."
 
 git-%:
