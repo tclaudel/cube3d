@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:28:32 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:29:07 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -64,7 +64,7 @@ $(NAME): $(OBJ) $(HEADER)
 	@if test ! -f $(LIBFT); then $(MAKE) relib ; fi
 	@if test ! -f minilibx/libmlx.a; then make -C ./minilibx; fi
 	@gcc $(FLAG) $(FRAMEWORK) $(LIBFT) $(OBJ) -o $(NAME)
-	@printf "	\033[2K\r$(DARK_BLUE)cube3D:	$(LIGHT_GREEN)Updated\033[0m"
+	@printf "	\033[2K\r$(DARK_BLUE)cube3D:	$(LIGHT_GREEN)Updated\n\033[0m"
 
 $(OBJ_PATH):
 	@mkdir -p bin/ 2> /dev/null
