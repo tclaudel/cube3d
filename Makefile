@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:18:53 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:22:09 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -106,7 +106,8 @@ re: fclean all
 norme:
 	@norminette $(SRC_PATH) $(OBJ_PATH)
 
-push: fclean
+push:
+	$(MAKE) libfclean
 	git push github master
 	git push origin master
 
