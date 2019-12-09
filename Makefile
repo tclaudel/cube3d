@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:24:20 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:28:00 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -58,7 +58,7 @@ minilibx	=	minilibx/libmlx.a
 
 FRAMEWORK	=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
 
-all: $(OBJ_PATH) $(NAME) minilibx/libmlx.a
+all: $(OBJ_PATH) $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
 	@if test ! -f $(LIBFT); then $(MAKE) relib ; fi
