@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:38:11 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 14:47:08 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -91,21 +91,13 @@ continue:
 	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;)
 	@echo "..do more.."
 
-git:
-	@while [ -z "$$NORME" ]; do \
-		read -r -p "Check norme ? [y/N] " NORME; \
-	done
-	@if [ $$NORME = "y" ]; then \
-		$(MAKE) norme; \
-		$(MAKE) continue; \
-	fi
+git-%:
+	@$(MAKE) norme
+	@$(MAKE) continue
 	git add .
 	git status
 	@$(MAKE) continue
-	@while [ -z "$$COMMENT" ]; do \
-		read -r -p "Press [y/N] to continue : " COMMENT; \
-	done ; \
-	git commit -m "$$COMMENT"
-	#@$(MAKE) push
+	git commit -m "$(@:git-%=%)"
+	@$(MAKE) push
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib
