@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:22:40 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:24:20 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -133,7 +133,7 @@ continue:
 
 git-%:
 	@$(MAKE) norme
-	@$(MAKE) -s continue
+	@$(MAKE) continue
 	git add .
 	git status
 	@$(MAKE) continue
