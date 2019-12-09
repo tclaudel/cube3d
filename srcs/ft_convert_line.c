@@ -6,44 +6,47 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 15:35:45 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 12:14:43 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 18:31:33 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
-
-int		ft_rconvert(char *line, t_cube3d *cub)
+void	ft_if_forest(const char **id, const char **token, t_cube3d *cub, int i)
 {
-	char	*token;
-
-	dprintf(1, "line\t: %s\n", line);
-	token = ft_strtok(line, ' ');
-	if (token)
-		cub->R[0] = ft_atoi(token);
-	else
-		return (0);
-	token = ft_strtok(line, ' ');
-	if (token)
-		cub->R[1] = ft_atoi(token);
-	else
-		return (0);
-	ft_dprintf(1, "resultion : %d x %d\n",cub->R[0], cub->R[1]);
-	return(1);
+	if (i == 0 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+		ft_r_convert(token, cub);
+	if (i == 1 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+		ft_no_convert(token, cub);
+	if (i == 2 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+		ft_so_convert(token, cub);
+	if (i == 3 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+		ft_we_convert(token, cub);
+	if (i == 4 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+		ft_ea_convert(token, cub);
+	if (i == 5 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+		ft_s_convert(token, cub);
+	// if (i == 6 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+	// 	ft_rconvert(token, cub);
+	// if (i == 6 && !strncmp(id[i], token[0], ft_strlen(id[i])))
+	// 	ft_rconvert(token, cub);
 }
 
 int		ft_convert_line(char *line, t_cube3d *cub)
 {
-	char	*token;
-	int		error; 
+	const char		*token[4];
+	const char		*id[8] = {"R", "NO", "SO", "WE", "EA", "S", "F", "C"};
+	static int		i = 0;
 
-	dprintf(1, "in\t: %s\n", line);
-	if((token = ft_strtok(line, ' ')))
-		error = 1;
-	dprintf(1, "token\t: %s\n", token);
-	token = ft_strtok(line, ' ');
-	dprintf(1, "token1\t: %s\n", token);
-	cub->R[0] = ft_atoi(token);
-
+	token[0] = ft_strtok(line, " ");
+	token[1] = ft_strtok(NULL, " ");
+	token[2] = ft_strtok(NULL, " ");
+	token[3] = ft_strtok(NULL, " ");
+	//dprintf(1, "%s\n%s\n%s\n%s\n", token[0], token[1], token[2], token[3]);
+	if (!token[0])
+		return(1);
+	if (!strncmp(id[i], token[0], ft_strlen(id[i])) && (ft_strlen(token[0]) == ft_strlen(id[i])))
+		ft_if_forest(id, token, cub, i);
+	i++;
 	return(1);
 }

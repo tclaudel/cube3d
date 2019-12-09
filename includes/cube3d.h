@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 11:50:43 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/06 17:14:38 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,5 +47,16 @@ void			ft_arg_error(int ac, char *av);
 int				ft_arg_analyser(int fd, t_cube3d *cub);
 void			ft_error(char *error);
 int				ft_convert_line(char *line, t_cube3d *cub);
+
+/*
+//	CONVERTERS
+*/
+
+void			ft_r_convert(const char **token, t_cube3d *cub);
+void			ft_no_convert(const char **token, t_cube3d *cub);
+void			ft_so_convert(const char **token, t_cube3d *cub);
+void			ft_we_convert(const char **token, t_cube3d *cub);
+void			ft_ea_convert(const char **token, t_cube3d *cub);
+void			ft_s_convert(const char **token, t_cube3d *cub);
 
 #endif

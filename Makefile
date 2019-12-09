@@ -6,14 +6,18 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/06 12:16:48 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/06 17:15:11 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
-SRCS_NAME	=	$(addprefix srcs/,cube3d.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c)
+SRCS_ALLOC	= $(addprefix converters/, ft_r_convert.c ft_no_convert.c ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c)
 
-SRC_PATH	=	./
+SRCS_CORE		= cube3d.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c
+
+SRCS_NAME	= $(SRCS_ALLOC) $(SRCS_CORE)
+
+SRC_PATH	=	srcs/
 
 SRCS		=	$(addprefix $(SRC_PATH), $(SRCS_NAME))
 
@@ -46,14 +50,15 @@ $(NAME): $(OBJ) $(HEADER)
 
 $(OBJ_PATH):
 	@mkdir -p bin/ 2> /dev/null
-	@mkdir -p bin/srcs 2> /dev/null
+	@mkdir -p bin/ 2> /dev/null
+	@mkdir -p bin/converters 2> /dev/null
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@echo "$'[31mCompiling :$'[0m $<$'[0m"
 	@gcc $(FLAG) -I $(HEADER) -I minilibx -c $< -o $@
 
 clean:
-	${RM} ${OBJ}
+	${RM} ${OBJ_PATH}
 
 fclean: clean
 	${RM} ${NAME}
@@ -77,8 +82,8 @@ relib: re
 	@make -C libft/ re
 
 git-%:
+	git add .
 	git commit -m "$(@:git-%=%)"
 	$(MAKE) push
-
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib
