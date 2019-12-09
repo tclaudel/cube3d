@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:12:14 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 14:33:51 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -89,14 +89,14 @@ continue:
 		read -r -p "Press [y/N] to continue : " CONTINUE; \
 	done ; \
 	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;)
+	@echo "..do more.."
 
 git-%:
 	@while [ -z "$$NORME" ]; do \
 		read -r -p "Check norme ? [y/N] " NORME; \
 	done
-	@if [ $$NORME = "y" ]; then \
-        @echo "pouet"; \
-    fi
+	if [ "$$NORME" = "y" ]; then $(MAKE) norme; \
+		$(MAKE) continue; fi
 	git add .
 	git status
 	@$(MAKE) continue
