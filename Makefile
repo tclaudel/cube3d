@@ -6,10 +6,22 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 14:47:08 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 15:07:02 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
+
+BLUE =\033[0;38;5;123m
+LIGHT_PINK = \033[0;38;5;200m
+PINK = \033[0;38;5;198m
+DARK_BLUE = \033[1;38;5;110m
+GREEN = \033[1;32;111m
+LIGHT_GREEN = \033[0;38;5;121m
+LIGHT_RED = \033[0;38;5;110m
+FLASH_GREEN = \033[33;32m
+WHITE_BOLD = \033[37m
+GREY = \033[3;90m
+ORANGE = \033[3;91m
 
 SRCS_CONVERT	= $(addprefix converters/, ft_r_convert.c ft_no_convert.c ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c)
 
@@ -61,7 +73,24 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@gcc $(FLAG) -I $(HEADER) -I minilibx -c $< -o $@
 
 clean:
+	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
+	@sleep 0.15
+	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
+	@sleep 0.15
+	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
+	@sleep 0.15
+	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
+	@sleep 0.15
+	@printf "\33[2K\r$(PINK)Deleting	\033[37m"
+	@sleep 0.15
+	@printf "\33[2K\r$(PINK)Deleting.	\033[37m"
+	@sleep 0.15
+	@printf "\33[2K\r$(PINK)Deleting..	\033[37m"
+	@sleep 0.15
+	@printf "\33[2K\r$(PINK)Deleting...	\033[37m"
+	@sleep 0.15
 	${RM} ${OBJ_PATH}
+	@printf "\33[2K\r$(ORANGE)Delete successfully!\n\033[0m"
 
 fclean: clean
 	${RM} ${NAME}
@@ -84,16 +113,16 @@ fcleanlib: fclean
 relib: re
 	@make -C libft/ re
 
-continue: 
+continue:
+	@echo ""
 	@while [ -z "$$CONTINUE" ]; do \
 		read -r -p "Press [y/N] to continue : " CONTINUE; \
 	done ; \
-	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 1;)
-	@echo "..do more.."
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 2 2>/dev/null || true;)
 
 git-%:
 	@$(MAKE) norme
-	@$(MAKE) continue
+	@$(MAKE) -s continue
 	git add .
 	git status
 	@$(MAKE) continue
