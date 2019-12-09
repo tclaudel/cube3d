@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:38:20 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:43:40 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -106,7 +106,6 @@ norme:
 	@norminette $(SRC_PATH) $(OBJ_PATH)
 
 push:
-	$(MAKE) fcleanlib
 	git push github master
 	git push origin master
 
@@ -133,6 +132,7 @@ continue:
 git-%:
 	@$(MAKE) norme
 	@$(MAKE) continue
+	$(MAKE) fcleanlib
 	git add .
 	git status
 	@$(MAKE) continue
