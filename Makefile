@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:03:09 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:03:30 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -85,7 +85,7 @@ relib: re
 	@make -C libft/ re
 
 git-%: norme
-	@read -p "Continue ?" module;
+	@read -p "Continue ?"
 	git add .
 	git commit -m "$(@:git-%=%)"
 	git status
