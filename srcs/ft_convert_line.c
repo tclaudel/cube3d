@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 15:35:45 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 18:31:33 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 09:47:22 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,7 +42,6 @@ int		ft_convert_line(char *line, t_cube3d *cub)
 	token[1] = ft_strtok(NULL, " ");
 	token[2] = ft_strtok(NULL, " ");
 	token[3] = ft_strtok(NULL, " ");
-	//dprintf(1, "%s\n%s\n%s\n%s\n", token[0], token[1], token[2], token[3]);
 	if (!token[0])
 		return(1);
 	if (!strncmp(id[i], token[0], ft_strlen(id[i])) && (ft_strlen(token[0]) == ft_strlen(id[i])))

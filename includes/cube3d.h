@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 17:14:38 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 12:09:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,6 +32,7 @@ typedef struct	s_cube3d
 	char	*WE;
 	char	*EA;
 	char	*S;
+	char	**map;
 	int		F;
 	int		C;
 }				t_cube3d;
@@ -58,5 +59,8 @@ void			ft_so_convert(const char **token, t_cube3d *cub);
 void			ft_we_convert(const char **token, t_cube3d *cub);
 void			ft_ea_convert(const char **token, t_cube3d *cub);
 void			ft_s_convert(const char **token, t_cube3d *cub);
+
+
+int				ft_lunch_window(t_cube3d *cub);
 
 #endif

@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_s_convert.c                                   .::    .:/ .      .::   */
+/*   ft_lunch_window.c                                .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/06 17:13:43 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 12:00:33 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
+/*   Updated: 2019/12/09 10:48:43 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	ft_s_convert(const char **token, t_cube3d *cub)
+typedef struct    data_s
 {
-	int		fd;
-	char	*buf;
+    void          *mlx_ptr;
+    void          *mlx_win;
+}                 data_t;
 
-	buf = NULL;
-	ft_dprintf(1, "CATCHING S  TEXTURE\t| ");
-	if(token[2])
-		ft_error("too many arguments for this parameter");
-	fd = open(token[1], O_RDONLY);
-	if (fd < 0)
-		ft_error("No such file or directory");
-	if (read(fd, buf, 0) != 0)
-		ft_error("Not a valid file");
-	close(fd); 
-	cub->S = ft_strdup(token[1]);
-	ft_printfducul("path\t: %s\n", cub->S);
+int		ft_lunch_window(t_cube3d *cub)
+{
+    data_t        data;
+
+	ft_printfducul("-->\tlunching window (%d * %d)\n", cub->R[0], cub->R[1]);
+    if ((data.mlx_ptr = mlx_init()) == NULL)
+        return (EXIT_FAILURE);
+    if ((data.mlx_win = mlx_new_window(data.mlx_ptr, cub->R[0], cub->R[1], "DU CUL")) == NULL)
+        return (EXIT_FAILURE);
+    mlx_loop(data.mlx_ptr);
+    return (EXIT_SUCCESS);
 }

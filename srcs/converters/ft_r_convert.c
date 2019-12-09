@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:01:59 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 18:22:42 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 10:47:36 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,9 +17,10 @@ void	ft_r_convert(const char **token, t_cube3d *cub)
 {
 	int		nb;
 
+
 	ft_dprintf(1, "CATCHING RESOLTUION\t| ");
-	if (token[3])
-		ft_error("too much args for resolution");
+	if(token[3])
+		ft_error("too many arguments for this parameter");
 	if (token[1] && token[2])
 	{
 		nb = ft_atoi(token[1]);

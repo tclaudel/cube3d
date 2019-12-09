@@ -6,14 +6,14 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:20:20 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/06 11:52:28 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/09 09:52:14 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-t_cube3d	*setup_struct(void)
+t_cube3d	*set_struct(void)
 {
 	t_cube3d *setup;
 
@@ -35,7 +35,7 @@ int main(int ac, char **av)
 	t_cube3d	*cub;
 
 	fd = open(av[1], O_RDONLY);
-	cub = setup_struct();
+	cub = set_struct();
 	ft_arg_error(ac, av[1]);
 	ft_arg_analyser(fd, cub);
 	return(1);

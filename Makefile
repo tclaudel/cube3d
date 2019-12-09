@@ -6,16 +6,18 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/06 17:15:11 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 12:58:14 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
 
-SRCS_ALLOC	= $(addprefix converters/, ft_r_convert.c ft_no_convert.c ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c)
+SRCS_CONVERT	= $(addprefix converters/, ft_r_convert.c ft_no_convert.c ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c)
+
+SRCS_GRAPHIC	= $(addprefix graphic/, ft_lunch_window.c)
 
 SRCS_CORE		= cube3d.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c
 
-SRCS_NAME	= $(SRCS_ALLOC) $(SRCS_CORE)
+SRCS_NAME	= $(SRCS_CONVERT) $(SRCS_GRAPHIC) $(SRCS_CORE) 
 
 SRC_PATH	=	srcs/
 
@@ -52,6 +54,7 @@ $(OBJ_PATH):
 	@mkdir -p bin/ 2> /dev/null
 	@mkdir -p bin/ 2> /dev/null
 	@mkdir -p bin/converters 2> /dev/null
+	@mkdir -p bin/graphic 2> /dev/null
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@echo "$'[31mCompiling :$'[0m $<$'[0m"
@@ -66,7 +69,7 @@ fclean: clean
 re: fclean all
 
 norme:
-	norminette srcs/*.c includes/*.c
+	norminette srcs/ includes/
 
 push: fclean
 	git push github master
@@ -81,7 +84,7 @@ fcleanlib: fclean
 relib: re
 	@make -C libft/ re
 
-git-%:
+git-%: norme
 	git add .
 	git commit -m "$(@:git-%=%)"
 	$(MAKE) push
