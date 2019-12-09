@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 13:03:30 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 13:20:22 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -84,12 +84,21 @@ fcleanlib: fclean
 relib: re
 	@make -C libft/ re
 
-git-%: norme
-	@read -p "Continue ?"
+continue: 
+	@echo "Text from env. var.: $(FOO)"
+	@echo ""
+	@while [ -z "$$CONTINUE" ]; do \
+		read -r -p "Press [y/N] to continue : " CONTINUE; \
+	done ; \
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; @exit 1;)
+	@echo "..do more.."
+
+git-%:
+	$(MAKE) continue
 	git add .
-	git commit -m "$(@:git-%=%)"
 	git status
-	@read -p "Continue ?" module;
+	$(MAKE) continue
+	git commit -m "$(@:git-%=%)"
 	$(MAKE) push
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib
