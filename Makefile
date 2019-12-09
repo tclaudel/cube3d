@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:43:40 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/09 17:50:33 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -58,9 +58,13 @@ MINILIBX	=	minilibx/libmlx.a
 
 FRAMEWORK	=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
 
-all: $(OBJ_PATH) $(NAME) $(LIBFT) $(MINILIBX)
-	@if test ! -f $(LIBFT); then $(MAKE) relib ; fi
-	@if test ! -f $(MINILIBX); then make -C ./minilibx; fi
+all: $(OBJ_PATH) $(LIBFT) $(MINILIBX) $(NAME)
+
+$(LIBFT): 
+	@make -C libft/
+
+$(MINILIBX):
+	make -C ./minilibx
 
 $(NAME): $(OBJ) $(HEADER)
 	@gcc $(FLAG) $(FRAMEWORK) $(LIBFT) $(OBJ) -o $(NAME)
@@ -132,9 +136,9 @@ continue:
 git-%:
 	@$(MAKE) norme
 	@$(MAKE) continue
-	$(MAKE) fcleanlib
-	git add .
-	git status
+	@$(MAKE) fcleanlib
+	@git add .
+	@git status | grep "modified" | grep -v "submodules" 
 	@$(MAKE) continue
 	git commit -m "$(@:git-%=%)"
 	@$(MAKE) push
