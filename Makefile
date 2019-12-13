@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2019/12/09 17:50:33 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/12/13 10:00:36 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -24,54 +24,55 @@ GREY = \033[3;90m
 ORANGE = \033[3;91m
 YELLOW = \033[0;33m
 
-SRCS_CONVERT	= $(addprefix converters/, ft_r_convert.c ft_no_convert.c ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c)
+SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
+					ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c \
+					ft_f_convert.c ft_c_convert.c ft_convert_map.c)
 
-SRCS_GRAPHIC	= $(addprefix graphic/, ft_lunch_window.c)
+SRCS_GRAPHIC	=	$(addprefix graphic/, ft_lunch_window.c)
 
-SRCS_CORE		= cube3d.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c
+SRCS_CORE		=	cube3d.c ft_check_map.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c ft_set_struct.c
 
-SRCS_NAME	= $(SRCS_CONVERT) $(SRCS_GRAPHIC) $(SRCS_CORE) 
+SRCS_NAME		=	$(SRCS_CONVERT) $(SRCS_GRAPHIC) $(SRCS_CORE) 
 
-SRC_PATH	=	srcs/
+SRC_PATH		=	srcs/
 
-SRCS		=	$(addprefix $(SRC_PATH), $(SRCS_NAME))
+SRCS			=	$(addprefix $(SRC_PATH), $(SRCS_NAME))
 
-HEADER		=	./includes
+HEADER			=	./includes
 
-OBJ_NAME	=	${SRCS_NAME:.c=.o}
+OBJ_NAME		=	${SRCS_NAME:.c=.o}
 
-OBJ_PATH	=	bin/
+OBJ_PATH		=	bin/
 
-OBJ			=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
+OBJ				=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-NAME		=	cube3D
+NAME			=	cube3D
 
-CC			=	cc
+CC				=	cc
 
-RM			=	rm -rf
+RM				=	rm -rf
 
-FLAG		=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+FLAG			=	-Wall -Wextra -Werror -g3 -fsanitize=address
 
-LIBFT		=	libft/libft.a
+LIBFT			=	libft/libft.a
 
-MINILIBX	=	minilibx/libmlx.a
+MINILIBX		=	minilibx/libmlx.a
 
-FRAMEWORK	=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
+FRAMEWORK		=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
 
 all: $(OBJ_PATH) $(LIBFT) $(MINILIBX) $(NAME)
 
-$(LIBFT): 
+$(LIBFT):
 	@make -C libft/
 
 $(MINILIBX):
-	make -C ./minilibx
+	make -C minilibx/
 
 $(NAME): $(OBJ) $(HEADER)
 	@gcc $(FLAG) $(FRAMEWORK) $(LIBFT) $(OBJ) -o $(NAME)
-	@printf "	\033[2K\r$(DARK_BLUE)cube3D:	$(LIGHT_GREEN)Updated\n\033[0m"
+	@printf "	\033[2K\r$(DARK_BLUE)cube3D\t:\t$(LIGHT_GREEN)Updated\n\033[0m"
 
 $(OBJ_PATH):
-	@mkdir -p bin/ 2> /dev/null
 	@mkdir -p bin/ 2> /dev/null
 	@mkdir -p bin/converters 2> /dev/null
 	@mkdir -p bin/graphic 2> /dev/null
@@ -82,21 +83,21 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@gcc $(FLAG) -I $(HEADER) -I minilibx -c $< -o $@
 
 clean:
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs.	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/.	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs..	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/..	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs...	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/...	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs.	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/.	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs..	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/..	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Deleting Cleaning cub3D srcs...	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/...	\033[37m"
 	@sleep 0.1
 	@${RM} ${OBJ_PATH}
 	@printf "\33[2K\r$(LIGHT_RED)Deleted successfully!\n\033[0m"
@@ -107,6 +108,7 @@ fclean: clean
 re: fclean all
 
 norme:
+	#@$(MAKE) fcleanlib
 	@norminette $(SRC_PATH) $(OBJ_PATH)
 
 push:
@@ -136,7 +138,6 @@ continue:
 git-%:
 	@$(MAKE) norme
 	@$(MAKE) continue
-	@$(MAKE) fcleanlib
 	@git add .
 	@git status | grep "modified" | grep -v "submodules" 
 	@$(MAKE) continue

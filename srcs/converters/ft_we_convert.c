@@ -6,20 +6,22 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 16:05:50 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 15:41:56 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 10:03:39 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	ft_we_convert(const char **token, t_cube3d *cub)
+void	ft_we_convert(char **token, t_cube3d *cub)
 {
 	int		fd;
 	char	*buf;
 
 	buf = NULL;
-	ft_dprintf(1, "CATCHING WE TEXTURE\t| ");
+	if (cub->we)
+		ft_error("can't redefine parameter");
+	ft_dprintf(1, "we texture path\t: ");
 	if (token[2])
 		ft_error("too many arguments for this parameter");
 	fd = open(token[1], O_RDONLY);
@@ -29,5 +31,5 @@ void	ft_we_convert(const char **token, t_cube3d *cub)
 		ft_error("Not a valid file");
 	close(fd);
 	cub->we = ft_strdup(token[1]);
-	ft_printfducul("path\t: %s\n", cub->we);
+	ft_printf("%s\n", cub->we);
 }

@@ -6,34 +6,47 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:23:28 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 15:38:32 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 10:19:36 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int		ft_arg_analyser(int fd, t_cube3d *cub)
+static int		ft_params_completed(t_meta *meta)
+{
+	int		i;
+
+	i = meta->cub->r[0] > 0 && meta->cub->r[1] > 0 && meta->cub->no &&
+		meta->cub->so && meta->cub->we && meta->cub->ea && meta->cub->s &&
+		meta->cub->c != -1 && meta->cub->f != -1;
+	return (i);
+}
+
+int				ft_arg_analyser(int fd, t_meta *meta)
 {
 	char	*line;
-	// size_t	width;
 
-	while (get_next_line(fd, &line))
+	while (ft_params_completed(meta) != 1 && get_next_line(fd, &line))
 	{
-		ft_convert_line(line, cub);
-		if (line[0] == '1')
-			break;
+		ft_convert_line(line, meta);
 		free(line);
 	}
-	if(!cub->r[0] || !cub->r[1] || !cub->no || !cub->so || !cub->we || !cub->ea || !cub->s)
+	if ((!ft_params_completed(meta)))
 		ft_error("Missing args");
-	// while ((width = get_next_line(fd, &line)))
-	// {
-	// 	// ft_convert_map(line, cub);
-	// }
-	ft_printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n");
-	ft_printf("\t\t\t\tANALYSIS DONE\n");
-	ft_printf("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n");
-	//ft_lunch_window(cub);
-	return(1);
+	else
+	{
+		ft_printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		ft_printf("━━━━━━━━━━━━━━━━━━━━\n");
+		ft_printf("\t\t\tPARAMETERS COMPLETED\n");
+		ft_printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+		ft_printf("━━━━━━━━━━━━━━━━━━━━\n\n");
+	}
+	ft_check_map(fd, line);
+	ft_printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+	ft_printf("━━━━━━━━━━━━━━━━━━━━\n");
+	ft_printf("\t\t\t    ANALYSIS DONE\n");
+	ft_printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+	ft_printf("━━━━━━━━━━━━━━━━━━━━\n");
+	return (1);
 }

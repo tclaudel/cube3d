@@ -6,14 +6,14 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 14:50:59 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/09 15:27:20 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/13 10:24:57 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	ft_error(char *error)
+void			ft_error(char *error)
 {
 	ft_dprintf(1, "\033[0;31m");
 	ft_dprintf(2, "Error\n%s\n", error);
