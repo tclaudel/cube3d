@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 10:04:27 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2019/12/16 09:49:12 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,6 +72,9 @@ typedef struct	s_meta
 	t_color		*color;
 	t_map		*map;
 }				t_meta;
+
+
+
 
 void			ft_arg_error(int ac, char *av);
 int				ft_arg_analyser(int fd, t_meta *meta);
