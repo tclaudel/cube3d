@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 13:59:30 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 14:00:54 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -111,21 +111,21 @@ norme:
 	@norminette $(SRC_PATH) $(HEADER)
 
 push:
-	@printf "\33[2K\r$(LIGHT_RED)Pushing	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing 	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Pushing.	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing .	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Pushing..	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing ..	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Pushing...	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing ...	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Pushing	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing 	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Pushing.	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing .	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Pushing..	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing ..	\033[37m"
 	@sleep 0.1
-	@printf "\33[2K\r$(LIGHT_RED)Pushing...	\033[37m"
+	@printf "\33[2K\r$(LIGHT_RED)Pushing ...	\033[37m"
 	@sleep 0.1
 	@git push github master 2>/dev/null
 	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully on github !\n\033[0m"
