@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_init_struct.c                                  .::    .:/ .      .::   */
+/*   ft_set_struct.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2019/12/10 09:51:11 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 11:52:39 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/02 13:55:45 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,35 +69,4 @@ t_map		*init_map(void)
 	setup->width = 0;
 	setup->height = 0;
 	return (setup);
-}
-
-t_player	*init_player(t_map *map)
-{
-	t_player	*setup;
-	if (!(setup = malloc(sizeof(t_player))))
-		ft_error("Malloc failed");
-	setup->pos_x = (float)map->player[0];
-	setup->pos_y = (float)map->player[0];
-	setup->v_dir = malloc(2 * sizeof(float));
-	if (map->orientation == 'N')
-	{
-		setup->v_dir[0] = 0;
-		setup->v_dir[0] = 1;
-	}
-	if (map->orientation == 'E')
-	{
-		setup->v_dir[0] = 1;
-		setup->v_dir[0] = 0;
-	}
-	if (map->orientation == 'S')
-	{
-		setup->v_dir[0] = 0;
-		setup->v_dir[0] = -1;
-	}
-	if (map->orientation == 'W')
-	{
-		setup->v_dir[0] = -1;
-		setup->v_dir[0] = 0;
-	}
-	return(setup);
 }
