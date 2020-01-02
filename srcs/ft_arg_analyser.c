@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:23:28 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 10:18:25 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 11:54:55 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,6 +48,5 @@ int				ft_arg_analyser(int fd, t_meta *meta)
 	ft_printf("\t\t\t    ANALYSIS DONE\n");
 	ft_printf("\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
 	ft_printf("━━━━━━━━━━━━━━━━━━━━\n");
-	ft_lunch_window(meta->cub);
 	return (1);
 }

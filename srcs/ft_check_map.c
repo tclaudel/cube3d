@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 15:28:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 10:24:38 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 11:54:31 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,7 +41,7 @@ void			ft_check_map(int fd, char *line)
 	size_t		i;
 
 	i = 0;
-	map = set_map();
+	map = init_map();
 	strmap = ft_calloc(1, 1);
 	while (get_next_line(fd, &line))
 	{

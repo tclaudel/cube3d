@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 10:25:00 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 13:09:40 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -28,11 +28,11 @@ SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
 					ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c \
 					ft_f_convert.c ft_c_convert.c ft_convert_map.c)
 
-SRCS_GRAPHIC	=	$(addprefix graphic/, ft_lunch_window.c)
+SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c)
 
 SRCS_CORE		=	cube3d.c ft_check_map.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c ft_set_struct.c
 
-SRCS_NAME		=	$(SRCS_CONVERT) $(SRCS_GRAPHIC) $(SRCS_CORE) 
+SRCS_NAME		=	$(SRCS_CONVERT) $(SRCS_CUB) $(SRCS_CORE) 
 
 SRC_PATH		=	srcs/
 
@@ -75,7 +75,7 @@ $(NAME): $(OBJ) $(HEADER)
 $(OBJ_PATH):
 	@mkdir -p bin/ 2> /dev/null
 	@mkdir -p bin/converters 2> /dev/null
-	@mkdir -p bin/graphic 2> /dev/null
+	@mkdir -p bin/cub 2> /dev/null
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@printf "\033[2K\r$(LIGHT_RED)Compiling...	\033[37m$<\033[36m \033[0m"

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 10:18:06 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 13:30:03 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,23 +24,17 @@
 # include <mlx.h>
 # include "../libft/includes/libft.h"
 
-typedef struct    data_s
-{
-    void          *mlx_ptr;
-    void          *mlx_win;
-}                 data_t;
-
 typedef struct	s_cube3d
 {
-	int		*r;
-	char	*no;
-	char	*so;
-	char	*we;
-	char	*ea;
-	char	*s;
-	char	**map;
-	int		f;
-	int		c;
+	int				*r;
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
+	char			*s;
+	char			**map;
+	int				f;
+	int				c;
 }				t_cube3d;
 
 typedef struct		s_rgb
@@ -59,22 +53,29 @@ typedef union		u_color
 
 typedef struct		s_map
 {
-	char		**map;
-	size_t		width;
-	size_t		height;
-	size_t		*player;
-	char		orientation;
+	char			**map;
+	size_t			width;
+	size_t			height;
+	size_t			*player;
+	char			orientation;
 }					t_map;
 
-typedef struct	s_meta
+typedef struct		s_player
 {
-	t_cube3d	*cub;
-	t_color		*color;
-	t_map		*map;
-}				t_meta;
+	float			pos_x;
+	float			pos_y;
+	float			*v_dir;
+}					t_player;
 
-
-
+typedef struct		s_meta
+{
+	t_cube3d		*cub;
+	t_color			*color;
+	t_map			*map;
+	t_player		*player;
+	void			*mlx_ptr;
+	void			*mlx_win;
+}					t_meta;
 
 void			ft_arg_error(int ac, char *av);
 int				ft_arg_analyser(int fd, t_meta *meta);
@@ -98,18 +99,20 @@ void			ft_c_convert(char **token, t_cube3d *cub, t_color *color);
 char			**ft_convert_map(char *strmap, t_map *map);
 
 /*
-**	GRAPHIC
+**	CUB
 */
 
-int				ft_lunch_window(t_cube3d *cub);
+int				ft_cub(t_meta *meta);
+int				ft_lunch_window(t_meta *meta);
 
 /*
 **	SET STRUCT
 */
 
-t_meta	*set_meta(void);
-t_cube3d	*set_cub3d(void);
-t_color	*set_color(void);
-t_map	*set_map(void);
+t_meta			*init_meta(void);
+t_cube3d		*init_cub3d(void);
+t_color			*init_color(void);
+t_map			*init_map(void);
+t_player		*init_player(t_map *map);
 
 #endif

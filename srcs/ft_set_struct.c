@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_set_struct.c                                  .::    .:/ .      .::   */
+/*   ft_init_struct.c                                  .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 09:51:11 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 09:11:08 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 11:52:39 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-t_meta		*set_meta(void)
+t_meta		*init_meta(void)
 {
 	t_meta	*setup;
 
 	if (!(setup = malloc(sizeof(t_meta))))
 		ft_error("Malloc failed");
-	setup->color = set_color();
-	setup->map = set_map();
-	setup->cub = set_cub3d();
+	setup->color = init_color();
+	setup->map = init_map();
+	setup->cub = init_cub3d();
 	return (setup);
 }
 
-t_cube3d	*set_cub3d(void)
+t_cube3d	*init_cub3d(void)
 {
 	t_cube3d *setup;
 
@@ -44,7 +44,7 @@ t_cube3d	*set_cub3d(void)
 	return (setup);
 }
 
-t_color		*set_color(void)
+t_color		*init_color(void)
 {
 	t_color *setup;
 
@@ -58,7 +58,7 @@ t_color		*set_color(void)
 	return (setup);
 }
 
-t_map		*set_map(void)
+t_map		*init_map(void)
 {
 	t_map *setup;
 
@@ -69,4 +69,35 @@ t_map		*set_map(void)
 	setup->width = 0;
 	setup->height = 0;
 	return (setup);
+}
+
+t_player	*init_player(t_map *map)
+{
+	t_player	*setup;
+	if (!(setup = malloc(sizeof(t_player))))
+		ft_error("Malloc failed");
+	setup->pos_x = (float)map->player[0];
+	setup->pos_y = (float)map->player[0];
+	setup->v_dir = malloc(2 * sizeof(float));
+	if (map->orientation == 'N')
+	{
+		setup->v_dir[0] = 0;
+		setup->v_dir[0] = 1;
+	}
+	if (map->orientation == 'E')
+	{
+		setup->v_dir[0] = 1;
+		setup->v_dir[0] = 0;
+	}
+	if (map->orientation == 'S')
+	{
+		setup->v_dir[0] = 0;
+		setup->v_dir[0] = -1;
+	}
+	if (map->orientation == 'W')
+	{
+		setup->v_dir[0] = -1;
+		setup->v_dir[0] = 0;
+	}
+	return(setup);
 }

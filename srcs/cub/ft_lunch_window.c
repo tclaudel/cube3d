@@ -6,23 +6,22 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 10:18:42 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 13:35:18 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int		ft_lunch_window(t_cube3d *cub)
+int		ft_lunch_window(t_meta *meta)
 {
-	data_t	data;
-
-	ft_printf("-->\tlunching window (%d * %d)\n", cub->r[0], cub->r[1]);
-	if ((data.mlx_ptr = mlx_init()) == NULL)
+	ft_printf("-->\tlunching window (%d * %d)\n", meta->cub->r[0], meta->cub->r[1]);
+	if ((meta->mlx_ptr = mlx_init()) == NULL)
 		return (EXIT_FAILURE);
-	if ((data.mlx_win =
-		mlx_new_window(data.mlx_ptr, cub->r[0], cub->r[1], "CUB3D")) == NULL)
+	if ((meta->mlx_win =
+		mlx_new_window(meta->mlx_ptr, meta->cub->r[0], meta->cub->r[1], "CUB3D")) == NULL)
 		return (EXIT_FAILURE);
-	mlx_loop(data.mlx_ptr);
+	// core function
+	mlx_loop(meta->mlx_ptr);
 	return (EXIT_SUCCESS);
 }
