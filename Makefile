@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 14:00:54 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 14:03:02 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -109,6 +109,14 @@ re: fclean all
 
 norme:
 	@norminette $(SRC_PATH) $(HEADER)
+
+normed:
+	@norminette $(SRC_PATH) $(HEADER)
+	@$(MAKE) continue
+	@echo ""
+	@git add .
+	@git commit -m "normed" 1>/dev/null
+	@$(MAKE) push
 
 push:
 	@printf "\33[2K\r$(LIGHT_RED)Pushing 	\033[37m"
