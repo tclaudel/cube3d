@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 13:55:45 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 17:14:05 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,6 +41,7 @@ t_cube3d	*init_cub3d(void)
 	setup->s = 0;
 	setup->f = -1;
 	setup->c = -1;
+	setup->camera_x = 0;
 	return (setup);
 }
 

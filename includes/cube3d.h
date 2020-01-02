@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 14:39:15 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 17:37:27 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,8 +23,9 @@
 # include <string.h>
 # include <mlx.h>
 # include "../libft/includes/libft.h"
+# include "config.h"
 
-typedef struct		s_cube3d
+typedef struct		s_cub
 {
 	int				*r;
 	char			*no;
@@ -37,7 +38,14 @@ typedef struct		s_cube3d
 	int				c;
 	void			*mlx_ptr;
 	void			*mlx_win;
-}					t_cube3d;
+	float			camera_x;
+}					t_cub;
+
+typedef struct		s_vector
+{
+	float			x;
+	float			y;
+}					t_vector;
 
 typedef struct		s_rgb
 {
@@ -104,7 +112,7 @@ char				**ft_convert_map(char *strmap, t_map *map);
 */
 
 int					ft_cub(t_meta *meta);
-int					ft_lunch_window(t_cube3d *cub);
+int					ft_lunch_window(t_cube3d *cub, t_meta *meta);
 
 /*
 **	SET STRUCT
