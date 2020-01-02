@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 10:20:12 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 10:22:34 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -112,8 +112,25 @@ norme:
 	@norminette $(SRC_PATH) $(OBJ_PATH)
 
 push:
+	@printf "\33[2K\r$(LIGHT_RED)Pushing	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Pushing.	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Pushing..	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Pushing...	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Pushing	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Pushing.	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Pushing..	\033[37m"
+	@sleep 0.1
+	@printf "\33[2K\r$(LIGHT_RED)Pushing...	\033[37m"
+	@sleep 0.1
 	git push github master
 	git push origin master
+	@printf "\33[2K\r$(LIGHT_RED)Pushed successfully!\n\033[0m"
 
 cleanlib:
 	@$(MAKE) clean
@@ -142,7 +159,8 @@ git-%:
 	@git status | grep "modified" | grep -v "submodules" 
 	@$(MAKE) continue
 	git commit -m "$(@:git-%=%)"
-	@echo "pushing to branch ?"
+	@echo ""
+	@echo "Do you want to push ?"
 	@$(MAKE) continue
 	@$(MAKE) push
 
