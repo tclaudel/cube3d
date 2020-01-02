@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 10:22:58 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 10:25:00 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -131,7 +131,7 @@ push:
 	@echo ""
 	git push github master
 	git push origin master
-	@printf "\33[2K\r$(LIGHT_RED)Pushed successfully!\n\033[0m"
+	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully!\n\033[0m"
 
 cleanlib:
 	@$(MAKE) clean
@@ -156,13 +156,16 @@ continue:
 git-%:
 	@$(MAKE) norme
 	@$(MAKE) continue
+	@echo ""
 	@git add .
-	@git status | grep "modified" | grep -v "submodules" 
+	@git status
 	@$(MAKE) continue
+	@echo ""
 	git commit -m "$(@:git-%=%)"
 	@echo ""
 	@echo "Do you want to push ?"
 	@$(MAKE) continue
+	@echo ""
 	@$(MAKE) push
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%
