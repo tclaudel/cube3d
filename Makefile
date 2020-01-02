@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 13:37:18 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 13:37:49 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -161,7 +161,7 @@ git-%:
 	@git status
 	@$(MAKE) continue
 	@echo ""
-	@git commit -m "$(@:git-%=%)"
+	git commit -m "$(@:git-%=%)" 2>/dev/null
 	@echo ""
 	@echo "Do you want to push ?"
 	@$(MAKE) continue
