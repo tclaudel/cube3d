@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:53:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 14:54:50 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 15:16:01 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -65,7 +65,7 @@ static float	*ft_initplane(t_map *map)
 	if (map->orientation == 'W')
 	{
 		plane[0] = 0;
-		plane[1] = (FOV / 100);
+		plane[1] = (FOV  / 100);
 	}
 	return (plane);
 }
