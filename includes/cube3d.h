@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/16 09:49:12 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 10:18:06 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
-# include "mlx.h"
+# include <mlx.h>
 # include "../libft/includes/libft.h"
 
 typedef struct    data_s
