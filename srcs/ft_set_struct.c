@@ -6,24 +6,24 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 17:14:05 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 17:58:54 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-t_meta		*init_meta(void)
-{
-	t_meta	*setup;
+// t_meta		*init_meta(void)
+// {
+// 	t_meta	*setup;
 
-	if (!(setup = malloc(sizeof(t_meta))))
-		ft_error("Malloc failed");
-	setup->color = init_color();
-	setup->map = init_map();
-	setup->cub = init_cub3d();
-	return (setup);
-}
+// 	if (!(setup = malloc(sizeof(t_meta))))
+// 		ft_error("Malloc failed");
+// 	setup->color = init_color();
+// 	setup->map = init_map();
+// 	setup->cub = init_cub3d();
+// 	return (setup);
+// }
 
 t_cube3d	*init_cub3d(void)
 {
