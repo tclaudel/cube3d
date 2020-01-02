@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 13:39:10 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 13:40:14 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -162,8 +162,7 @@ git-%:
 	@$(MAKE) continue
 	@echo ""
 	@git commit -m "$(@:git-%=%)" 1>/dev/null
-	@echo "Comitting with comment : $(@:git-%=%)"
-	@echo ""
+	@printf "\33[2K\r$(FLASH_GREEN)Commit name -> $(@:git-%=%)\n\033[0m"
 	@echo "Do you want to push ?"
 	@$(MAKE) continue
 	@echo ""
