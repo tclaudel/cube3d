@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 13:52:26 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 14:39:15 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,6 +67,7 @@ typedef struct		s_player
 	float			pos_x;
 	float			pos_y;
 	float			*v_dir;
+	float			*plane;
 }					t_player;
 
 typedef struct		s_meta

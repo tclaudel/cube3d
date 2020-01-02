@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 14:03:02 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 14:37:42 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -99,7 +99,7 @@ clean:
 	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/...	\033[37m"
 	@sleep 0.1
-	@${RM} ${OBJ_PATH}
+	@${RM} ${OBJ_PATH} cube3D.dSYM
 	@printf "\33[2K\r$(LIGHT_RED)Deleted successfully!\n\033[0m"
 
 fclean: clean
