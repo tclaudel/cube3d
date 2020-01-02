@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 09:51:11 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 10:25:34 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 09:11:08 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,6 +32,8 @@ t_cube3d	*set_cub3d(void)
 	if (!(setup = malloc(sizeof(t_cube3d))))
 		ft_error("Malloc failed");
 	setup->r = malloc(2 * sizeof(int));
+	setup->r[0] = -1;
+	setup->r[1] = -1;
 	setup->no = 0;
 	setup->so = 0;
 	setup->we = 0;

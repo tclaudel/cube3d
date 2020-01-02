@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:01:59 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 10:16:40 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/02 09:11:29 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,7 @@ void	ft_r_convert(char **token, t_cube3d *cub)
 {
 	int		nb;
 
-	if (!(cub->r[0] != -1))
+	if (cub->r[0] != -1 && cub->r[1] != -1)
 		ft_error("can't redefine parameter");
 	ft_dprintf(1, "\nresolution\t: ");
 	if (token[3])
