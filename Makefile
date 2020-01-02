@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/02 13:40:50 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/02 13:42:54 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -130,8 +130,9 @@ push:
 	@sleep 0.1
 	@echo ""
 	git push github master
+	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully on github !\n\033[0m"
 	git push origin master
-	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully!\n\033[0m"
+	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully on vogsphere !\n\033[0m"
 
 cleanlib:
 	@$(MAKE) clean
