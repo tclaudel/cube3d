@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 09:24:16 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:43:59 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -64,8 +64,8 @@ typedef struct		s_cub
 	size_t			*player_start;
 	char			orientation;
 	double			*player_pos;
-	double			*player_dir;
-	double			*plane;
+	t_vector		player_dir;
+	t_vector		plane;
 	t_color			*color;
 }					t_cub;
 
