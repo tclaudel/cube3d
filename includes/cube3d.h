@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 09:07:08 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:12:29 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,31 +69,6 @@ typedef struct		s_cub
 	float			*plane;
 	t_color			*color;
 }					t_cub;
-
-// typedef struct		s_map
-// {
-// 	char			**map;
-// 	size_t			width;
-// 	size_t			height;
-// 	size_t			*player;
-// 	char			orientation;
-// }					t_map;
-
-// typedef struct		s_player
-// {
-// 	float			pos_x;
-// 	float			pos_y;
-// 	float			*v_dir;
-// 	float			*plane;
-// }					t_player;
-
-// typedef struct		s_meta
-// {
-// 	t_cube3d		*cub;
-// 	t_color			*color;
-// 	t_map			*map;
-// 	t_player		*player;
-// }					t_meta;
 
 void				ft_arg_error(int ac, char *av);
 int					ft_arg_analyser(int fd, t_cub *cub);

@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/03 08:46:23 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/03 09:11:29 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -79,26 +79,26 @@ $(OBJ_PATH):
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@printf "\033[2K\r$(LIGHT_RED)Compiling...	\033[37m$<\033[36m \033[0m"
-	#@sleep 0.1
+	@sleep 0.1
 	@gcc $(FLAG) -I $(HEADER) -I minilibx -c $< -o $@
 
 clean:
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/.	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/..	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/...	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/.	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/..	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Deleting cub3D srcs/...	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@${RM} ${OBJ_PATH} cube3D.dSYM
 	@printf "\33[2K\r$(LIGHT_RED)Deleted successfully!\n\033[0m"
 
@@ -120,21 +120,21 @@ normed:
 
 push:
 	@printf "\33[2K\r$(LIGHT_RED)Pushing 	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing .	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing ..	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing ...	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing 	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing .	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing ..	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing ...	\033[37m"
-	#@sleep 0.1
+	@sleep 0.1
 	@git push github master 2>/dev/null
 	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully on github !\n\033[0m"
 	@git push origin master 2>/dev/null
