@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 09:56:11 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 10:11:04 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:06:06 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,36 +37,36 @@ static int		ft_set_color(char *token)
 	return (color);
 }
 
-static void		ft_tok(char **token, t_cube3d *cub, t_color *color)
+static void		ft_tok(char **token, t_cub *cub)
 {
 	if (token[4])
 		ft_error("too mant arguments");
 	if (ft_all_digit(token[1]))
-		color->rgb.r = ft_set_color(token[1]);
+		cub->color->rgb.r = ft_set_color(token[1]);
 	else
 		ft_error("not a valid nomber");
 	if (ft_all_digit(token[2]))
-		color->rgb.g = ft_set_color(token[2]);
+		cub->color->rgb.g = ft_set_color(token[2]);
 	else
 		ft_error("not a valid nomber");
 	if (ft_all_digit(token[3]))
-		color->rgb.b = ft_set_color(token[3]);
+		cub->color->rgb.b = ft_set_color(token[3]);
 	else
 		ft_error("not a valid nomber");
-	cub->f = color->color;
+	cub->f = cub->color->color;
 }
 
-void			ft_f_convert(char **token, t_cube3d *cub, t_color *color)
+void			ft_f_convert(char **token, t_cub *cub)
 {
 	if ((cub->f != -1))
 		ft_error("can't redefine parameter");
 	ft_dprintf(1, "floor color\t: ");
 	if (token[1] && token[2] && token[3])
-		ft_tok(token, cub, color);
+		ft_tok(token, cub);
 	else
 		ft_error("problem with args for color");
 	ft_dprintf(1, "\e[48;2;%d;%d;%dm     \e[0m\t",
-			color->rgb.r, color->rgb.g, color->rgb.b);
+		cub->color->rgb.r, cub->color->rgb.g, cub->color->rgb.b);
 	ft_dprintf(1, "R: %d, G: %d, B: %d\n",
-		color->rgb.r, color->rgb.g, color->rgb.b);
+		cub->color->rgb.r, cub->color->rgb.g, cub->color->rgb.b);
 }

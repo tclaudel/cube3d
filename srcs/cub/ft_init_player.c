@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:53:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 17:58:05 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 08:59:51 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,8 +72,8 @@ static float	*ft_initplane(t_cub *cub)
 
 void	init_player(t_cub *cub)
 {
-	cub->pos_x = (float)cub->player[0];
-	cub->pos_y = (float)cub->player[1];
+	cub->player_pos_x = (float)cub->player_start[0];
+	cub->player_pos_y = (float)cub->player_start[1];
 	cub->v_dir = ft_initvdir(cub);
 	cub->plane = ft_initplane(cub);
 }

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 17:57:47 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:07:08 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,12 +59,12 @@ typedef struct		s_cub
 	void			*mlx_ptr;
 	void			*mlx_win;
 	float			camera_x;
-	size_t			width;
-	size_t			height;
-	size_t			*player;
+	size_t			map_width;
+	size_t			map_height;
+	size_t			*player_start;
 	char			orientation;
-	float			pos_x;
-	float			pos_y;
+	float			player_pos_x;
+	float			player_pos_y;
 	float			*v_dir;
 	float			*plane;
 	t_color			*color;
@@ -99,7 +99,7 @@ void				ft_arg_error(int ac, char *av);
 int					ft_arg_analyser(int fd, t_cub *cub);
 void				ft_error(char *error);
 int					ft_convert_line(char *line, t_cub *cub);
-void				ft_check_map(int fd, char *line);
+void				ft_check_map(int fd, char *line, t_cub *cub);
 void				ft_str_convert(char *str);
 
 /*
@@ -112,9 +112,9 @@ void				ft_so_convert(char **token, t_cub *cub);
 void				ft_we_convert(char **token, t_cub *cub);
 void				ft_ea_convert(char **token, t_cub *cub);
 void				ft_s_convert(char **token, t_cub *cub);
-void				ft_f_convert(char **token, t_cub *cub, t_color *color);
-void				ft_c_convert(char **token, t_cub *cub, t_color *color);
-char				**ft_convert_map(char *strmap, t_cub *cub);
+void				ft_f_convert(char **token, t_cub *cub);
+void				ft_c_convert(char **token, t_cub *cub);
+void				ft_convert_map(char *strcub, t_cub *cub);
 
 /*
 **	CUB
@@ -127,8 +127,9 @@ int					ft_lunch_window(t_cub *cub);
 **	SET STRUCT
 */
 
-t_cub			*init_cub(void);
-void			init_player(t_cub *cub);
-t_color			*init_color(void);
+t_cub				*init_cub(void);
+void				init_player(t_cub *cub);
+t_color				*init_color(void);
+void				init_map(t_cub *setup);
 
 #endif

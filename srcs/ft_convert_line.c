@@ -6,14 +6,14 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 15:35:45 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 10:25:08 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:04:22 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	ft_yew_forest(char **token, t_cube3d *cub, t_color *color)
+void	ft_yew_forest(char **token, t_cub *cub)
 {
 	if (!strncmp("R", token[0], 1) && ft_strlen(token[0]) == 1)
 		ft_r_convert(token, cub);
@@ -28,14 +28,14 @@ void	ft_yew_forest(char **token, t_cube3d *cub, t_color *color)
 	else if (!strncmp("S", token[0], 1) && ft_strlen(token[0]) == 1)
 		ft_s_convert(token, cub);
 	else if (!strncmp("F", token[0], 1) && ft_strlen(token[0]) == 1)
-		ft_f_convert(token, cub, color);
+		ft_f_convert(token, cub);
 	else if (!strncmp("C", token[0], 1) && ft_strlen(token[0]) == 1)
-		ft_c_convert(token, cub, color);
+		ft_c_convert(token, cub);
 	else
 		ft_error("wrong params");
 }
 
-int		ft_convert_line(char *line, t_meta *meta)
+int		ft_convert_line(char *line, t_cub *cub)
 {
 	char		*token[5];
 
@@ -46,6 +46,6 @@ int		ft_convert_line(char *line, t_meta *meta)
 	token[4] = ft_strtok(NULL, " ,\t");
 	if (!token[0])
 		return (1);
-	ft_yew_forest(token, meta->cub, meta->color);
+	ft_yew_forest(token, cub);
 	return (1);
 }

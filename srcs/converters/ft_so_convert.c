@@ -6,14 +6,14 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 16:00:20 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2019/12/13 10:03:35 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 08:46:52 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void	ft_so_convert(char **token, t_cube3d *cub)
+void	ft_so_convert(char **token, t_cub *cub)
 {
 	int		fd;
 	char	*buf;

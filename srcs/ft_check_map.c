@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 15:28:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 11:54:31 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:00:12 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,14 +34,13 @@ void			ft_str_convert(char *str)
 	ft_putchar('\n');
 }
 
-void			ft_check_map(int fd, char *line)
+void			ft_check_map(int fd, char *line, t_cub *cub)
 {
-	t_map		*map;
 	char		*strmap;
 	size_t		i;
 
 	i = 0;
-	map = init_map();
+	init_map(cub);
 	strmap = ft_calloc(1, 1);
 	while (get_next_line(fd, &line))
 	{
@@ -51,7 +50,7 @@ void			ft_check_map(int fd, char *line)
 				ft_error("problem with map detected");
 			strmap = ft_strfjoin(strmap, "\n", 1);
 			strmap = ft_strfjoin(strmap, line, 2);
-			map->height++;
+			cub->map_height++;
 		}
 	}
 	while (strmap[i++])
@@ -59,6 +58,6 @@ void			ft_check_map(int fd, char *line)
 		if (!ft_strchr("NSEW012\n \t", strmap[i]))
 			ft_error("Wrong char in map");
 	}
-	ft_convert_map(strmap, map);
-	ft_dprintf(1, "map size\t: %u * %u\n", map->width, map->height);
+	ft_convert_map(strmap, cub);
+	ft_dprintf(1, "map size\t: %u * %u\n", cub->map_width, cub->map_height);
 }
