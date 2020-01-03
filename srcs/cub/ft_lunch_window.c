@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 09:24:27 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 10:02:29 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,13 +33,15 @@ int		ft_key_press(int keycode, t_cub *cub)
 int		ft_raycast(t_cub *cub)
 {
 	int			i;
-	//t_vector	ray;
+	t_vector	ray;
 
 	i = 0;
 	while(i < cub->res[0])
 	{
 		cub->camera_x = 2 * i / cub->res[0] - 1;
-		//ray->x = cub->player_pos_x;
+		ray.x = cub->player_pos[0] + cub->plane->x * cub->camera_x;
+		ray.y = cub->player_pos[1] + cub->plane->x * cub ->camera_x;
+		printf("pouet\n");
 		i++;
 	}
 	return (1);
