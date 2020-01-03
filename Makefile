@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/03 10:26:42 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/03 10:27:27 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -115,7 +115,7 @@ normed:
 	@$(MAKE) continue
 	@echo ""
 	@git add .
-	@git commit -m "normed"
+	@git commit -m "normed" 1>/dev/null
 	@printf "\33[2K\r$(YELLOW)Push on repositories ?\n\033[0m"
 	@$(MAKE) continue
 	@echo ""
