@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 17:54:34 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:24:27 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,7 +39,7 @@ int		ft_raycast(t_cub *cub)
 	while(i < cub->res[0])
 	{
 		cub->camera_x = 2 * i / cub->res[0] - 1;
-		//ray->x = cub->map->v_dir[0] + 
+		//ray->x = cub->player_pos_x;
 		i++;
 	}
 	return (1);

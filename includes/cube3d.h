@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 09:12:29 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:24:16 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,8 +27,8 @@
 
 typedef struct		s_vector
 {
-	float			x;
-	float			y;
+	double			x;
+	double			y;
 }					t_vector;
 
 typedef struct		s_rgb
@@ -58,15 +58,14 @@ typedef struct		s_cub
 	int				c;
 	void			*mlx_ptr;
 	void			*mlx_win;
-	float			camera_x;
+	double			camera_x;
 	size_t			map_width;
 	size_t			map_height;
 	size_t			*player_start;
 	char			orientation;
-	float			player_pos_x;
-	float			player_pos_y;
-	float			*v_dir;
-	float			*plane;
+	double			*player_pos;
+	double			*player_dir;
+	double			*plane;
 	t_color			*color;
 }					t_cub;
 

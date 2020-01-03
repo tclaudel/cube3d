@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:53:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 09:12:14 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 09:26:08 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -14,11 +14,11 @@
 #include "cube3d.h"
 #include "config.h"
 
-static float	*ft_initvdir(t_cub *cub)
+static double	*ft_initvdir(t_cub *cub)
 {
-	float		*v_dir;
+	double		*v_dir;
 
-	v_dir = malloc(2 * sizeof(float));
+	v_dir = malloc(2 * sizeof(double));
 	if (cub->orientation == 'N')
 	{
 		v_dir[0] = 0;
@@ -42,11 +42,11 @@ static float	*ft_initvdir(t_cub *cub)
 	return (v_dir);
 }
 
-static float	*ft_initplane(t_cub *cub)
+static double	*ft_initplane(t_cub *cub)
 {
-	float		*plane;
+	double		*plane;
 
-	plane = malloc(2 * sizeof(float));
+	plane = malloc(2 * sizeof(double));
 	if (cub->orientation == 'N')
 	{
 		plane[0] = (FOV / 100);
@@ -72,8 +72,9 @@ static float	*ft_initplane(t_cub *cub)
 
 void			init_player(t_cub *cub)
 {
-	cub->player_pos_x = (float)cub->player_start[0];
-	cub->player_pos_y = (float)cub->player_start[1];
-	cub->v_dir = ft_initvdir(cub);
+	cub->player_pos = malloc(2 * sizeof(double));
+	cub->player_pos[0] = (double)cub->player_start[0];
+	cub->player_pos[1] = (double)cub->player_start[1];
+	cub->player_dir = ft_initvdir(cub);
 	cub->plane = ft_initplane(cub);
 }
