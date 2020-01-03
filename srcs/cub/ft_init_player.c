@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:53:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 10:19:06 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 11:58:53 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,23 +18,23 @@ static void		ft_initvdir(t_cub *cub)
 {
 	if (cub->orientation == 'N')
 	{
-		cub->player_dir.x = 0;
-		cub->player_dir.y = 1;
+		cub->dir.x = 0;
+		cub->dir.y = 1;
 	}
 	if (cub->orientation == 'E')
 	{
-		cub->player_dir.x = 1;
-		cub->player_dir.y = 0;
+		cub->dir.x = 1;
+		cub->dir.y = 0;
 	}
 	if (cub->orientation == 'S')
 	{
-		cub->player_dir.x = 0;
-		cub->player_dir.y = -1;
+		cub->dir.x = 0;
+		cub->dir.y = -1;
 	}
 	if (cub->orientation == 'W')
 	{
-		cub->player_dir.x = -1;
-		cub->player_dir.y = 0;
+		cub->dir.x = -1;
+		cub->dir.y = 0;
 	}
 }
 
@@ -64,9 +64,7 @@ static void		ft_initplane(t_cub *cub)
 
 void			init_player(t_cub *cub)
 {
-	cub->player_pos = malloc(2 * sizeof(double));
-	cub->player_pos[0] = (double)cub->player_start[0];
-	cub->player_pos[1] = (double)cub->player_start[1];
+	cub->pos = malloc(sizeof(t_vector));
 	ft_initvdir(cub);
 	ft_initplane(cub);
 }

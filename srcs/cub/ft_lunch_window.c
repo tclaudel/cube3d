@@ -6,57 +6,41 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 10:31:01 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 12:03:49 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int		ft_close(t_cub *cub)
+int		ft_close(t_cub *c)
 {
-	mlx_destroy_window(cub->mlx_ptr, cub->mlx_win);
+	mlx_destroy_window(c->mlx_ptr, c->mlx_win);
 	exit(EXIT_SUCCESS);
 	return (0);
 }
 
-int		ft_key_press(int keycode, t_cub *cub)
+int		ft_key_press(int keycode, t_cub *c)
 {
 	if (keycode == KEY_ESC)
 	{
-		mlx_destroy_window(cub->mlx_ptr, cub->mlx_win);
+		mlx_destroy_window(c->mlx_ptr, c->mlx_win);
 		exit(EXIT_SUCCESS);
 	}
 	return (0);
 }
 
-int		ft_raycast(t_cub *cub)
+int		ft_lunch_window(t_cub *c)
 {
-	int			i;
-	t_vector	ray;
-
-	i = 0;
-	while(i < cub->res[0])
-	{
-		cub->camera_x = 2 * i / cub->res[0] - 1;
-		ray.x = cub->player_pos[0] + cub->plane.x * cub->camera_x;
-		ray.y = cub->player_pos[1] + cub->plane.y * cub ->camera_x;
-		i++;
-	}
-	return (1);
-}
-
-int		ft_lunch_window(t_cub *cub)
-{
-	ft_printf("-->\tlunching window (%d * %d)\n", cub->res[0], cub->res[1]);
-	if ((cub->mlx_ptr = mlx_init()) == NULL)
+	ft_printf("-->\tlunching window (%d * %d)\n", c->res[0], c->res[1]);
+	if ((c->mlx_ptr = mlx_init()) == NULL)
 		return (EXIT_FAILURE);
-	if ((cub->mlx_win =
-		mlx_new_window(cub->mlx_ptr, cub->res[0], cub->res[1], "CUB3D")) == NULL)
+	if ((c->mlx_win =
+		mlx_new_window(c->mlx_ptr, c->res[0], c->res[1], "c3D")) == NULL)
 		return (EXIT_FAILURE);
-	mlx_hook(cub->mlx_win, 2, 0, &ft_key_press, cub);
-	mlx_hook(cub->mlx_win, 17, 0, &ft_close, cub);
-	ft_raycast(cub);
-	mlx_loop(cub->mlx_ptr);
+	mlx_hook(c->mlx_win, 2, 0, &ft_key_press, c);
+	mlx_hook(c->mlx_win, 17, 0, &ft_close, c);
+	ft_raycast(c);
+	mlx_loop(c->mlx_ptr);
 	return (EXIT_SUCCESS);
 }

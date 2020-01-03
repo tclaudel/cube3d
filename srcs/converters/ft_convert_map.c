@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 12:09:10 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 09:00:55 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 11:59:40 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,15 +66,15 @@ void	set_player(t_cub *cub, size_t i, size_t j, char c)
 {
 	if (!cub->orientation)
 	{
-		cub->player_start[0] = i;
-		cub->player_start[1] = j;
+		cub->start->x = i;
+		cub->start->y = j;
 		cub->orientation = c;
 	}
 	else
 		ft_error("2 players detected");
 }
 
-void	ft_player_pos(t_cub *cub)
+void	ft_pos(t_cub *cub)
 {
 	size_t	i;
 	size_t	j;
@@ -93,7 +93,7 @@ void	ft_player_pos(t_cub *cub)
 		j++;
 	}
 	ft_printf("player\t\t: X = %u  Y = %u  oriented : %c\n",
-		cub->player_start[0], cub->player_start[1], cub->orientation);
+		cub->start->x, cub->start->y, cub->orientation);
 }
 
 void	ft_convert_map(char *strcub, t_cub *cub)
@@ -118,5 +118,5 @@ void	ft_convert_map(char *strcub, t_cub *cub)
 	while (i < cub->map_height)
 		ft_str_convert(cub->map[i++]);
 	ft_check_walls(cub);
-	ft_player_pos(cub);
+	ft_pos(cub);
 }

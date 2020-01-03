@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/03 10:27:27 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/03 11:38:16 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -30,9 +30,11 @@ SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
 
 SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c ft_init_player.c)
 
+SRCS_RAYCAST	=	$(addprefix raycasting/, raycasting.c)
+
 SRCS_CORE		=	cube3d.c ft_check_map.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c ft_set_struct.c
 
-SRCS_NAME		=	$(SRCS_CONVERT) $(SRCS_CUB) $(SRCS_CORE) 
+SRCS_NAME		=	$(SRCS_CONVERT) $(SRCS_CUB) $(SRCS_CORE) $(SRCS_RAYCAST)
 
 SRC_PATH		=	srcs/
 
@@ -60,7 +62,7 @@ MINILIBX		=	minilibx/libmlx.a
 
 FRAMEWORK		=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
 
-all: $(OBJ_PATH) $(LIBFT) $(MINILIBX) $(NAME)
+all: $(OBJ_PATH) $(LIBFT) $(MINILIBX) $(NAME) $(HEADER)
 
 $(LIBFT):
 	@make -C libft/
@@ -76,6 +78,7 @@ $(OBJ_PATH):
 	@mkdir -p bin/ 2> /dev/null
 	@mkdir -p bin/converters 2> /dev/null
 	@mkdir -p bin/cub 2> /dev/null
+	@mkdir -p bin/raycasting 2> /dev/null
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
 	@printf "\033[2K\r$(LIGHT_RED)Compiling...	\033[37m$<\033[36m \033[0m"
@@ -142,6 +145,9 @@ push:
 	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully on github !\n\033[0m"
 	@git push origin master 2>/dev/null
 	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully on vogsphere !\n\033[0m"
+
+lib:
+	@make -C libft/
 
 cleanlib:
 	@$(MAKE) clean

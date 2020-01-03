@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 10:24:10 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 11:59:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -22,6 +22,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <mlx.h>
+# include <math.h>
+# include <stdbool.h>
 # include "../libft/includes/libft.h"
 # include "config.h"
 
@@ -30,6 +32,12 @@ typedef struct		s_vector
 	double			x;
 	double			y;
 }					t_vector;
+
+typedef struct		s_pos
+{
+	int				x;
+	int				y;
+}					t_pos;
 
 typedef struct		s_rgb
 {
@@ -61,12 +69,19 @@ typedef struct		s_cub
 	double			camera_x;
 	size_t			map_width;
 	size_t			map_height;
-	size_t			*player_start;
+	t_pos			*start;
 	char			orientation;
-	double			*player_pos;
-	t_vector		player_dir;
+	t_vector		*pos;
+	t_pos			square;
+	t_vector		dir;
 	t_vector		plane;
 	t_color			*color;
+	t_vector		side_dist;
+	t_vector		delta_dist;
+	double			perp_wal_dist;
+	t_pos			step;
+	bool			wall_hit;
+	bool			wall_side_hited;
 }					t_cub;
 
 void				ft_arg_error(int ac, char *av);
@@ -106,4 +121,9 @@ void				init_player(t_cub *cub);
 t_color				*init_color(void);
 void				init_map(t_cub *setup);
 
+/*
+**	RAYCASTING
+*/
+
+int					ft_raycast(t_cub *cub);
 #endif

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 10:23:15 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 11:57:00 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,7 @@ t_color		*init_color(void)
 
 void		init_map(t_cub *setup)
 {
-	setup->player_start = malloc(2 * sizeof(size_t));
+	setup->start = malloc(sizeof(t_vector));
 	setup->orientation = 0;
 	setup->map_width = 0;
 	setup->map_height = 0;
