@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/03 09:11:29 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/03 09:13:15 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -116,6 +116,9 @@ normed:
 	@echo ""
 	@git add .
 	@git commit -m "normed" 1>/dev/null
+	@echo "Do you want to push ?"
+	@$(MAKE) continue
+	@echo ""
 	@$(MAKE) push
 
 push:
