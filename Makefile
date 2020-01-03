@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/03 09:13:15 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/03 09:14:49 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -116,7 +116,7 @@ normed:
 	@echo ""
 	@git add .
 	@git commit -m "normed" 1>/dev/null
-	@echo "Do you want to push ?"
+	@printf "\33[2K\r$(YELLOW)Push on repositories ?\n\n\033[0m"
 	@$(MAKE) continue
 	@echo ""
 	@$(MAKE) push
@@ -173,7 +173,7 @@ git-%:
 	@echo ""
 	@git commit -m "$(@:git-%=%)" 1>/dev/null
 	@printf "\33[2K\r$(FLASH_GREEN)Commit name :\t[$(@:git-%=%)]\n\n\033[0m"
-	@echo "Do you want to push ?"
+	@printf "\33[2K\r$(YELLOW)Push on repositories ?\n\n\033[0m"
 	@$(MAKE) continue
 	@echo ""
 	@$(MAKE) push
