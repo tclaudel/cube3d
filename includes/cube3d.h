@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:07:23 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 15:24:50 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -91,7 +91,7 @@ typedef struct		s_cub
 	t_vector		old_dir;
 	t_vector		old_pla;
 	void			*dp;
-	char			*dp_data;
+	int				*dp_data;
 	int				bpp;
 	int				size_line;
 	int				endian;

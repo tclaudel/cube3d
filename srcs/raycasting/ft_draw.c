@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 14:35:55 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:06:16 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 15:23:41 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,7 +20,8 @@ void	ft_draw_floor(t_cub *c, int x)
 	i = c->draw_end;
 	while (i < c->res[1])
 	{
-		mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, c->f);
+		c->dp_data[i * c->res[0] + x] = c->f;
+		//mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, c->f);
 		i++;
 	}
 }
@@ -32,7 +33,8 @@ void	ft_draw_ceiling(t_cub *c, int x)
 	i = 0;
 	while (i < c->draw_start)
 	{
-		mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, c->c);
+		c->dp_data[i * c->res[0] + x] = c->c;
+		//mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, c->c);
 		i++;
 	}
 }
@@ -49,7 +51,8 @@ void	ft_draw(t_cub *c, int x)
 		color = 255;
 	while (i < c->draw_end)
 	{
-		mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, color);
+		c->dp_data[i * c->res[0] + x] = color;
+		//mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, color);
 		i++;
 	}
 	ft_draw_floor(c, x);
