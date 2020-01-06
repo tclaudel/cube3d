@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 14:35:55 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:53:11 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 18:02:25 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,9 +44,9 @@ void	ft_draw(t_cub *c, int x)
 
 	i = c->draw_start;
 	if (c->side_hited == 1)
-		color = 255 / 2;
+		color = 0xdddddd;
 	else
-		color = 255;
+		color = 0xffffff;
 	while (i < c->draw_end)
 	{
 		c->dp_data[i * c->res[0] + x] = color;
