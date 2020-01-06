@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 14:15:33 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/02 17:12:38 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/03 15:07:28 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,6 +19,8 @@
 */
 
 # define FOV 66
+# define MOVSPEED 0.200
+# define ROTSPEED 0.200
 
 /*
 **	KEY_CODE

@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/03 11:38:16 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/06 10:38:50 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -30,7 +30,7 @@ SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
 
 SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c ft_init_player.c)
 
-SRCS_RAYCAST	=	$(addprefix raycasting/, raycasting.c)
+SRCS_RAYCAST	=	$(addprefix raycasting/, ft_raycasting.c ft_draw.c)
 
 SRCS_CORE		=	cube3d.c ft_check_map.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c ft_set_struct.c
 
@@ -63,6 +63,7 @@ MINILIBX		=	minilibx/libmlx.a
 FRAMEWORK		=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
 
 all: $(OBJ_PATH) $(LIBFT) $(MINILIBX) $(NAME) $(HEADER)
+	@:
 
 $(LIBFT):
 	@make -C libft/
@@ -167,7 +168,7 @@ continue:
 	@while [ -z "$$CONTINUE" ]; do \
 		read -r -p "Press [y/N] to continue : " CONTINUE; \
 	done ; \
-	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting."; exit 2 &> /dev/null || true;)
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || exit 1 2> /dev/null
 
 git-%:
 	@$(MAKE) norme
@@ -182,6 +183,7 @@ git-%:
 	@printf "\33[2K\r$(YELLOW)Push on repositories ?\n\033[0m"
 	@echo ""
 	@$(MAKE) continue
+	@$(MAKE) fclean
 	@$(MAKE) push
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%

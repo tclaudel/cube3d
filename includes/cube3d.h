@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 14:11:01 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 10:38:56 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -72,16 +72,20 @@ typedef struct		s_cub
 	t_pos			*start;
 	char			orientation;
 	t_vector		*pos;
-	t_pos			square;
+	t_pos			*square;
 	t_vector		dir;
-	t_vector		plane;
 	t_color			*color;
 	t_vector		side_dist;
 	t_vector		delta_dist;
-	double			perp_wal_dist;
-	t_pos			step;
-	bool			wall_hit;
-	bool			wall_side_hited;
+	t_vector		*plane;
+	double			wall;
+	t_pos			*step;
+	bool			hit;
+	bool			side_hited;
+	int				line_height;
+	int				draw_start;
+	int				draw_end;
+
 }					t_cub;
 
 void				ft_arg_error(int ac, char *av);
@@ -125,5 +129,7 @@ void				init_map(t_cub *setup);
 **	RAYCASTING
 */
 
-int					ft_raycast(t_cub *cub);
+int					ft_raycasting(t_cub *cub);
+void				ft_draw(t_cub *c, int x);
+
 #endif
