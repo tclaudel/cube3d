@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 14:35:55 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:23:41 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 15:53:11 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -21,7 +21,6 @@ void	ft_draw_floor(t_cub *c, int x)
 	while (i < c->res[1])
 	{
 		c->dp_data[i * c->res[0] + x] = c->f;
-		//mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, c->f);
 		i++;
 	}
 }
@@ -34,7 +33,6 @@ void	ft_draw_ceiling(t_cub *c, int x)
 	while (i < c->draw_start)
 	{
 		c->dp_data[i * c->res[0] + x] = c->c;
-		//mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, c->c);
 		i++;
 	}
 }
@@ -52,7 +50,6 @@ void	ft_draw(t_cub *c, int x)
 	while (i < c->draw_end)
 	{
 		c->dp_data[i * c->res[0] + x] = color;
-		//mlx_pixel_put(c->mlx_ptr, c->mlx_win, x, i, color);
 		i++;
 	}
 	ft_draw_floor(c, x);
