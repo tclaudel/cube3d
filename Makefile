@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/06 15:52:00 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/06 15:54:30 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -187,7 +187,7 @@ git-%:
 	@$(MAKE) continue
 	@$(MAKE) push
 	@$(MAKE) all
-	@printf "\33[2K\r$(GREEN)\n Everything done !\n[$(@:git-%=%)]\n\033[0m"
+	@printf "\33[2K\r$(GREEN)\nEverything done\n\033[0m"
 
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%
