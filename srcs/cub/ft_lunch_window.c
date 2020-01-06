@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 13:03:32 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 13:18:27 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,6 +39,24 @@ int		ft_key_press(int keycode, t_cub *c)
 	return (1);
 }
 
+int		ft_key_release(int keycode, t_cub *c)
+{
+	if (keycode == KEY_ESC)
+	{
+		mlx_destroy_window(c->mlx_ptr, c->mlx_win);
+		exit(EXIT_SUCCESS);
+	}
+	if (keycode == KEY_W)
+		c->move = 0;
+	else if (keycode == KEY_S)
+		c->move = 0;
+	else if (keycode == KEY_Q)
+		c->rot = 0;
+	else if (keycode == KEY_D)
+		c->rot = 0;
+	return (1);
+}
+
 int		ft_lunch_window(t_cub *c)
 {
 	ft_printf("-->\tlunching window (%d * %d)\n", c->res[0], c->res[1]);
@@ -48,6 +66,7 @@ int		ft_lunch_window(t_cub *c)
 		mlx_new_window(c->mlx_ptr, c->res[0], c->res[1], "CUB 3D")) == NULL)
 		return (EXIT_FAILURE);
 	mlx_hook(c->mlx_win, 2, 0, &ft_key_press, c);
+	mlx_hook(c->mlx_win, 3, 0, &ft_key_press, c);
 	mlx_hook(c->mlx_win, 17, 0, &ft_close, c);
 	ft_raycasting(c);
 	mlx_loop(c->mlx_ptr);
