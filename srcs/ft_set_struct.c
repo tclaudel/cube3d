@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 17:15:28 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 13:22:01 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,4 +56,6 @@ void		init_map(t_cub *setup)
 	setup->orientation = 0;
 	setup->map_width = 0;
 	setup->map_height = 0;
+	setup->move = 0;
+	setup->rot = 0;
 }

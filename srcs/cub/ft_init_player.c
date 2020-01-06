@@ -6,13 +6,12 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:53:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 11:47:28 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 14:45:34 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
-#include "config.h"
 
 static void		ft_initvdir(t_cub *cub)
 {
@@ -40,26 +39,26 @@ static void		ft_initvdir(t_cub *cub)
 
 static void		ft_initplane(t_cub *cub)
 {
-	cub->plane = malloc(sizeof(t_vector));
+	cub->pla = malloc(sizeof(t_vector));
 	if (cub->orientation == 'E')
 	{
-		cub->plane->x = 0;
-		cub->plane->y = ((double)FOV / (double)100);
+		cub->pla->x = 0;
+		cub->pla->y = ((double)FOV / (double)100);
 	}
 	if (cub->orientation == 'N')
 	{
-		cub->plane->x = ((double)FOV / (double)100);
-		cub->plane->y = 0;
+		cub->pla->x = ((double)FOV / (double)100);
+		cub->pla->y = 0;
 	}
 	if (cub->orientation == 'S')
 	{
-		cub->plane->x = -((double)FOV / (double)100);
-		cub->plane->y = 0;
+		cub->pla->x = -((double)FOV / (double)100);
+		cub->pla->y = 0;
 	}
 	if (cub->orientation == 'W')
 	{
-		cub->plane->x = 0;
-		cub->plane->y = -((double)FOV / (double)100);
+		cub->pla->x = 0;
+		cub->pla->y = -((double)FOV / (double)100);
 	}
 }
 

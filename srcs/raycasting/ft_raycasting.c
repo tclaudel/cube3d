@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 11:12:04 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 13:08:08 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 14:44:27 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,8 +78,8 @@ int		ft_raycasting(t_cub *c)
 	while (x < c->res[0])
 	{
 		c->camera_x = 2 * x / (double)c->res[0] - 1;
-		ray.x = c->dir.x + c->plane->x * c->camera_x;
-		ray.y = c->dir.y + c->plane->y * c->camera_x;
+		ray.x = c->dir.x + c->pla->x * c->camera_x;
+		ray.y = c->dir.y + c->pla->y * c->camera_x;
 		ft_perform_dda(c, ray);
 		if (c->side_hited == 0)
 			c->wall = (c->square->x - c->pos->x + (1 - c->step->x) / 2) / ray.x;

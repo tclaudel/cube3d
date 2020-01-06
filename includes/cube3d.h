@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 13:04:04 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 15:07:23 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -78,7 +78,7 @@ typedef struct		s_cub
 	t_color			*color;
 	t_vector		side_dist;
 	t_vector		delta_dist;
-	t_vector		*plane;
+	t_vector		*pla;
 	double			wall;
 	t_pos			*step;
 	bool			hit;
@@ -88,6 +88,13 @@ typedef struct		s_cub
 	int				draw_end;
 	char			move;
 	char			rot;
+	t_vector		old_dir;
+	t_vector		old_pla;
+	void			*dp;
+	char			*dp_data;
+	int				bpp;
+	int				size_line;
+	int				endian;
 
 }					t_cub;
 
@@ -118,6 +125,7 @@ void				ft_convert_map(char *strcub, t_cub *cub);
 
 int					ft_cub(t_cub *cub);
 int					ft_lunch_window(t_cub *cub);
+void				ft_move(t_cub *cub);
 
 /*
 **	SET STRUCT
@@ -134,5 +142,6 @@ void				init_map(t_cub *setup);
 
 int					ft_raycasting(t_cub *cub);
 void				ft_draw(t_cub *c, int x);
+void				ft_rot(t_cub *c);
 
 #endif
