@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:52:55 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 16:03:06 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,6 @@ int		ft_key_press(int keycode, t_cub *c)
 		c->rot = 'A';
 	else if (keycode == KEY_D)
 		c->rot = 'D';
-	printf("move\t: %c\nrotate\t: %c\n", c->move, c->rot);
 	return (1);
 }
 

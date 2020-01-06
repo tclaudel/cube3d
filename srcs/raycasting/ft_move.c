@@ -6,12 +6,27 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/06 13:25:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:55:10 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 17:14:58 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
+
+void	ft_can_move(t_cub *c, char option)
+{
+	printf("Case [%c] %f x %f\n", c->map[(int)(c->pos->x)][(int)c->pos->y], (c->pos->x + c->dir.x * MOVSPEED), c->pos->y);
+	if (option == 'x')
+	{
+		if (!(c->map[(int)(c->pos->x)][(int)(c->pos->y)] && c->move == 'W'))
+			c->pos->x -= c->dir.x * MOVSPEED;
+	}
+	if (option == 'y')
+	{
+		if (!(c->map[(int)(c->pos->x)][(int)(c->pos->y)] && c->move == 'W'))
+			c->pos->y -= c->dir.y * MOVSPEED;
+	}
+}
 
 void	ft_move(t_cub *c)
 {

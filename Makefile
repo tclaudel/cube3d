@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/06 15:56:05 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/06 16:00:21 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -48,13 +48,13 @@ OBJ_PATH		=	bin/
 
 OBJ				=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-NAME			=	cube3D
+NAME			=	cub3D
 
 CC				=	cc
 
 RM				=	rm -rf
 
-FLAG			=	-Wall -Wextra -Werror -g3 -fsanitize=address
+FLAG			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
 LIBFT			=	libft/libft.a
 
