@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 10:38:56 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 13:04:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,6 +26,7 @@
 # include <stdbool.h>
 # include "../libft/includes/libft.h"
 # include "config.h"
+# include "keycode.h"
 
 typedef struct		s_vector
 {
@@ -85,6 +86,8 @@ typedef struct		s_cub
 	int				line_height;
 	int				draw_start;
 	int				draw_end;
+	char			move;
+	char			rot;
 
 }					t_cub;
 

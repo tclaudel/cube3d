@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 15:33:25 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 13:03:32 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,16 @@ int		ft_key_press(int keycode, t_cub *c)
 		mlx_destroy_window(c->mlx_ptr, c->mlx_win);
 		exit(EXIT_SUCCESS);
 	}
-	return (0);
+	if (keycode == KEY_W)
+		c->move = 'W';
+	else if (keycode == KEY_S)
+		c->move = 'S';
+	else if (keycode == KEY_Q)
+		c->rot = 'Q';
+	else if (keycode == KEY_D)
+		c->rot = 'D';
+	printf("move\t: %c\nrotate\t: %c\n", c->move, c->rot);
+	return (1);
 }
 
 int		ft_lunch_window(t_cub *c)

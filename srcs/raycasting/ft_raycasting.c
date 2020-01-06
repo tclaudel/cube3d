@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 11:12:04 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 11:04:19 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/06 13:07:53 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,16 +85,13 @@ int		ft_raycasting(t_cub *c)
 			c->wall = (c->square->x - c->pos->x + (1 - c->step->x) / 2) / ray.x;
 		else
 			c->wall = (c->square->y - c->pos->y + (1 - c->step->y) / 2) / ray.y;
-		//printf("\ncamera_x\tx : %f\nplane\t\tx : %f\ty : %f\nsquare\t\tx : %d\t\ty : %d\nray\t\tx : %f\ty : %f\ndir\t\tx : %f\ty : %f\nwall\t\t  : %f\n", c->camera_x, c->plane->x, c->plane->y, c->square->x, c->square->y,ray.x, ray.y, c->dir.x, c->dir.y, c->wall);
 		c->line_height = (int)(c->res[1] / c->wall);
-		//printf("line h\t\t  : %d\n\n", c->line_height);
 		c->draw_start = -c->line_height / 2 + c->res[1] / 2;
 		if (c->draw_start < 0)
 			c->draw_start = 0;
 		c->draw_end = c->line_height / 2 + c->res[1] / 2;
-		if(c->draw_end >= c->res[1])
+		if (c->draw_end >= c->res[1])
 			c->draw_end = c->res[1] - 1;
-		//printf("start\t: %d end\t: %d\n", c->draw_start, c->draw_end);
 		ft_draw(c, x);
 		x++;
 	}

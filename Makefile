@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/06 11:49:43 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/06 12:38:12 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -62,7 +62,7 @@ MINILIBX		=	minilibx/libmlx.a
 
 FRAMEWORK		=	-l mlx -framework OpenGL -framework AppKit -L minilibx  -I minilibx
 
-all: $(OBJ_PATH) $(LIBFT) $(MINILIBX) $(NAME) $(HEADER)
+all: $(OBJ_PATH) $(LIBFT) $(MINILIBX) $(NAME) includes/config.h includes/cube3d.h includes/keycode.h
 	@:
 
 $(LIBFT):
@@ -81,7 +81,7 @@ $(OBJ_PATH):
 	@mkdir -p bin/cub 2> /dev/null
 	@mkdir -p bin/raycasting 2> /dev/null
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c $(HEADER) Makefile includes/config.h includes/cube3d.h includes/keycode.h
 	@printf "\033[2K\r$(LIGHT_RED)Compiling...	\033[37m$<\033[36m \033[0m"
 	@sleep 0.1
 	@gcc $(FLAG) -I $(HEADER) -I minilibx -c $< -o $@
