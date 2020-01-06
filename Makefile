@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/06 11:49:14 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/06 11:49:43 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -178,10 +178,10 @@ git-%:
 	@git status
 	@$(MAKE) continue
 	@echo ""
-	@printf "\33[2K\r$(FLASH_GREEN)Commit name :\t[$(@:git-%=%)]\n\n\033[0m"
+	@printf "\33[2K\r$(FLASH_GREEN)Commit name :\t[$(@:git-%=%)]\n\033[0m"
 	@$(MAKE) continue
 	@git commit -m "$(@:git-%=%)" 1>/dev/null
-	@printf "\33[2K\r$(YELLOW)Push on repositories ?\033[0m"
+	@printf "\33[2K\r$(YELLOW)\nPush on repositories ?\033[0m"
 	@echo ""
 	@$(MAKE) continue
 	@$(MAKE) fclean
