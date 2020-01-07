@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 10:15:51 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 14:36:09 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,6 +16,7 @@
 int		ft_cub(t_cub *cub)
 {
 	init_player(cub);
-	ft_lunch_window(cub);
+	// ft_load_texture(cub);
+	ft_launch_window(cub);
 	return (1);
 }

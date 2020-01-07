@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 13:22:01 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 14:21:54 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -41,10 +41,7 @@ t_color		*init_color(void)
 	if (!(setup = malloc(sizeof(t_color))))
 		ft_error("Malloc failed");
 	setup->color = 0;
-	setup->rgb.a = 0;
-	setup->rgb.b = 0;
-	setup->rgb.r = 0;
-	setup->rgb.g = 0;
+	setup->rgb = (t_rgba){0, 0, 0, 0};
 	return (setup);
 }
 

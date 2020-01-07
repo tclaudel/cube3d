@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 16:03:06 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 14:35:41 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -67,7 +67,7 @@ int		main_loop(t_cub *c)
 	return (0);
 }
 
-int		ft_lunch_window(t_cub *c)
+int		ft_launch_window(t_cub *c)
 {
 	ft_printf("-->\tlunching window (%d * %d)\n", c->res[0], c->res[1]);
 	if ((c->mlx_ptr = mlx_init()) == NULL)

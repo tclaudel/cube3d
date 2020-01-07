@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:24:50 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/07 14:35:52 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,18 +40,18 @@ typedef struct		s_pos
 	int				y;
 }					t_pos;
 
-typedef struct		s_rgb
+typedef struct		s_rgba
 {
-	unsigned char	b;
-	unsigned char	g;
-	unsigned char	r;
 	unsigned char	a;
-}					t_rgb;
+	unsigned char	r;
+	unsigned char	g;
+	unsigned char	b;
+}					t_rgba;
 
 typedef union		u_color
 {
 	int				color;
-	t_rgb			rgb;
+	t_rgba			rgb;
 }					t_color;
 
 typedef struct		s_cub
@@ -124,7 +124,7 @@ void				ft_convert_map(char *strcub, t_cub *cub);
 */
 
 int					ft_cub(t_cub *cub);
-int					ft_lunch_window(t_cub *cub);
+int					ft_launch_window(t_cub *cub);
 void				ft_move(t_cub *cub);
 
 /*
