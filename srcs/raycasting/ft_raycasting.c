@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 11:12:04 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:23:37 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 15:36:14 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,6 +69,15 @@ void	ft_perform_dda(t_cub *c, t_vector ray)
 	}
 }
 
+void	ft_ray_text(t_cub *c)
+{
+	c->text_num = c->map[c->square->y][c->square->y] - 1;
+	if (c->side_hited == 0)
+		c->wall_x = c->pos->x + c->wall * c->dir.y;
+	else
+		c->wall_x = c->pos->x + c->wall * c->dir.x;
+}
+
 int		ft_raycasting(t_cub *c)
 {
 	int			x;
@@ -92,6 +101,7 @@ int		ft_raycasting(t_cub *c)
 		c->draw_end = c->line_height / 2 + c->res[1] / 2;
 		if (c->draw_end >= c->res[1])
 			c->draw_end = c->res[1] - 1;
+		ft_ray_text(c);
 		ft_draw(c, x);
 		x++;
 	}

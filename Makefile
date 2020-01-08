@@ -6,11 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-<<<<<<< HEAD
-#    Updated: 2020/01/07 13:19:14 by tclaudel    ###    #+. /#+    ###.fr      #
-=======
-#    Updated: 2020/01/08 11:47:48 by tclaudel    ###    #+. /#+    ###.fr      #
->>>>>>> 8b52046
+#    Updated: 2020/01/08 14:13:42 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -32,7 +28,8 @@ SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
 					ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c \
 					ft_f_convert.c ft_c_convert.c ft_convert_map.c)
 
-SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c ft_init_player.c ft_move.c)
+SRCS_CUB		=	$(addprefix cub/, ft_launch_window.c ft_cub.c ft_init_player.c ft_move.c \
+					ft_load_textures.c)
 
 SRCS_RAYCAST	=	$(addprefix raycasting/, ft_raycasting.c ft_draw.c)
 
@@ -58,7 +55,7 @@ CC				=	cc
 
 RM				=	rm -rf
 
-FLAG			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+FLAG			=	-Wall -Wextra -Werror -g3 -fsanitize=address
 
 LIBFT			=	libft/libft.a
 
@@ -194,14 +191,29 @@ git-%:
 	@$(MAKE) push
 	@echo ""
 	@printf "\33[2K\r$(GREEN)Everything done\n\n\033[0m"
-<<<<<<< HEAD
-=======
 
 call: all
 	@nm -g $(addprefix ${OBJ_PATH}, ${OBJ_NAME})
 
 ew:
 	@say -v Fiona ew
->>>>>>> 8b52046
+
+full_check: all
+	@$(MAKE) norme
+	@$(MAKE) continue
+	@echo ""
+	@$(MAKE) call
+	@$(MAKE) continue
+	@echo ""
+	@$(MAKE) relib
+	@printf "\33[2K\r$(FLASH_GREEN)\nCommit ?\n\033[0m"
+	@$(MAKE) continue
+	@echo ""
+	@git add .
+	@git commit -m "full checked" 1>/dev/null
+	@printf "\33[2K\r$(YELLOW)Push on repositories ?\n\033[0m"
+	@$(MAKE) continue
+	@echo ""
+	@$(MAKE) push
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%

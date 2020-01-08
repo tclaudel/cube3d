@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:20:20 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 11:29:39 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 13:15:28 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,6 @@ int			main(int ac, char **av)
 	if (!(fd = open(av[1], O_RDONLY)))
 		ft_error("could not find the map");
 	cub = init_cub();
-	printf("av[2]\t: %s\n", av[2]);
 	if (ac == 3)
 	{
 		if (!ft_strncmp(av[2], "-m", 3))

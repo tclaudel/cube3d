@@ -6,11 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-<<<<<<< HEAD
-/*   Updated: 2020/01/07 14:21:54 by tclaudel    ###    #+. /#+    ###.fr     */
-=======
-/*   Updated: 2020/01/08 11:23:21 by tclaudel    ###    #+. /#+    ###.fr     */
->>>>>>> 8b52046
+/*   Updated: 2020/01/08 15:46:28 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,6 +31,7 @@ t_cub		*init_cub(void)
 	setup->c = -1;
 	setup->flag = 0;
 	setup->camera_x = 0;
+	setup->flag = 0;
 	setup->color = init_color();
 	return (setup);
 }
@@ -46,7 +43,10 @@ t_color		*init_color(void)
 	if (!(setup = malloc(sizeof(t_color))))
 		ft_error("Malloc failed");
 	setup->color = 0;
-	setup->rgb = (t_rgba){0, 0, 0, 0};
+	setup->rgb.a = 0;
+	setup->rgb.b = 0;
+	setup->rgb.r = 0;
+	setup->rgb.g = 0;
 	return (setup);
 }
 
@@ -60,4 +60,8 @@ void		init_map(t_cub *setup)
 	setup->map_height = 0;
 	setup->move = 0;
 	setup->rot = 0;
+	// setup->no_text = malloc(sizeof(t_img));
+	// setup->so_text = malloc(sizeof(t_img));
+	// setup->we_text = malloc(sizeof(t_img));
+	// setup->ea_text = malloc(sizeof(t_img));
 }

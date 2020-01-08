@@ -6,11 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-<<<<<<< HEAD
-/*   Updated: 2020/01/07 14:35:52 by tclaudel    ###    #+. /#+    ###.fr     */
-=======
-/*   Updated: 2020/01/08 11:30:17 by tclaudel    ###    #+. /#+    ###.fr     */
->>>>>>> 8b52046
+/*   Updated: 2020/01/08 15:49:09 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,19 +40,30 @@ typedef struct		s_pos
 	int				y;
 }					t_pos;
 
-typedef struct		s_rgba
+typedef struct		s_rgb
 {
-	unsigned char	a;
-	unsigned char	r;
-	unsigned char	g;
 	unsigned char	b;
-}					t_rgba;
+	unsigned char	g;
+	unsigned char	r;
+	unsigned char	a;
+}					t_rgb;
 
 typedef union		u_color
 {
 	int				color;
-	t_rgba			rgb;
+	t_rgb			rgb;
 }					t_color;
+
+typedef struct		s_img
+{
+	void			*img;
+	int				width;
+	int				height;
+	int				*img_data;
+	int				bpp;
+	int				size_line;
+	int				endian;
+}					t_img;
 
 typedef struct		s_cub
 {
@@ -95,11 +102,13 @@ typedef struct		s_cub
 	char			rot;
 	t_vector		old_dir;
 	t_vector		old_pla;
-	void			*dp;
-	int				*dp_data;
-	int				bpp;
-	int				size_line;
-	int				endian;
+	t_img			dp;
+	t_img			no_text;
+	t_img			so_text;
+	t_img			we_text;
+	t_img			ea_text;
+	int				text_num;
+	double			wall_x;
 
 }					t_cub;
 
@@ -132,6 +141,7 @@ int					ft_cub(t_cub *cub);
 int					ft_launch_window(t_cub *cub);
 void				ft_move(t_cub *cub);
 int					main_loop(t_cub *c);
+void				ft_load_textures(t_cub *c);
 
 /*
 **	SET STRUCT
