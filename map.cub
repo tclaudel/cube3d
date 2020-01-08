@@ -1,9 +1,9 @@
 R 1280 720
-NO ./textures/path_to_the_north_texture
-SO ./textures/path_to_the_south_texture
-WE ./textures/path_to_the_west_texture
-EA ./textures/path_to_the_east_texture
-S ./textures/path_to_the_sprite_texture
+NO ./textures/oak_plank.xpm
+SO ./textures/stone.xpm
+WE ./textures/redbrick.xpm
+EA ./textures/bluestone.xpm
+S ./textures/barrel.xpm
 
 F 30, 255, 255
 C 0, 0, 0
