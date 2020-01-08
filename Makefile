@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/08 11:20:33 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/08 11:47:48 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -170,7 +170,7 @@ continue:
 	@while [ -z "$$CONTINUE" ]; do \
 		read -r -p "Press [y/N] to continue : " CONTINUE; \
 	done ; \
-	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || exit 1 2> /dev/null
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting ..."; $(MAKE) ew ; exit 1 2> /dev/null)
 
 git-%:
 	@$(MAKE) norme
@@ -195,6 +195,6 @@ call: all
 	@nm -g $(addprefix ${OBJ_PATH}, ${OBJ_NAME})
 
 ew:
-	@say -v Fiona yoo
+	@say -v Fiona ew
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%
