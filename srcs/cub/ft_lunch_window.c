@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:24:37 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 11:44:38 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,6 @@ int		ft_key_press(int keycode, t_cub *c)
 		c->rot = 'A';
 	else if (keycode == KEY_D)
 		c->rot = 'D';
-	printf("move\t: %c\nrotate\t: %c\n", c->move, c->rot);
 	return (1);
 }
 
@@ -57,17 +56,6 @@ int		ft_key_release(int keycode, t_cub *c)
 	return (1);
 }
 
-int		main_loop(t_cub *c)
-{
-	if (c->move)
-		ft_move(c);
-	if (c->rot)
-		ft_rot(c);
-	ft_raycasting(c);
-	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp, 0,0);
-	return (0);
-}
-
 int		ft_lunch_window(t_cub *c)
 {
 	ft_printf("-->\tlunching window (%d * %d)\n", c->res[0], c->res[1]);
@@ -75,7 +63,8 @@ int		ft_lunch_window(t_cub *c)
 		return (EXIT_FAILURE);
 	if (!(c->dp = mlx_new_image(c->mlx_ptr, c->res[0], c->res[1])))
 		return (EXIT_FAILURE);
-	if (!(c->dp_data = (int *)mlx_get_data_addr(c->dp, &c->bpp, &c->size_line, &c->endian)))
+	if (!(c->dp_data =
+		(int *)mlx_get_data_addr(c->dp, &c->bpp, &c->size_line, &c->endian)))
 		return (EXIT_FAILURE);
 	if ((c->mlx_win =
 		mlx_new_window(c->mlx_ptr, c->res[0], c->res[1], "CUB 3D")) == NULL)

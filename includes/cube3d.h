@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/06 15:24:50 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 11:30:17 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -57,6 +57,7 @@ typedef union		u_color
 typedef struct		s_cub
 {
 	int				*res;
+	char			flag;
 	char			*no;
 	char			*so;
 	char			*we;
@@ -98,7 +99,7 @@ typedef struct		s_cub
 
 }					t_cub;
 
-void				ft_arg_error(int ac, char *av);
+void				ft_arg_error(char *av);
 int					ft_arg_analyser(int fd, t_cub *cub);
 void				ft_error(char *error);
 int					ft_convert_line(char *line, t_cub *cub);
@@ -126,6 +127,7 @@ void				ft_convert_map(char *strcub, t_cub *cub);
 int					ft_cub(t_cub *cub);
 int					ft_lunch_window(t_cub *cub);
 void				ft_move(t_cub *cub);
+int					main_loop(t_cub *c);
 
 /*
 **	SET STRUCT

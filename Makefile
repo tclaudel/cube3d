@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/06 13:30:21 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/08 11:20:33 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -28,9 +28,9 @@ SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
 					ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c \
 					ft_f_convert.c ft_c_convert.c ft_convert_map.c)
 
-SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c ft_init_player.c)
+SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c ft_init_player.c ft_move.c)
 
-SRCS_RAYCAST	=	$(addprefix raycasting/, ft_raycasting.c ft_draw.c ft_move.c)
+SRCS_RAYCAST	=	$(addprefix raycasting/, ft_raycasting.c ft_draw.c)
 
 SRCS_CORE		=	cube3d.c ft_check_map.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c ft_set_struct.c
 
@@ -48,7 +48,7 @@ OBJ_PATH		=	bin/
 
 OBJ				=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-NAME			=	cube3D
+NAME			=	cub3D
 
 CC				=	cc
 
@@ -112,9 +112,10 @@ fclean: clean
 re: fclean all
 
 norme:
-	@norminette $(SRC_PATH) $(HEADER)
 
+	@norminette $(SRC_PATH) $(HEADER)
 normed:
+
 	@norminette $(SRC_PATH) $(HEADER)
 	@$(MAKE) continue
 	@echo ""
@@ -126,6 +127,7 @@ normed:
 	@$(MAKE) push
 
 push:
+
 	@printf "\33[2K\r$(LIGHT_RED)Pushing 	\033[37m"
 	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing .	\033[37m"
@@ -142,7 +144,6 @@ push:
 	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing ...	\033[37m"
 	@sleep 0.1
-	@$(MAKE) fcleanlib
 	@git push github master 2>/dev/null
 	@printf "\33[2K\r$(FLASH_GREEN)Pushed successfully on github !\n\033[0m"
 	@git push origin master 2>/dev/null
@@ -185,6 +186,15 @@ git-%:
 	@printf "\33[2K\r$(YELLOW)\nPush on repositories ?\033[0m"
 	@echo ""
 	@$(MAKE) continue
+	@echo ""
 	@$(MAKE) push
+	@echo ""
+	@printf "\33[2K\r$(GREEN)Everything done\n\n\033[0m"
+
+call: all
+	@nm -g $(addprefix ${OBJ_PATH}, ${OBJ_NAME})
+
+ew:
+	@say -v Fiona yoo
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%
