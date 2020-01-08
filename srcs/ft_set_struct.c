@@ -6,7 +6,11 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
+<<<<<<< HEAD
 /*   Updated: 2020/01/07 14:21:54 by tclaudel    ###    #+. /#+    ###.fr     */
+=======
+/*   Updated: 2020/01/08 11:23:21 by tclaudel    ###    #+. /#+    ###.fr     */
+>>>>>>> 8b52046
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,6 +33,7 @@ t_cub		*init_cub(void)
 	setup->s = 0;
 	setup->f = -1;
 	setup->c = -1;
+	setup->flag = 0;
 	setup->camera_x = 0;
 	setup->color = init_color();
 	return (setup);

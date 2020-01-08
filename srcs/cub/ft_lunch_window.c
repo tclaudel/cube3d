@@ -6,7 +6,11 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
+<<<<<<< HEAD
 /*   Updated: 2020/01/07 14:35:41 by tclaudel    ###    #+. /#+    ###.fr     */
+=======
+/*   Updated: 2020/01/08 11:44:38 by tclaudel    ###    #+. /#+    ###.fr     */
+>>>>>>> 8b52046
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,6 +60,7 @@ int		ft_key_release(int keycode, t_cub *c)
 	return (1);
 }
 
+<<<<<<< HEAD
 int		main_loop(t_cub *c)
 {
 	if (c->move)
@@ -68,6 +73,9 @@ int		main_loop(t_cub *c)
 }
 
 int		ft_launch_window(t_cub *c)
+=======
+int		ft_lunch_window(t_cub *c)
+>>>>>>> 8b52046
 {
 	ft_printf("-->\tlunching window (%d * %d)\n", c->res[0], c->res[1]);
 	if ((c->mlx_ptr = mlx_init()) == NULL)

@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 R 1920 1080
 NO ./textures/oak_planks.xpm
 SO ./textures/path_to_the_south_texture
 WE ./textures/path_to_the_west_texture
 EA ./textures/path_to_the_east_texture
 S ./textures/path_to_the_sprite_texture
+=======
+R 1280 720
+NO ./textures/oak_plank.xpm
+SO ./textures/stone.xpm
+WE ./textures/redbrick.xpm
+EA ./textures/bluestone.xpm
+S ./textures/barrel.xpm
+>>>>>>> 8b52046
 
 F 30, 30, 255
 C 0, 30, 0

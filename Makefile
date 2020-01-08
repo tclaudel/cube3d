@@ -6,7 +6,11 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
+<<<<<<< HEAD
 #    Updated: 2020/01/07 13:19:14 by tclaudel    ###    #+. /#+    ###.fr      #
+=======
+#    Updated: 2020/01/08 11:47:48 by tclaudel    ###    #+. /#+    ###.fr      #
+>>>>>>> 8b52046
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -28,9 +32,9 @@ SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
 					ft_so_convert.c ft_we_convert.c ft_ea_convert.c ft_s_convert.c \
 					ft_f_convert.c ft_c_convert.c ft_convert_map.c)
 
-SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c ft_init_player.c)
+SRCS_CUB		=	$(addprefix cub/, ft_lunch_window.c ft_cub.c ft_init_player.c ft_move.c)
 
-SRCS_RAYCAST	=	$(addprefix raycasting/, ft_raycasting.c ft_draw.c ft_move.c)
+SRCS_RAYCAST	=	$(addprefix raycasting/, ft_raycasting.c ft_draw.c)
 
 SRCS_CORE		=	cube3d.c ft_check_map.c ft_arg_error.c ft_arg_analyser.c ft_error.c ft_convert_line.c ft_set_struct.c
 
@@ -112,9 +116,10 @@ fclean: clean
 re: fclean all
 
 norme:
-	@norminette $(SRC_PATH) $(HEADER)
 
+	@norminette $(SRC_PATH) $(HEADER)
 normed:
+
 	@norminette $(SRC_PATH) $(HEADER)
 	@$(MAKE) continue
 	@echo ""
@@ -126,6 +131,7 @@ normed:
 	@$(MAKE) push
 
 push:
+
 	@printf "\33[2K\r$(LIGHT_RED)Pushing 	\033[37m"
 	@sleep 0.1
 	@printf "\33[2K\r$(LIGHT_RED)Pushing .	\033[37m"
@@ -168,7 +174,7 @@ continue:
 	@while [ -z "$$CONTINUE" ]; do \
 		read -r -p "Press [y/N] to continue : " CONTINUE; \
 	done ; \
-	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || exit 1 2> /dev/null
+	[ $$CONTINUE == "y" ] || [ $$CONTINUE == "Y" ] || (echo "Exiting ..."; $(MAKE) ew ; exit 1 2> /dev/null)
 
 git-%:
 	@$(MAKE) norme
@@ -188,5 +194,14 @@ git-%:
 	@$(MAKE) push
 	@echo ""
 	@printf "\33[2K\r$(GREEN)Everything done\n\n\033[0m"
+<<<<<<< HEAD
+=======
+
+call: all
+	@nm -g $(addprefix ${OBJ_PATH}, ${OBJ_NAME})
+
+ew:
+	@say -v Fiona ew
+>>>>>>> 8b52046
 
 .PHONY: all clean fclean re bonus norme push cleanlib fcleanlib relib continue git-%
