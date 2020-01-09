@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 13:37:00 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 16:05:24 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -52,16 +52,9 @@ t_color		*init_color(void)
 
 void		init_map(t_cub *setup)
 {
-	setup->mp = malloc(sizeof(t_pos));
-	setup->step = malloc(sizeof(t_pos));
-	setup->mp = malloc(sizeof(t_vector));
 	setup->orientation = 0;
 	setup->map_width = 0;
 	setup->map_height = 0;
 	setup->move = 0;
 	setup->rot = 0;
-	// setup->no_text = malloc(sizeof(t_img));
-	// setup->so_text = malloc(sizeof(t_img));
-	// setup->we_text = malloc(sizeof(t_img));
-	// setup->ea_text = malloc(sizeof(t_img));
 }

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:53:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 14:24:39 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 15:44:30 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,56 +17,54 @@ static void		ft_initvdir(t_cub *cub)
 {
 	if (cub->orientation == 'E')
 	{
-		cub->dir.x = 1;
-		cub->dir.y = 0;
-	}
-	if (cub->orientation == 'S')
-	{
 		cub->dir.x = 0;
 		cub->dir.y = 1;
 	}
-	if (cub->orientation == 'N')
+	if (cub->orientation == 'S')
 	{
-		cub->dir.x = 0;
-		cub->dir.y = -1;
+		cub->dir.x = 1;
+		cub->dir.y = 0;
 	}
-	if (cub->orientation == 'W')
+	if (cub->orientation == 'N')
 	{
 		cub->dir.x = -1;
 		cub->dir.y = 0;
+	}
+	if (cub->orientation == 'W')
+	{
+		cub->dir.x = 0;
+		cub->dir.y = -1;
 	}
 }
 
 static void		ft_initplane(t_cub *cub)
 {
-	cub->pla = malloc(sizeof(t_vector));
 	if (cub->orientation == 'E')
 	{
-		cub->pla->x = 0;
-		cub->pla->y = ((double)FOV / (double)100);
+		cub->plane.x = ((double)FOV / (double)100);
+		cub->plane.y = 0;
 	}
 	if (cub->orientation == 'N')
 	{
-		cub->pla->x = ((double)FOV / (double)100);
-		cub->pla->y = 0;
+		cub->plane.x = 0;
+		cub->plane.y = ((double)FOV / (double)100);
 	}
 	if (cub->orientation == 'S')
 	{
-		cub->pla->x = -((double)FOV / (double)100);
-		cub->pla->y = 0;
+		cub->plane.x = 0;
+		cub->plane.y = -((double)FOV / (double)100);
 	}
 	if (cub->orientation == 'W')
 	{
-		cub->pla->x = 0;
-		cub->pla->y = -((double)FOV / (double)100);
+		cub->plane.x = -((double)FOV / (double)100);
+		cub->plane.y = 0;
 	}
 }
 
 void			init_player(t_cub *cub)
 {
-	cub->pos = malloc(sizeof(t_vector));
-	cub->pos->x = (double)cub->mp->x + (double)0.5;
-	cub->pos->y = (double)cub->mp->y + (double)0.5;
+	cub->pos.x = (double)cub->map.x + (double)0.5;
+	cub->pos.y = (double)cub->map.y + (double)0.5;
 	ft_initvdir(cub);
 	ft_initplane(cub);
 }

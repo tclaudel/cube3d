@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 12:09:10 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 14:24:55 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 16:06:44 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,14 +48,16 @@ void	ft_check_walls(t_cub *cub)
 	i = 0;
 	while (i < cub->map_width - 1)
 	{
-		if (cub->map[0][i] != '1' || cub->map[cub->map_height - 1][i] != '1')
+		if (cub->tabmap[0][i] != '1' ||
+			cub->tabmap[cub->map_height - 1][i] != '1')
 			ft_error("cub isn't closed");
 		i++;
 	}
 	i = 0;
 	while (i < cub->map_height)
 	{
-		if (cub->map[i][0] != '1' || cub->map[i][cub->map_width - 1] != '1')
+		if (cub->tabmap[i][0] != '1' ||
+			cub->tabmap[i][cub->map_width - 1] != '1')
 			ft_error("cub isn't closed");
 		i++;
 	}
@@ -66,8 +68,8 @@ void	set_player(t_cub *cub, size_t i, size_t j, char c)
 {
 	if (!cub->orientation)
 	{
-		cub->mp->x = i;
-		cub->mp->y = j;
+		cub->map.x = j;
+		cub->map.y = i;
 		cub->orientation = c;
 	}
 	else
@@ -86,37 +88,37 @@ void	ft_pos(t_cub *cub)
 		i = 0;
 		while (i < cub->map_width)
 		{
-			if (ft_strchr("NSEW", cub->map[j][i]))
-				set_player(cub, i, j, cub->map[j][i]);
+			if (ft_strchr("NSEW", cub->tabmap[j][i]))
+				set_player(cub, i, j, cub->tabmap[j][i]);
 			i++;
 		}
 		j++;
 	}
 	ft_printf("player\t\t: X = %u  Y = %u  oriented : %c\n",
-		cub->mp->x, cub->mp->y, cub->orientation);
+		cub->map.x, cub->map.y, cub->orientation);
 }
 
 void	ft_convert_map(char *strcub, t_cub *cub)
 {
-	char	*tmp;
+	char	*tmap;
 	size_t	i;
 
 	i = 1;
-	cub->map = malloc(sizeof(char *) * cub->map_height);
-	tmp = ft_strtok(strcub, "\n");
-	cub->map[0] = ft_stroutcharset(tmp, " ");
-	cub->map_width = ft_strlen(cub->map[0]);
-	while ((tmp = ft_strtok(NULL, "\n")))
+	cub->tabmap = malloc(sizeof(char *) * cub->map_height);
+	tmap = ft_strtok(strcub, "\n");
+	cub->tabmap[0] = ft_stroutcharset(tmap, " ");
+	cub->map_width = ft_strlen(cub->tabmap[0]);
+	while ((tmap = ft_strtok(NULL, "\n")))
 	{
-		tmp = ft_stroutcharset(tmp, " ");
-		if (ft_strlen(tmp) != cub->map_width)
+		tmap = ft_stroutcharset(tmap, " ");
+		if (ft_strlen(tmap) != cub->map_width)
 			ft_error("problem with cub size");
-		cub->map[i] = tmp;
+		cub->tabmap[i] = tmap;
 		i++;
 	}
 	i = 0;
 	while (i < cub->map_height)
-		ft_str_convert(cub->map[i++]);
+		ft_str_convert(cub->tabmap[i++]);
 	ft_check_walls(cub);
 	ft_pos(cub);
 }

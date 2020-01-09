@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 13:37:00 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 16:17:17 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -74,7 +74,7 @@ typedef struct		s_cub
 	char			*we;
 	char			*ea;
 	char			*s;
-	char			**map;
+	char			**tabmap;
 	int				f;
 	int				c;
 	void			*mlx_ptr;
@@ -84,24 +84,25 @@ typedef struct		s_cub
 	size_t			map_height;
 	t_pos			*start;
 	char			orientation;
-	t_vector		*pos;
-	t_pos			*mp;
+	t_vector		pos;
+	t_vector		plane;
+	t_pos			map;
 	t_vector		dir;
+	t_vector		ray_dir;
 	t_color			*color;
 	t_vector		side_dist;
 	t_vector		delta_dist;
-	t_vector		*pla;
-	double			wall;
-	t_pos			*step;
+	double			wall_dist;
+	t_pos			step;
 	bool			hit;
-	bool			side_hited;
+	bool			side;
 	int				line_height;
 	int				draw_start;
 	int				draw_end;
 	char			move;
 	char			rot;
-	t_vector		old_dir;
-	t_vector		old_pla;
+	t_vector		o_dir;
+	t_vector		o_pla;
 	t_img			dp;
 	t_img			text[4];
 	int				text_num;
@@ -141,8 +142,11 @@ void				ft_convert_map(char *strcub, t_cub *cub);
 int					ft_cub(t_cub *cub);
 int					ft_launch_window(t_cub *cub);
 void				ft_move(t_cub *cub);
-int					main_loop(t_cub *c);
 void				ft_load_textures(t_cub *c);
+void				ft_display_map(t_cub *c);
+int					ft_close(t_cub *c);
+int					ft_key_press(int keycode, t_cub *c);
+int					ft_key_release(int keycode, t_cub *c);
 
 /*
 **	SET STRUCT
@@ -157,7 +161,7 @@ void				init_map(t_cub *setup);
 **	RAYCASTING
 */
 
-int					ft_raycasting(t_cub *cub);
+void				ft_raycast(t_cub *c);
 void				ft_draw(t_cub *c, int x);
 void				ft_rot(t_cub *c);
 
