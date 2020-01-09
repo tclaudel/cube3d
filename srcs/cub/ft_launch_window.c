@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/09 10:05:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 15:49:59 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/08 16:06:01 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,8 +59,6 @@ int		ft_key_release(int keycode, t_cub *c)
 int		ft_launch_window(t_cub *c)
 {
 	ft_printf("-->\tlaunching window (%d * %d)\n", c->res[0], c->res[1]);
-	if ((c->mlx_ptr = mlx_init()) == NULL)
-		return (EXIT_FAILURE);
 	if (!(c->dp.img= mlx_new_image(c->mlx_ptr, c->res[0], c->res[1])))
 		return (EXIT_FAILURE);
 	if (!(c->dp.img_data =

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 11:12:04 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 15:36:14 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 11:20:26 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -71,11 +71,31 @@ void	ft_perform_dda(t_cub *c, t_vector ray)
 
 void	ft_ray_text(t_cub *c)
 {
-	c->text_num = c->map[c->square->y][c->square->y] - 1;
-	if (c->side_hited == 0)
-		c->wall_x = c->pos->x + c->wall * c->dir.y;
+	if (c->side_hited == 1)
+	{
+		dprintf(1, "\n[1] c->pos->y + c->wall * c->dir.y\n%f + %f * %f = ", c->pos->y, c->wall, c->dir.y);
+		c->wall_pos = c->pos->y + c->wall * c->dir.y;
+	}
 	else
-		c->wall_x = c->pos->x + c->wall * c->dir.x;
+	{
+		dprintf(1, "\n[0] c->pos->x + c->wall * c->dir.x\n%f + %f * %f = ", c->pos->x, c->wall, c->dir.x);
+		c->wall_pos = c->pos->x + c->wall * c->dir.x;
+	}
+	dprintf(1, "%f\n", c->wall_pos);
+	c->wall_pos -= (int)c->wall_pos;
+	//dprintf(1, "c->wall_pos\t : %f\n", c->wall_pos);
+	c->tex_x = (int)(c->wall_pos * (double)c->text[0].width);
+	// dprintf(1, "tex_x\t: %d\n", c->tex_x);
+	if (c->side_hited == 1 && c->dir.x > 0)
+	{	
+		c->tex_x = c->text[0].width - c->tex_x - 1;
+	}
+	if (c->side_hited == 0 && c->dir.y < 0)
+	{
+		c->tex_x = c->text[0].width - c->tex_x - 1;
+	}
+	c->text_step = 1.0 *  c->text[0].height / c->line_height;
+	c->text_pos = (c->draw_start - c->res[1] / 2 + c->line_height / 2) * c->text_step;
 }
 
 int		ft_raycasting(t_cub *c)
@@ -99,6 +119,8 @@ int		ft_raycasting(t_cub *c)
 		if (c->draw_start < 0)
 			c->draw_start = 0;
 		c->draw_end = c->line_height / 2 + c->res[1] / 2;
+		if (c->draw_start < 0)
+			c->draw_end = 0;
 		if (c->draw_end >= c->res[1])
 			c->draw_end = c->res[1] - 1;
 		ft_ray_text(c);

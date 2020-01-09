@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 15:49:09 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 10:11:25 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -103,12 +103,13 @@ typedef struct		s_cub
 	t_vector		old_dir;
 	t_vector		old_pla;
 	t_img			dp;
-	t_img			no_text;
-	t_img			so_text;
-	t_img			we_text;
-	t_img			ea_text;
+	t_img			text[4];
 	int				text_num;
-	double			wall_x;
+	double			wall_pos;
+	int				tex_x;
+	int				tex_y;
+	double			text_step;
+	double			text_pos;
 
 }					t_cub;
 
