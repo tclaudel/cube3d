@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/03 14:35:55 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 09:07:32 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 14:25:35 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,7 +39,7 @@ void	ft_draw_ceiling(t_cub *c, int x)
 
 void	ft_draw(t_cub *c, int x)
 {
-	int color;
+	int color = 0;
 	int	i;
 
 	i = c->draw_start;
@@ -47,7 +47,7 @@ void	ft_draw(t_cub *c, int x)
 	{
 		c->tex_y = (int)c->text_pos & (c->text[0].height -1);
 		c->text_pos += c->text_step;
-		color = c->text[0].img_data[c->tex_y * c->text[0].width + c->tex_x];
+		//color = c->text[0].img_data[c->tex_y * c->text[0].width + c->tex_x];
 		c->dp.img_data[i * c->res[0] + x] = color;
 		i++;
 	}

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:53:42 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 11:44:20 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 14:24:39 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -65,8 +65,8 @@ static void		ft_initplane(t_cub *cub)
 void			init_player(t_cub *cub)
 {
 	cub->pos = malloc(sizeof(t_vector));
-	cub->pos->x = (double)cub->start->x + (double)0.5;
-	cub->pos->y = (double)cub->start->y + (double)0.5;
+	cub->pos->x = (double)cub->mp->x + (double)0.5;
+	cub->pos->y = (double)cub->mp->y + (double)0.5;
 	ft_initvdir(cub);
 	ft_initplane(cub);
 }

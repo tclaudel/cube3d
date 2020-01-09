@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 10:11:25 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 13:37:00 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -85,7 +85,7 @@ typedef struct		s_cub
 	t_pos			*start;
 	char			orientation;
 	t_vector		*pos;
-	t_pos			*square;
+	t_pos			*mp;
 	t_vector		dir;
 	t_color			*color;
 	t_vector		side_dist;

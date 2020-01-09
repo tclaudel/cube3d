@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 12:09:10 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/03 14:02:55 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 14:24:55 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -66,8 +66,8 @@ void	set_player(t_cub *cub, size_t i, size_t j, char c)
 {
 	if (!cub->orientation)
 	{
-		cub->start->x = i;
-		cub->start->y = j;
+		cub->mp->x = i;
+		cub->mp->y = j;
 		cub->orientation = c;
 	}
 	else
@@ -93,7 +93,7 @@ void	ft_pos(t_cub *cub)
 		j++;
 	}
 	ft_printf("player\t\t: X = %u  Y = %u  oriented : %c\n",
-		cub->start->x, cub->start->y, cub->orientation);
+		cub->mp->x, cub->mp->y, cub->orientation);
 }
 
 void	ft_convert_map(char *strcub, t_cub *cub)
