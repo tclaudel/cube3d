@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 10:35:04 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 11:12:05 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,7 @@ void			ft_copy_tab(t_cub *c)
 	while (i < c->map_height)
 	{
 		j = 0;
-		c->mapcp[i] = (char *)malloc(sizeof(char) * c->map_width);
+		c->mapcp[i] = (char *)malloc(sizeof(char) * c->map_width + 1);
 		while (j < c->map_width)
 		{
 			if (c->tabmap[i][j]  == '0')

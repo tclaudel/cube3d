@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 18:27:13 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 10:50:33 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 11:10:49 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -47,6 +47,7 @@ void			ft_set_sprites(t_cub *c)
 
 	i = 0;
 	j = 0;
+	c->nb_sprites = 0;
 	while (i < c->map_height)
 	{
 		j = 0;
