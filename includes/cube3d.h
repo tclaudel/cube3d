@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 10:12:35 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 10:45:12 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -159,6 +159,7 @@ int					ft_close(t_cub *c);
 int					ft_key_press(int keycode, t_cub *c);
 int					ft_key_release(int keycode, t_cub *c);
 void				ft_copy_tab(t_cub *c);
+void				ft_sort_sprites(t_cub *c);
 
 /*
 **	SET STRUCT

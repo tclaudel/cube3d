@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 10:12:04 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 10:35:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -33,7 +33,7 @@ static int		main_loop(t_cub *c)
 		ft_move(c);
 	if (c->rot)
 		ft_rot(c);
-	//ft_sort_sprites(c);
+	ft_sort_sprites(c);
 	ft_raycast(c);
 	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp.img, 0, 0);
 	return (0);

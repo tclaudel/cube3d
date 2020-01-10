@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 18:27:13 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 10:12:27 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 10:50:33 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,8 +29,8 @@ static void		ft_fill_sprites(t_cub *c)
 		{
 			if (c->tabmap[i][j] == '2')
 			{
-				c->sprites[k].pos.x = i;
-				c->sprites[k].pos.y = j;
+				c->sprites[k].pos.x = i + 0.5;
+				c->sprites[k].pos.y = j + 0.5;
 				c->tabmap[i][j] = 'x';
 				k++;
 			}
