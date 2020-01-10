@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:03:42 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 10:12:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -18,11 +18,11 @@ void			ft_display_map(t_cub *c)
 	size_t	i;
 
 	i = 0;
-	c->tabmap[(int)c->pos.x][(int)c->pos.y] = '#';
+	c->mapcp[(int)c->pos.x][(int)c->pos.y] = '#';
 	printf("\nMAP :\n\n");
 	while (i < c->map_height)
 	{
-		ft_printf("%s\n", c->tabmap[i]);
+		ft_printf("%s\n", c->mapcp[i]);
 		i++;
 	}
 }
@@ -33,9 +33,37 @@ static int		main_loop(t_cub *c)
 		ft_move(c);
 	if (c->rot)
 		ft_rot(c);
+	//ft_sort_sprites(c);
 	ft_raycast(c);
 	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp.img, 0, 0);
 	return (0);
+}
+
+void			ft_copy_tab(t_cub *c)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	c->mapcp = (char **)malloc(sizeof(char *) * c->map_height);
+	while (i < c->map_height)
+	{
+		j = 0;
+		c->mapcp[i] = (char *)malloc(sizeof(char) * c->map_width);
+		while (j < c->map_width)
+		{
+			if (c->tabmap[i][j]  == '0')
+				c->mapcp[i][j] = ' ';
+			else if (c->tabmap[i][j]  == '1')
+				c->mapcp[i][j] = '0';
+			else
+				c->mapcp[i][j] = c->tabmap[i][j];
+			j++;
+		}
+		c->mapcp[i][c->map_width] = 0;
+		i++;
+	}
 }
 
 int				ft_cub(t_cub *c)
@@ -43,7 +71,6 @@ int				ft_cub(t_cub *c)
 	if ((c->mlx_ptr = mlx_init()) == NULL)
 		return (EXIT_FAILURE);
 	init_player(c);
-	ft_display_map(c);
 	ft_load_textures(c);
 	ft_launch_window(c);
 	mlx_hook(c->mlx_win, 2, 0, &ft_key_press, c);

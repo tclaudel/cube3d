@@ -1,11 +1,11 @@
-R 640 360
-NO ./textures/oak_planks.xpm
-SO ./textures/stone.xpm
+R 640 480
+NO ./textures/mossy.xpm
+SO ./textures/eagle.xpm
 WE ./textures/redbrick.xpm
 EA ./textures/bluestone.xpm
 S ./textures/barrel.xpm
 
-F 0, 255, 30
+F 38, 80, 25
 C 0, 100, 255
 
 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1

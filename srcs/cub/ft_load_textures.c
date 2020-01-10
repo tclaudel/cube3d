@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/08 12:49:57 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 16:07:29 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 18:57:55 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,8 +55,22 @@ static int	ft_load_eawe_textures(t_cub *c)
 	return (0);
 }
 
+static int	ft_load_sprites_textures(t_cub *c)
+{
+	if (!(c->text[4].img =
+		mlx_xpm_file_to_image(c->mlx_ptr, c->ea, &c->text[4].width,
+		&c->text[4].height)))
+		return (EXIT_FAILURE);
+	if (!(c->text[4].img_data =
+		(int *)mlx_get_data_addr(c->text[4].img, &c->text[4].bpp,
+		&c->text[4].size_line, &c->text[4].endian)))
+		return (EXIT_FAILURE);
+	return (0);
+}
+
 void		ft_load_textures(t_cub *c)
 {
 	ft_load_nose_textures(c);
 	ft_load_eawe_textures(c);
+	ft_load_sprites_textures(c);
 }

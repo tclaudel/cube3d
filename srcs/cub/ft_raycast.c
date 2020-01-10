@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:26:00 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 17:05:47 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/09 17:35:18 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -80,6 +80,23 @@ static void		ft_setup_draw(t_cub *c)
 		c->draw_end = c->res[1] - 1;
 }
 
+static void		ft_raycast_textures(t_cub *c)
+{
+	if (c->side == 0)
+		c->wall_pos = c->pos.y + c->wall_dist * c->ray_dir.y;
+	else
+		c->wall_pos = c->pos.x + c->wall_dist * c->ray_dir.x;
+	c->wall_pos -= (int)c->wall_pos;
+	c->tex_x = (int)(c->wall_pos * (double)(c->text[0].width));
+	if (c->side == 0 && c->ray_dir.x > 0)
+		c->tex_x = c->text[0].width - c->tex_x - 1;
+	if (c->side == 1 && c->ray_dir.y < 0)
+		c->tex_x = c->text[0].width - c->tex_x - 1;
+	c->text_step = 1.0 * c->text[0].height / c->line_height;
+	c->text_pos =
+		(c->draw_start - c->res[1] / 2 + c->line_height / 2) * c->text_step;
+}
+
 void			ft_raycast(t_cub *c)
 {
 	int		x;
@@ -93,6 +110,7 @@ void			ft_raycast(t_cub *c)
 		ft_search_walls(c);
 		ft_perform_dda(c);
 		ft_setup_draw(c);
+		ft_raycast_textures(c);
 		ft_draw(c, x);
 		x++;
 	}

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 16:17:17 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 10:12:35 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,6 +39,12 @@ typedef struct		s_pos
 	int				x;
 	int				y;
 }					t_pos;
+
+typedef struct		s_sprite
+{
+	t_vector		pos;
+	double			dist;
+}					t_sprite;
 
 typedef struct		s_rgb
 {
@@ -104,13 +110,17 @@ typedef struct		s_cub
 	t_vector		o_dir;
 	t_vector		o_pla;
 	t_img			dp;
-	t_img			text[4];
-	int				text_num;
+	t_img			text[5];
+	int				tex_nb;
 	double			wall_pos;
+	int				wall_dir;
 	int				tex_x;
 	int				tex_y;
 	double			text_step;
 	double			text_pos;
+	t_sprite		*sprites;
+	int				nb_sprites;
+	char			**mapcp;
 
 }					t_cub;
 
@@ -120,6 +130,7 @@ void				ft_error(char *error);
 int					ft_convert_line(char *line, t_cub *cub);
 void				ft_check_map(int fd, char *line, t_cub *cub);
 void				ft_str_convert(char *str);
+void				ft_set_sprites(t_cub *c);
 
 /*
 **	CONVERTERS
@@ -147,6 +158,7 @@ void				ft_display_map(t_cub *c);
 int					ft_close(t_cub *c);
 int					ft_key_press(int keycode, t_cub *c);
 int					ft_key_release(int keycode, t_cub *c);
+void				ft_copy_tab(t_cub *c);
 
 /*
 **	SET STRUCT
