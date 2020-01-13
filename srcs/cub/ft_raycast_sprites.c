@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 11:48:12 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 11:35:06 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 13:03:57 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,11 +30,11 @@ static void		ft_raycast_set_draw(t_cub *c)
 		c->draw_sprite_end.y = c->res[1] - 1;
 	c->sprite_width = ft_abs((int)(c->res[1] / (c->transform.y)));
 	c->draw_sprite_start.x = -c->sprite_width / 2 + c->sprite_screen_x;
-		if (c->draw_sprite_start.x < 0)
-			c->draw_sprite_start.x = 0;
-		c->draw_sprite_end.x = c->sprite_width / 2 + c->sprite_screen_x;
-		if (c->draw_sprite_end.x >= c->res[0])
-			c->draw_sprite_end.x = c->res[0] - 1;
+	if (c->draw_sprite_start.x < 0)
+		c->draw_sprite_start.x = 0;
+	c->draw_sprite_end.x = c->sprite_width / 2 + c->sprite_screen_x;
+	if (c->draw_sprite_end.x >= c->res[0])
+		c->draw_sprite_end.x = c->res[0] - 1;
 }
 
 void			ft_raycast_sprites(t_cub *c)
