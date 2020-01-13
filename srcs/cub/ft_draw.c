@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 16:28:08 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 09:46:10 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 12:10:17 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -56,7 +56,7 @@ void	ft_draw_wall(t_cub *c, int x)
 		color.rgb.b *= darker;
 		color.rgb.g *= darker;
 		c->dp.img_data[i * c->res[0] + x] = color.color;
-		c->zbuffer[i] = c->wall_dist;
+		c->zbuffer[x] = c->wall_dist;
 		i++;
 	}
 }
@@ -70,5 +70,4 @@ void	ft_draw(t_cub *c, int x)
 	ft_draw_wall(c, x);
 	ft_draw_floor(c, x);
 	ft_draw_ceiling(c, x);
-	ft_raycast_sprites(c);
 }

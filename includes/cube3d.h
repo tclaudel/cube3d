@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 17:06:55 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 10:42:25 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -130,6 +130,7 @@ typedef struct		s_cub
 	int				sprite_width;
 	t_pos			draw_sprite_start;
 	t_pos			draw_sprite_end;
+	int				stripe;
 
 }					t_cub;
 
