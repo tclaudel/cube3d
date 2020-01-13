@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 16:28:08 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 12:10:17 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 15:58:41 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,6 +20,7 @@ void	ft_draw_floor(t_cub *c, int x)
 	i = c->draw_end;
 	while (i < c->res[1])
 	{
+		(void)x;
 		c->dp.img_data[i * c->res[0] + x] = c->f;
 		i++;
 	}

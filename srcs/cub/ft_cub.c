@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 14:25:54 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 16:01:34 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,10 +29,12 @@ void			ft_display_map(t_cub *c)
 
 static int		main_loop(t_cub *c)
 {
-	if (c->move)
-		ft_move(c);
 	if (c->rot)
 		ft_rot(c);
+	if (c->move)
+		ft_move(c);
+	else if (c->move_ad)
+		ft_move_ad(c);
 	ft_sort_sprites(c);
 	ft_raycast(c);
 	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp.img, 0, 0);

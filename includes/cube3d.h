@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 14:20:52 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 15:30:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -106,6 +106,7 @@ typedef struct		s_cub
 	int				draw_start;
 	int				draw_end;
 	char			move;
+	char			move_ad;
 	char			rot;
 	t_vector		o_dir;
 	t_vector		o_pla;
@@ -173,6 +174,7 @@ void				ft_copy_tab(t_cub *c);
 void				ft_sort_sprites(t_cub *c);
 void				ft_draw_sprite(t_cub *c);
 void				ft_save_bitmap(const char *filename, t_cub *c);
+void				ft_move_ad(t_cub *c);
 
 /*
 **	SET STRUCT
