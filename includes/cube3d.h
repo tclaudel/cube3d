@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 10:45:12 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/10 17:06:55 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -120,7 +120,16 @@ typedef struct		s_cub
 	double			text_pos;
 	t_sprite		*sprites;
 	int				nb_sprites;
+	t_vector		sprite;
 	char			**mapcp;
+	double			inv_det;
+	double			*zbuffer;
+	t_vector		transform;
+	double			sprite_screen_x;
+	int				sprite_height;
+	int				sprite_width;
+	t_pos			draw_sprite_start;
+	t_pos			draw_sprite_end;
 
 }					t_cub;
 
@@ -131,6 +140,7 @@ int					ft_convert_line(char *line, t_cub *cub);
 void				ft_check_map(int fd, char *line, t_cub *cub);
 void				ft_str_convert(char *str);
 void				ft_set_sprites(t_cub *c);
+void				ft_raycast_sprites(t_cub *c);
 
 /*
 **	CONVERTERS
@@ -160,6 +170,7 @@ int					ft_key_press(int keycode, t_cub *c);
 int					ft_key_release(int keycode, t_cub *c);
 void				ft_copy_tab(t_cub *c);
 void				ft_sort_sprites(t_cub *c);
+void				ft_draw_sprite(t_cub *c);
 
 /*
 **	SET STRUCT

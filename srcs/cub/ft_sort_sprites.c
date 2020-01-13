@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 10:35:06 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 11:18:40 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 09:42:44 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,17 +27,18 @@ void		ft_sort_sprites(t_cub *c)
 	int i;
 
 	i = 0;
-	while(i < c->nb_sprites)
+	while (i < c->nb_sprites)
 	{
 		c->sprites[i].dist = sqrt((c->pos.x - c->sprites[i].pos.x) *
-			(c->pos.x - c->sprites[i].pos.x) + ((c->pos.y - c->sprites[i].pos.y) *
+			(c->pos.x - c->sprites[i].pos.x) +
+			((c->pos.y - c->sprites[i].pos.y) *
 			(c->pos.y - c->sprites[i].pos.y)));
 		i++;
 	}
 	i = 0;
-	while (i < c->nb_sprites -1)
+	while (i < c->nb_sprites - 1)
 	{
-		if (c->sprites[i].dist > c->sprites[i + 1].dist)
+		if (c->sprites[i].dist < c->sprites[i + 1].dist)
 		{
 			ft_swap_sprites(c, i);
 			i = 0;
