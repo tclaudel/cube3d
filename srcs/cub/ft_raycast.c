@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:26:00 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 12:10:23 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 17:51:15 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -76,7 +76,7 @@ static void		ft_setup_draw(t_cub *c)
 	if (c->draw_start < 0)
 		c->draw_start = 0;
 	c->draw_end = c->line_height / 2 + c->res[1] / 2;
-	if (c->draw_end >= c->res[1])
+	if (c->draw_end > c->res[1])
 		c->draw_end = c->res[1] - 1;
 }
 

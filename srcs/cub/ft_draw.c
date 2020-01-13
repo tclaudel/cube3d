@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 16:28:08 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 15:58:41 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 17:51:36 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,10 +17,9 @@ void	ft_draw_floor(t_cub *c, int x)
 {
 	int			i;
 
-	i = c->draw_end;
-	while (i < c->res[1])
+	i = ft_abs(c->draw_end);
+	while (i < c->res[1] - 1)
 	{
-		(void)x;
 		c->dp.img_data[i * c->res[0] + x] = c->f;
 		i++;
 	}
@@ -62,6 +61,20 @@ void	ft_draw_wall(t_cub *c, int x)
 	}
 }
 
+// void	ft_draw_crosshair(t_cub *c, int x)
+// {
+// 	int		i;
+
+// 	i = c->res[1] / 2 + 10;
+// 	if (x > c->res[0] && x < c->res[0] / 2)
+// 	{}	while (i < c->res[1] / 2 - 10)
+// 		{
+// 			c->dp.img_data[c->res[1] * c->res[0] + x] = 255;
+// 			i++;
+// 		}
+// 	}
+// }
+
 void	ft_draw(t_cub *c, int x)
 {
 	if (c->side)
@@ -71,4 +84,5 @@ void	ft_draw(t_cub *c, int x)
 	ft_draw_wall(c, x);
 	ft_draw_floor(c, x);
 	ft_draw_ceiling(c, x);
+	//ft_draw_crosshair(c,x);
 }
