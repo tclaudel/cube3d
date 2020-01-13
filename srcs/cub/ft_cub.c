@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 09:46:33 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 14:25:54 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,6 +37,25 @@ static int		main_loop(t_cub *c)
 	ft_raycast(c);
 	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp.img, 0, 0);
 	return (0);
+}
+
+int				ft_close(t_cub *c)
+{
+	size_t	i;
+
+	i = 0;
+	mlx_destroy_window(c->mlx_ptr, c->mlx_win);
+	while (i < c->map_height)
+	{
+		free(c->tabmap[i]);
+		free(c->mapcp[i]);
+		i++;
+	}
+	free(c->tabmap);
+	free(c->zbuffer);
+	while (1)
+		;
+	exit(EXIT_SUCCESS);
 }
 
 void			ft_copy_tab(t_cub *c)
@@ -73,6 +92,12 @@ int				ft_cub(t_cub *c)
 	init_player(c);
 	ft_load_textures(c);
 	ft_launch_window(c);
+	if (c->flag == 's')
+	{
+		ft_raycast(c);
+		ft_save_bitmap("screenshot.bmp", c);
+		ft_close(c);
+	}
 	mlx_hook(c->mlx_win, 2, 0, &ft_key_press, c);
 	mlx_hook(c->mlx_win, 3, 0, &ft_key_release, c);
 	mlx_hook(c->mlx_win, 17, 0, &ft_close, c);

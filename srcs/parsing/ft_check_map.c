@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/10 15:28:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/10 09:11:07 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 14:21:16 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -49,9 +49,11 @@ void			ft_check_map(int fd, char *line, t_cub *cub)
 			if (!(line[0] != '1' || line[0] != '\n'))
 				ft_error("problem with map detected");
 			strmap = ft_strfjoin(strmap, "\n", 1);
-			strmap = ft_strfjoin(strmap, line, 2);
+			strmap = ft_strfjoin(strmap, line, 3);
 			cub->map_height++;
 		}
+		else
+			free(line);
 	}
 	while (strmap[i++])
 	{
@@ -59,5 +61,4 @@ void			ft_check_map(int fd, char *line, t_cub *cub)
 			ft_error("Wrong char in map");
 	}
 	ft_convert_map(strmap, cub);
-	ft_dprintf(1, "map size\t: %u * %u\n", cub->map_width, cub->map_height);
 }

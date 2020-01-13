@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 10:42:25 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 14:20:52 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -172,6 +172,7 @@ int					ft_key_release(int keycode, t_cub *c);
 void				ft_copy_tab(t_cub *c);
 void				ft_sort_sprites(t_cub *c);
 void				ft_draw_sprite(t_cub *c);
+void				ft_save_bitmap(const char *filename, t_cub *c);
 
 /*
 **	SET STRUCT
@@ -189,5 +190,29 @@ void				init_map(t_cub *setup);
 void				ft_raycast(t_cub *c);
 void				ft_draw(t_cub *c, int x);
 void				ft_rot(t_cub *c);
+
+typedef struct		s_bpm
+{
+	unsigned char	bitmap_type[2];
+	int				file_size;
+	short			reserved1;
+	short			reserved2;
+	unsigned int	offset_bits;
+}					t_bpm;
+
+typedef struct		s_bpm2
+{
+	unsigned int	size_header;
+	unsigned int	width;
+	unsigned int	height;
+	short int		planes;
+	short int		bit_count;
+	unsigned int	compression;
+	unsigned int	image_size;
+	unsigned int	ppm_x;
+	unsigned int	ppm_y;
+	unsigned int	clr_used;
+	unsigned int	clr_important;
+}					t_bpm2;
 
 #endif

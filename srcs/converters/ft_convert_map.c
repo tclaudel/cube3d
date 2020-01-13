@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 12:09:10 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/09 18:35:43 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/13 14:24:33 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -113,12 +113,15 @@ void	ft_convert_map(char *strcub, t_cub *cub)
 		tmap = ft_stroutcharset(tmap, " ");
 		if (ft_strlen(tmap) != cub->map_width)
 			ft_error("problem with cub size");
-		cub->tabmap[i] = tmap;
+		cub->tabmap[i] = ft_strdup(tmap);
 		i++;
+		free(tmap);
 	}
 	i = 0;
 	while (i < cub->map_height)
 		ft_str_convert(cub->tabmap[i++]);
+	free(strcub);
+	strcub = NULL;
 	ft_check_walls(cub);
 	ft_pos(cub);
 	ft_set_sprites(cub);
