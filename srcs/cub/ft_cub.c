@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 15:57:53 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 16:07:22 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -39,23 +39,6 @@ static int		main_loop(t_cub *c)
 	ft_raycast(c);
 	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp.img, 0, 0);
 	return (0);
-}
-
-int				ft_close(t_cub *c)
-{
-	size_t	i;
-
-	i = 0;
-	mlx_destroy_window(c->mlx_ptr, c->mlx_win);
-	while (i < c->map_height)
-	{
-		free(c->tabmap[i]);
-		i++;
-	}
-	free(c->tabmap);
-	free(c->zbuffer);
-	free(c);
-	exit(EXIT_SUCCESS);
 }
 
 void			ft_copy_tab(t_cub *c)
