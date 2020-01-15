@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:38:35 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 15:44:34 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@ void			ft_display_map(t_cub *c)
 
 	i = 0;
 	c->mapcp[(int)c->pos.x][(int)c->pos.y] = '#';
-	printf("\nMAP :\n\n");
+	ft_printf("\nMAP :\n\n");
 	while (i < c->map_height)
 	{
 		ft_printf("%s\n", c->mapcp[i]);
@@ -50,11 +50,11 @@ int				ft_close(t_cub *c)
 	while (i < c->map_height)
 	{
 		free(c->tabmap[i]);
-		free(c->mapcp[i]);
 		i++;
 	}
 	free(c->tabmap);
 	free(c->zbuffer);
+	free(c);
 	while (1)
 		;
 	exit(EXIT_SUCCESS);

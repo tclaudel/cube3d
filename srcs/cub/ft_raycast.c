@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:26:00 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:51:15 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 11:47:13 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -82,17 +82,21 @@ static void		ft_setup_draw(t_cub *c)
 
 static void		ft_raycast_textures(t_cub *c)
 {
+	if (c->side)
+		c->tex_nb = c->ray_dir.y < 0 ? 2 : 3;
+	else
+		c->tex_nb = c->ray_dir.x < 0 ? 1 : 0;
 	if (c->side == 0)
 		c->wall_pos = c->pos.y + c->wall_dist * c->ray_dir.y;
 	else
 		c->wall_pos = c->pos.x + c->wall_dist * c->ray_dir.x;
 	c->wall_pos -= (int)c->wall_pos;
-	c->tex_x = (int)(c->wall_pos * (double)(c->text[0].width));
+	c->tex_x = (int)(c->wall_pos * (double)(c->text[c->tex_nb].width));
 	if (c->side == 0 && c->ray_dir.x > 0)
-		c->tex_x = c->text[0].width - c->tex_x - 1;
+		c->tex_x = c->text[c->tex_nb].width - c->tex_x - 1;
 	if (c->side == 1 && c->ray_dir.y < 0)
-		c->tex_x = c->text[0].width - c->tex_x - 1;
-	c->text_step = 1.0 * c->text[0].height / c->line_height;
+		c->tex_x = c->text[c->tex_nb].width - c->tex_x - 1;
+	c->text_step = 1.0 * c->text[c->tex_nb].height / c->line_height;
 	c->text_pos =
 		(c->draw_start - c->res[1] / 2 + c->line_height / 2) * c->text_step;
 }

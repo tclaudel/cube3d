@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 16:28:08 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:51:36 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 15:43:14 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,23 +16,42 @@
 void	ft_draw_floor(t_cub *c, int x)
 {
 	int			i;
+	t_color		color;
+	double		darker;
+	int			dist;
 
 	i = ft_abs(c->draw_end);
-	while (i < c->res[1] - 1)
+	color.color = c->f;
+	i = c->res[1] - 1;
+	while (i >= c->draw_end)
 	{
-		c->dp.img_data[i * c->res[0] + x] = c->f;
-		i++;
+		dist = (i - c->res[1] / 2);
+		darker = dist < RENDERDIST * 5 ? (double)dist / (RENDERDIST * 5) : 1.0;
+		color.rgb.r *= darker;
+		color.rgb.b *= darker;
+		color.rgb.g *= darker;
+		c->dp.img_data[i * c->res[0] + x] = color.color;
+		i--;
 	}
 }
 
 void	ft_draw_ceiling(t_cub *c, int x)
 {
 	int			i;
+	t_color		color;
+	double		darker;
+	int			dist;
 
 	i = 0;
+	color.color = c->c;
 	while (i < c->draw_start)
 	{
-		c->dp.img_data[i * c->res[0] + x] = c->c;
+		dist = (c->res[1] / 2 - i);
+		darker = dist < RENDERDIST * 5 ? (double)dist / (RENDERDIST * 5) : 1.0;
+		color.rgb.r *= darker;
+		color.rgb.b *= darker;
+		color.rgb.g *= darker;
+		c->dp.img_data[i * c->res[0] + x] = color.color;
 		i++;
 	}
 }
@@ -40,13 +59,15 @@ void	ft_draw_ceiling(t_cub *c, int x)
 void	ft_draw_wall(t_cub *c, int x)
 {
 	int			i;
+	int			d;
 	t_color		color;
 	double		darker;
 
 	i = c->draw_start;
 	while (i < c->draw_end)
 	{
-		c->tex_y = (int)c->text_pos & (c->text[c->tex_nb].height - 1);
+		d = i * 256 - c->res[1] * 128 + c->text[c->tex_nb].height * 128;
+		c->tex_y = (int)c->text_pos & (d * c->text[c->tex_nb].height - 1);
 		c->text_pos += c->text_step;
 		color.color = c->text[c->tex_nb].img_data
 			[c->tex_y * c->text[c->tex_nb].width + c->tex_x];
@@ -61,28 +82,9 @@ void	ft_draw_wall(t_cub *c, int x)
 	}
 }
 
-// void	ft_draw_crosshair(t_cub *c, int x)
-// {
-// 	int		i;
-
-// 	i = c->res[1] / 2 + 10;
-// 	if (x > c->res[0] && x < c->res[0] / 2)
-// 	{}	while (i < c->res[1] / 2 - 10)
-// 		{
-// 			c->dp.img_data[c->res[1] * c->res[0] + x] = 255;
-// 			i++;
-// 		}
-// 	}
-// }
-
 void	ft_draw(t_cub *c, int x)
 {
-	if (c->side)
-		c->tex_nb = c->ray_dir.y < 0 ? 2 : 3;
-	else
-		c->tex_nb = c->ray_dir.x < 0 ? 0 : 1;
-	ft_draw_wall(c, x);
 	ft_draw_floor(c, x);
 	ft_draw_ceiling(c, x);
-	//ft_draw_crosshair(c,x);
+	ft_draw_wall(c, x);
 }

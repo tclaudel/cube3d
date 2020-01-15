@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 14:42:56 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 13:05:12 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 14:43:27 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,18 +15,25 @@
 
 void	ft_draw_sprite_on_display(t_cub *c)
 {
-	int		color;
-	int		d;
-	int		y;
+	t_color		color;
+	int			d;
+	int			y;
+	double		darker;
 
 	y = c->draw_sprite_start.y - 1;
 	while (++y < c->draw_sprite_end.y)
 	{
 		d = y * 256 - c->res[1] * 128 + c->sprite_height * 128;
 		c->tex_y = ((d * c->text[4].height) / c->sprite_height) / 256;
-		color = c->text[4].img_data[c->tex_y * c->text[4].width + c->tex_x];
-		if ((color & 0xffffff) != 0)
-			c->dp.img_data[y * c->res[0] + c->stripe] = color;
+		color.color =
+			c->text[4].img_data[c->tex_y * c->text[4].width + c->tex_x];
+		darker = c->transform.y > RENDERDIST ?
+			0 : 1 - (c->transform.y / RENDERDIST);
+		color.rgb.r *= darker;
+		color.rgb.b *= darker;
+		color.rgb.g *= darker;
+		if ((color.color & 0xffffff) != 0)
+			c->dp.img_data[y * c->res[0] + c->stripe] = color.color;
 	}
 }
 

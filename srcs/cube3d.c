@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:20:20 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 14:25:13 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 10:43:37 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -34,7 +34,8 @@ int				main(int ac, char **av)
 
 	if (ac == 1)
 		ft_error("please insert map");
-	map = ft_strrchr(av[1], '.');
+	if (!(map = ft_strrchr(av[1], '.')))
+		ft_error("Wrong map extension, should be .cub");
 	if (ft_strncmp(".cub", map, 5))
 		ft_error("Wrong map extension, should be .cub");
 	if (!(fd = open(av[1], O_RDONLY)))

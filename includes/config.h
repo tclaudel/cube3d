@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 14:15:33 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:07:24 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 15:31:41 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,8 +15,8 @@
 # define CONFIG_H
 
 # define FOV 66
-# define MOVSPEED 0.05
+# define MOVSPEED 0.075
 # define ROTSPEED 0.04
-# define RENDERDIST 15
+# define RENDERDIST 10
 
 #endif

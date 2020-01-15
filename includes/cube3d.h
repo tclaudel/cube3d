@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:50:31 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 14:32:03 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -155,7 +155,15 @@ typedef struct		s_cub
 	int				sprite_width;
 	t_pos			draw_sprite_start;
 	t_pos			draw_sprite_end;
+	t_pos			floor_ray_dir0;
+	t_pos			floor_ray_dir1;
+	int				p;
+	double			pos_z;
+	double			row_distance;
 	int				stripe;
+	t_vector		floor;
+	t_vector		floor_step;
+	int				sprint;
 
 }					t_cub;
 

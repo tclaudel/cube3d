@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 15:27:18 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 14:35:32 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -58,5 +58,6 @@ void		init_map(t_cub *setup)
 	setup->move = 0;
 	setup->move_ad = 0;
 	setup->rot = 0;
+	setup->sprint = 1;
 	setup->zbuffer = (double *)malloc(sizeof(double) * setup->res[0]);
 }

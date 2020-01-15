@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:22:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 15:27:37 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 15:41:18 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -32,6 +32,8 @@ int		ft_key_press(int keycode, t_cub *c)
 		c->rot = 'E';
 	else if (keycode == ARROW_RIGHT)
 		c->rot = 'Q';
+	else if (keycode == KEY_LSHIFT)
+		c->sprint = 2;
 	return (1);
 }
 
@@ -51,5 +53,7 @@ int		ft_key_release(int keycode, t_cub *c)
 		c->rot = 0;
 	else if (keycode == ARROW_RIGHT)
 		c->rot = 0;
+	else if (keycode == KEY_LSHIFT)
+		c->sprint = 1;
 	return (1);
 }
