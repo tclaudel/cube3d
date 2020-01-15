@@ -1,44 +1,41 @@
 /* ************************************************************************** */
 /*                                                          LE - /            */
 /*                                                              /             */
-/*   ft_close.c                                       .::    .:/ .      .::   */
+/*   ft_draw_hud.c                                    .::    .:/ .      .::   */
 /*                                                 +:+:+   +:    +:  +:+:+    */
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/15 16:07:24 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 17:19:50 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Created: 2020/01/15 16:32:32 by tclaudel     #+#   ##    ##    #+#       */
+/*   Updated: 2020/01/15 17:45:56 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-static void		ft_free_path(t_cub *c)
+void	ft_draw_hud(t_cub *c)
 {
-		free(c->no);
-		free(c->so);
-		free(c->we);
-		free(c->ea);
-		free(c->s);
-		free(c->res);
-		free(c->sprites);
-		free(c->color);
-}
+	int		x;
+	int		y;
+	int		color;
+	t_pos	tex;
 
-int				ft_close(t_cub *c)
-{
-	size_t	i;
-
-	i = 0;
-	ft_free_path(c);
-	mlx_destroy_window(c->mlx_ptr, c->mlx_win);
-	while (i < c->map_height)
+	c->text_step = 1.0 * c->text[c->tex_nb].height / c->res[1];
+	x = (c->res[0] - c->text[5].width) / 2;
+	tex.x = 0;
+	while (x < c->res[0] && tex.x < c->text[5].width)
 	{
-		free(c->tabmap[i]);
-		i++;
+		y = 0;
+		tex.y = 0;
+		while (y < (c->res[0] / 2) && tex.y < c->text[5].height)
+		{
+			color = c->text[5].img_data[tex.y * c->text[5].width + tex.x];
+			if ((color & 0xffffff) != 0)
+				c->dp.img_data[y * c->res[0] + x] = color;
+			y++;
+			tex.y++;
+		}
+		x++;
+		tex.x++;
 	}
-	free(c->tabmap);
-	free(c->zbuffer);
-	free(c);
-	exit(EXIT_SUCCESS);
 }

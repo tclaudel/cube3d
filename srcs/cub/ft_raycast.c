@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:26:00 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 11:47:13 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 16:32:18 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -119,4 +119,5 @@ void			ft_raycast(t_cub *c)
 		x++;
 	}
 	ft_raycast_sprites(c);
+	ft_draw_hud(c);
 }

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 14:32:03 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/15 16:34:40 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -135,7 +135,7 @@ typedef struct		s_cub
 	t_vector		o_dir;
 	t_vector		o_pla;
 	t_img			dp;
-	t_img			text[5];
+	t_img			text[6];
 	int				tex_nb;
 	double			wall_pos;
 	int				wall_dir;
@@ -207,6 +207,7 @@ void				ft_sort_sprites(t_cub *c);
 void				ft_draw_sprite(t_cub *c);
 void				ft_save_bitmap(const char *filename, t_cub *c);
 void				ft_move_ad(t_cub *c);
+void				ft_draw_hud(t_cub *c);
 
 /*
 **	SET STRUCT
