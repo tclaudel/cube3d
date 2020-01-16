@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:16:01 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 15:45:23 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 17:15:29 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,7 +24,6 @@ void	ft_no_convert(char **token, t_cub *cub)
 	ft_dprintf(1, "no texture path\t: ");
 	if (token[2])
 		ft_error("too many arguments for this parameter");
-	ft_printf("%s\n", token[1]);
 	fd = open(token[1], O_RDONLY);
 	if (fd < 0)
 		ft_error("No such file or directory");

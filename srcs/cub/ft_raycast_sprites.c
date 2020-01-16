@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 11:48:12 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 17:50:04 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 14:49:14 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -42,6 +42,9 @@ void			ft_raycast_sprites(t_cub *c)
 	int	i;
 
 	i = 0;
+	free(c->sprites);
+	ft_set_sprites(c);
+	ft_sort_sprites(c);
 	while ((int)i < c->nb_sprites)
 	{
 		c->sprite.x = c->sprites[i].pos.x - c->pos.x;
@@ -55,7 +58,7 @@ void			ft_raycast_sprites(t_cub *c)
 		c->sprite_screen_x = (int)((c->res[0] / 2) *
 			(1 + c->transform.x / c->transform.y));
 		ft_raycast_set_draw(c);
-		ft_draw_sprite(c);
+		ft_draw_sprite(c, i);
 		i++;
 	}
 }

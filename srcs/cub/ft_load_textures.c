@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/08 12:49:57 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 18:19:56 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 15:11:45 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -55,16 +55,28 @@ static int	ft_load_eawe_textures(t_cub *c)
 	return (0);
 }
 
-static int	ft_load_sprites_textures(t_cub *c)
+static int	ft_load_sprites_textures(t_cub *c, int i, char *path)
 {
-	if (!(c->text[4].img =
-		mlx_xpm_file_to_image(c->mlx_ptr, c->s, &c->text[4].width,
-		&c->text[4].height)))
-		return (EXIT_FAILURE);
-	if (!(c->text[4].img_data =
-		(int *)mlx_get_data_addr(c->text[4].img, &c->text[4].bpp,
-		&c->text[4].size_line, &c->text[4].endian)))
-		return (EXIT_FAILURE);
+	while (i < 9)
+	{
+		if (i == 5)
+			path = c->s;
+		else if (i == 6)
+			path = "./textures/heal.xpm";
+		else if (i == 7)
+			path = "./textures/mine.xpm";
+		else if (i == 8)
+			path = "./textures/ruby.xpm";
+		if (!(c->text[i].img =
+			mlx_xpm_file_to_image(c->mlx_ptr, path, &c->text[i].width,
+			&c->text[i].height)))
+			return (EXIT_FAILURE);
+		if (!(c->text[i].img_data =
+			(int *)mlx_get_data_addr(c->text[i].img, &c->text[i].bpp,
+			&c->text[i].size_line, &c->text[i].endian)))
+			return (EXIT_FAILURE);
+		i++;
+	}
 	return (0);
 }
 
@@ -83,21 +95,25 @@ static int	ft_load_hud(t_cub *c)
 	{
 		return (1);
 	}
-	if (!(c->text[5].img =
-		mlx_xpm_file_to_image(c->mlx_ptr, path, &c->text[5].width,
-		&c->text[5].height)))
+	if (!(c->text[4].img =
+		mlx_xpm_file_to_image(c->mlx_ptr, path, &c->text[4].width,
+		&c->text[4].height)))
 		return (EXIT_FAILURE);
-	if (!(c->text[5].img_data =
-		(int *)mlx_get_data_addr(c->text[5].img, &c->text[5].bpp,
-		&c->text[5].size_line, &c->text[5].endian)))
+	if (!(c->text[4].img_data =
+		(int *)mlx_get_data_addr(c->text[4].img, &c->text[4].bpp,
+		&c->text[4].size_line, &c->text[4].endian)))
 		return (EXIT_FAILURE);
 	return (0);
 }
 
 void		ft_load_textures(t_cub *c)
 {
-	ft_load_nose_textures(c);
-	ft_load_eawe_textures(c);
-	ft_load_sprites_textures(c);
-	ft_load_hud(c);
+	if (ft_load_nose_textures(c))
+		ft_exit_load(c);
+	if (ft_load_eawe_textures(c))
+		ft_exit_load(c);
+	if (ft_load_sprites_textures(c, 5, NULL))
+		ft_exit_load(c);
+	if (ft_load_hud(c))
+		ft_exit_load(c);
 }

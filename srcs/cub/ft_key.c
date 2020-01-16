@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:22:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 15:57:37 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 09:51:57 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 int		ft_key_press(int keycode, t_cub *c)
 {
 	if (keycode == KEY_ESC)
-		ft_close(c);
+		ft_close(c, 1);
 	if (keycode == KEY_W)
 		c->move = 'W';
 	else if (keycode == KEY_S)
@@ -36,8 +36,6 @@ int		ft_key_press(int keycode, t_cub *c)
 
 int		ft_key_release(int keycode, t_cub *c)
 {
-	if (keycode == KEY_ESC)
-		ft_close(c);
 	if (keycode == KEY_W)
 		c->move = 0;
 	else if (keycode == KEY_S)

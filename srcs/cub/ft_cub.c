@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 16:07:22 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 17:22:28 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,13 +29,14 @@ void			ft_display_map(t_cub *c)
 
 static int		main_loop(t_cub *c)
 {
+	if (c->collect == c->max_collect)
+		ft_next_level(c);
 	if (c->rot)
 		ft_rot(c);
 	if (c->move)
 		ft_move(c);
 	if (c->move_ad)
 		ft_move_ad(c);
-	ft_sort_sprites(c);
 	ft_raycast(c);
 	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp.img, 0, 0);
 	return (0);
@@ -73,13 +74,13 @@ int				ft_cub(t_cub *c)
 	if ((c->mlx_ptr = mlx_init()) == NULL)
 		return (EXIT_FAILURE);
 	init_player(c);
-	ft_load_textures(c);
 	ft_launch_window(c);
+	ft_load_textures(c);
 	if (c->flag == 's')
 	{
 		ft_raycast(c);
 		ft_save_bitmap("screenshot.bmp", c);
-		ft_close(c);
+		ft_close(c, 1);
 	}
 	mlx_hook(c->mlx_win, 2, 0, &ft_key_press, c);
 	mlx_hook(c->mlx_win, 3, 0, &ft_key_release, c);

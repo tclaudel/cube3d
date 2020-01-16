@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 16:34:40 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 16:36:54 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -43,6 +43,7 @@ typedef struct		s_pos
 typedef struct		s_sprite
 {
 	t_vector		pos;
+	int				type;
 	double			dist;
 }					t_sprite;
 
@@ -135,7 +136,8 @@ typedef struct		s_cub
 	t_vector		o_dir;
 	t_vector		o_pla;
 	t_img			dp;
-	t_img			text[6];
+	t_img			text[9];
+	int				life;
 	int				tex_nb;
 	double			wall_pos;
 	int				wall_dir;
@@ -163,7 +165,10 @@ typedef struct		s_cub
 	int				stripe;
 	t_vector		floor;
 	t_vector		floor_step;
-	int				sprint;
+	char			sprint;
+	char			maxlife;
+	char			collect;
+	char			max_collect;
 
 }					t_cub;
 
@@ -199,15 +204,20 @@ int					ft_launch_window(t_cub *cub);
 void				ft_move(t_cub *cub);
 void				ft_load_textures(t_cub *c);
 void				ft_display_map(t_cub *c);
-int					ft_close(t_cub *c);
+int					ft_close(t_cub *c, int ret_exit);
 int					ft_key_press(int keycode, t_cub *c);
 int					ft_key_release(int keycode, t_cub *c);
 void				ft_copy_tab(t_cub *c);
 void				ft_sort_sprites(t_cub *c);
-void				ft_draw_sprite(t_cub *c);
+void				ft_draw_sprite(t_cub *c, int i);
 void				ft_save_bitmap(const char *filename, t_cub *c);
 void				ft_move_ad(t_cub *c);
 void				ft_draw_hud(t_cub *c);
+void				ft_exit_load(t_cub *c);
+void				ft_draw_lifebar(t_cub *c);
+void				ft_fill_sprites(t_cub *c);
+void				ft_draw_success(t_cub *c);
+void				ft_next_level(t_cub *c);
 
 /*
 **	SET STRUCT
@@ -226,5 +236,7 @@ void				ft_raycast(t_cub *c);
 void				ft_draw(t_cub *c, int x);
 void				ft_rot(t_cub *c);
 int					ft_abs(int nb);
+
+int					ft_start(int ac, char **av, int i);
 
 #endif

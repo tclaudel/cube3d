@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 12:09:10 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/13 14:24:33 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 13:44:59 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -89,7 +89,10 @@ void	ft_pos(t_cub *cub)
 		while (i < cub->map_width)
 		{
 			if (ft_strchr("NSEW", cub->tabmap[j][i]))
+			{
 				set_player(cub, i, j, cub->tabmap[j][i]);
+				cub->tabmap[j][i] = '0';
+			}
 			i++;
 		}
 		j++;

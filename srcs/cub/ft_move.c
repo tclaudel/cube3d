@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/06 13:25:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 15:42:50 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 16:47:39 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,14 +15,39 @@
 
 int		ft_hint_spr(t_cub *c)
 {
-	if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == 'x')
-		if (((c->pos.x - (int)c->pos.x) > 0.4 ||
-			(c->pos.x - (int)c->pos.x) < 0.6) &&
-			(((c->pos.y - (int)c->pos.y) > 0.4) ||
-			((c->pos.y - (int)c->pos.y) > 0.6)))
-			return (1);
-		else
-			return (0);
+	if (c->tabmap[(int)c->pos.x][(int)c->pos.y] &&
+		(((c->pos.x - (int)c->pos.x) > 0.3 ||
+		(c->pos.x - (int)c->pos.x) < 0.7) &&
+		(((c->pos.y - (int)c->pos.y) > 0.3) ||
+		((c->pos.y - (int)c->pos.y) > 0.7))))
+		{
+			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '2')
+				return (1);
+			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '3')
+			{
+				if (c->life < c->maxlife)
+					c->life += 10;
+				c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
+				return (0);
+			}
+			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '4')
+			{
+				if (c->life > 0)
+					c->life -= 10;
+					c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
+				return (1);
+			}
+			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '5')
+			{
+				if (c->life > 0)
+					c->collect++;
+					c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
+				return (1);
+			}
+			else
+				return (0);
+			
+		}
 	else
 		return (0);
 }

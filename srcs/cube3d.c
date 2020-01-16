@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:20:20 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/15 10:43:37 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/16 16:39:27 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -26,7 +26,7 @@ static void		ft_grep_flags(t_cub *cub, int ac, char **av)
 		ft_error("wrong flag inserted");
 }
 
-int				main(int ac, char **av)
+int				ft_start(int ac, char **av, int i)
 {
 	int				fd;
 	t_cub			*cub;
@@ -46,7 +46,18 @@ int				main(int ac, char **av)
 		ft_grep_flags(cub, ac, av);
 	}
 	ft_arg_error(av[1]);
+	if (i == 1)
+	{	
+		free(av[0]);
+		free(av[1]);
+		free(av);
+	}
 	ft_arg_analyser(fd, cub);
 	ft_cub(cub);
 	return (1);
+}
+
+int				main(int ac, char **av)
+{
+	ft_start(ac, av, 0);
 }
