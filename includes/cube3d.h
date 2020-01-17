@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 16:50:51 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 17:01:08 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -242,6 +242,6 @@ void				ft_draw(t_cub *c, int x);
 void				ft_rot(t_cub *c);
 int					ft_abs(int nb);
 
-void				ft_start(int ac, char **av, int i, char flag);
+void				ft_start(int ac, char **av, int i);
 
 #endif

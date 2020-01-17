@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:20:20 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 16:20:31 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 17:01:13 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -44,7 +44,7 @@ void			ft_free_still(char **av)
 	free(av);
 }
 
-void			ft_start(int ac, char **av, int i, char flag)
+void			ft_start(int ac, char **av, int i)
 {
 	int				fd;
 	t_cub			*cub;
@@ -60,7 +60,6 @@ void			ft_start(int ac, char **av, int i, char flag)
 		ft_error("could not find the map");
 	cub = init_cub();
 	cub->victory = i > 1 ? 1 : 0;
-	cub->flag = flag;
 	cub->maxlife = 0;
 	if (ac >= 3)
 		ft_grep_flags(cub, ac, av);
@@ -75,5 +74,5 @@ void			ft_start(int ac, char **av, int i, char flag)
 
 int				main(int ac, char **av)
 {
-	ft_start(ac, av, 0, 0);
+	ft_start(ac, av, 0);
 }

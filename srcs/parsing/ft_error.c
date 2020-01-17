@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 14:50:59 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 14:35:45 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 17:02:33 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,6 +17,6 @@ void			ft_error(char *error)
 {
 	ft_dprintf(2, "\033[0;31m");
 	ft_dprintf(2, "Error\n%s\n", error);
-	dprintf(2, "\033[0m");
+	ft_dprintf(2, "\033[0m");
 	exit(0);
 }

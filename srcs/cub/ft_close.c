@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 16:07:24 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 16:51:27 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 17:00:48 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -40,6 +40,8 @@ int				ft_close(t_cub *c, int ret_exit)
 	free(c->tabmap);
 	free(c->zbuffer);
 	free(c);
+	while (1)
+		;
 	exit(ret_exit);
 }
 
@@ -100,5 +102,5 @@ void			ft_next_level(t_cub *c)
 	}
 	free(c->tabmap);
 	free(c->zbuffer);
-	ft_start(2, next, 1 + victory, c->flag);
+	ft_start(2, next, 1 + victory);
 }
