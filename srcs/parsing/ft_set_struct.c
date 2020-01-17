@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 13:52:47 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 15:31:59 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 16:08:48 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -59,7 +59,6 @@ void		init_map(t_cub *setup)
 	setup->move_ad = 0;
 	setup->rot = 0;
 	setup->sprint = 1;
-	setup->maxlife = 100;
 	setup->collect = 0;
 	setup->max_collect = 3;
 	setup->life = setup->maxlife;

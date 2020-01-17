@@ -6,53 +6,55 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/06 13:25:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 16:47:39 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 16:27:20 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int		ft_hint_spr(t_cub *c)
+static int		ft_apply_sprites(t_cub *c)
 {
-	if (c->tabmap[(int)c->pos.x][(int)c->pos.y] &&
-		(((c->pos.x - (int)c->pos.x) > 0.3 ||
-		(c->pos.x - (int)c->pos.x) < 0.7) &&
-		(((c->pos.y - (int)c->pos.y) > 0.3) ||
-		((c->pos.y - (int)c->pos.y) > 0.7))))
-		{
-			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '2')
-				return (1);
-			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '3')
-			{
-				if (c->life < c->maxlife)
-					c->life += 10;
-				c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
-				return (0);
-			}
-			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '4')
-			{
-				if (c->life > 0)
-					c->life -= 10;
-					c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
-				return (1);
-			}
-			if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '5')
-			{
-				if (c->life > 0)
-					c->collect++;
-					c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
-				return (1);
-			}
-			else
-				return (0);
-			
-		}
+	if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '2')
+		return (1);
+	else if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '3')
+	{
+		if (c->life < c->maxlife)
+			c->life++;
+		c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
+		return (0);
+	}
+	else if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '4')
+	{
+		if (c->life > 0)
+			c->life--;
+		c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
+		return (1);
+	}
+	else if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '5')
+	{
+		if (c->life > 0)
+			c->collect++;
+		c->tabmap[(int)c->pos.x][(int)c->pos.y] = '0';
+		return (1);
+	}
 	else
 		return (0);
 }
 
-void	ft_move_ad(t_cub *c)
+int				ft_hint_spr(t_cub *c)
+{
+	if (c->tabmap[(int)c->pos.x][(int)c->pos.y] &&
+		(((c->pos.x - (int)c->pos.x) > 0.3 ||
+		(c->pos.x - (int)c->pos.x) > 0.7) &&
+		(((c->pos.y - (int)c->pos.y) > 0.3) ||
+		((c->pos.y - (int)c->pos.y) > 0.7))))
+		return (ft_apply_sprites(c));
+	else
+		return (0);
+}
+
+void			ft_move_ad(t_cub *c)
 {
 	if (c->flag == 'm')
 	{
@@ -79,7 +81,7 @@ void	ft_move_ad(t_cub *c)
 	}
 }
 
-void	ft_move(t_cub *c)
+void			ft_move(t_cub *c)
 {
 	if (c->flag == 'm')
 	{
@@ -106,7 +108,7 @@ void	ft_move(t_cub *c)
 	}
 }
 
-void	ft_rot(t_cub *c)
+void			ft_rot(t_cub *c)
 {
 	c->o_dir.x = c->dir.x;
 	c->o_pla.x = c->plane.x;

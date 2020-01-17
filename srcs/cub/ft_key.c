@@ -6,14 +6,31 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:22:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 09:51:57 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 16:40:28 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-int		ft_key_press(int keycode, t_cub *c)
+static void		ft_edit_map(int keycode, t_cub *c)
+{
+	int		square;
+
+	if (keycode == KEY_0)
+		square = '0';
+	if (keycode == KEY_5)
+		square = '5';
+	else
+		square = '0' + (int)keycode - 17;
+	if ((c->pos.x + c->dir.x > 0 && c->pos.y + c->dir.y > 0 &&
+		c->pos.x + c->dir.x < (int)(c->map_height - 1) &&
+		c->pos.y + c->dir.y < (int)(c->map_width - 1)))
+		c->tabmap[(int)(c->pos.x + c->dir.x)]
+			[(int)(c->pos.y + c->dir.y)] = square;
+}
+
+int				ft_key_press(int keycode, t_cub *c)
 {
 	if (keycode == KEY_ESC)
 		ft_close(c, 1);
@@ -34,7 +51,7 @@ int		ft_key_press(int keycode, t_cub *c)
 	return (1);
 }
 
-int		ft_key_release(int keycode, t_cub *c)
+int				ft_key_release(int keycode, t_cub *c)
 {
 	if (keycode == KEY_W)
 		c->move = 0;
@@ -50,5 +67,9 @@ int		ft_key_release(int keycode, t_cub *c)
 		c->rot = 0;
 	else if (keycode == KEY_LSHIFT)
 		c->sprint = 1;
+	else if (c->flag == 'e' && (keycode == KEY_0 || keycode == KEY_1 ||
+		keycode == KEY_2 || keycode == KEY_3 || keycode == KEY_4 ||
+		keycode == KEY_5))
+		ft_edit_map(keycode, c);
 	return (1);
 }

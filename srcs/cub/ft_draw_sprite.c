@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 14:42:56 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 14:42:40 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 16:36:20 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,9 +24,11 @@ void	ft_draw_sprite_on_display(t_cub *c, int i)
 	while (++y < c->draw_sprite_end.y)
 	{
 		d = y * 256 - c->res[1] * 128 + c->sprite_height * 128;
-		c->tex_y = ((d * c->text[5 + c->sprites[i].type].height) / c->sprite_height) / 256;
+		c->tex_y = ((d * c->text[5 + c->sprites[i].type].height) /
+			c->sprite_height) / 256;
 		color.color =
-			c->text[5 + c->sprites[i].type].img_data[c->tex_y * c->text[5 + c->sprites[i].type].width + c->tex_x];
+			c->text[5 + c->sprites[i].type].img_data[c->tex_y * c->text[5 +
+			c->sprites[i].type].width + c->tex_x];
 		darker = c->transform.y > RENDERDIST ?
 			0 : 1 - (c->transform.y / RENDERDIST);
 		color.rgb.r *= darker;

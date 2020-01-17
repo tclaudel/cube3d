@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 16:36:54 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 16:50:51 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -136,7 +136,7 @@ typedef struct		s_cub
 	t_vector		o_dir;
 	t_vector		o_pla;
 	t_img			dp;
-	t_img			text[9];
+	t_img			text[11];
 	int				life;
 	int				tex_nb;
 	double			wall_pos;
@@ -169,7 +169,7 @@ typedef struct		s_cub
 	char			maxlife;
 	char			collect;
 	char			max_collect;
-
+	int				victory;
 }					t_cub;
 
 void				ft_arg_error(char *av);
@@ -218,6 +218,11 @@ void				ft_draw_lifebar(t_cub *c);
 void				ft_fill_sprites(t_cub *c);
 void				ft_draw_success(t_cub *c);
 void				ft_next_level(t_cub *c);
+void				ft_draw_death(t_cub *c, int color);
+void				ft_draw_sucess(t_cub *c);
+void				ft_draw_victory(t_cub *c);
+int					main_loop(t_cub *c);
+void				ft_save_map(t_cub *c);
 
 /*
 **	SET STRUCT
@@ -237,6 +242,6 @@ void				ft_draw(t_cub *c, int x);
 void				ft_rot(t_cub *c);
 int					ft_abs(int nb);
 
-int					ft_start(int ac, char **av, int i);
+void				ft_start(int ac, char **av, int i, char flag);
 
 #endif

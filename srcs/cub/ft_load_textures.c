@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/08 12:49:57 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 15:11:45 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 16:38:03 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -84,17 +84,7 @@ static int	ft_load_hud(t_cub *c)
 {
 	char	*path;
 
-	path = NULL;
-	if (c->res[0] == 1920 && c->res[1] == 1080)
-		path = "./textures/hud1080.xpm";
-	else if (c->res[0] == 1280 && c->res[1] == 720)
-		path = "./textures/hud720.xpm";
-	else if (c->res[0] == 720 && c->res[1] == 480)
-		path = "./textures/hud480.xpm";
-	else if (c->res[0] == 720 && c->res[1] == 480)
-	{
-		return (1);
-	}
+	path = "./textures/hud480.xpm";
 	if (!(c->text[4].img =
 		mlx_xpm_file_to_image(c->mlx_ptr, path, &c->text[4].width,
 		&c->text[4].height)))

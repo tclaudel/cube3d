@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:01:59 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/08 13:09:21 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 09:13:26 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -48,5 +48,9 @@ void	ft_r_convert(char **token, t_cub *cub)
 	}
 	else
 		ft_error("need more arguments for resolution");
+	if (cub->res[1] < 300)
+		cub->res[1] = 300;
+	if (cub->res[0] < cub->res[1])
+		cub->res[0] = cub->res[1];
 	ft_printf("%d * %d\n", cub->res[0], cub->res[1]);
 }

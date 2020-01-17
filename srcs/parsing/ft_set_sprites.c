@@ -6,14 +6,14 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 18:27:13 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 13:43:29 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 16:16:41 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
 
 #include "cube3d.h"
 
-void		ft_fill_sprites(t_cub *c)
+void	ft_fill_sprites(t_cub *c)
 {
 	size_t	i;
 	size_t	j;
@@ -27,7 +27,7 @@ void		ft_fill_sprites(t_cub *c)
 		j = 0;
 		while (j < c->map_width)
 		{
-			if (c->tabmap[i][j] >'1')
+			if (c->tabmap[i][j] > '1')
 			{
 				c->sprites[k].pos.x = i + 0.5;
 				c->sprites[k].pos.y = j + 0.5;
@@ -40,7 +40,7 @@ void		ft_fill_sprites(t_cub *c)
 	}
 }
 
-void			ft_set_sprites(t_cub *c)
+void	ft_set_sprites(t_cub *c)
 {
 	size_t	i;
 	size_t	j;

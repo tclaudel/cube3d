@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/16 16:44:25 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/17 16:51:47 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -31,7 +31,7 @@ SRCS_CONVERT	=	$(addprefix converters/, ft_r_convert.c ft_no_convert.c \
 SRCS_CUB		=	$(addprefix cub/, ft_init_window.c ft_cub.c ft_init_player.c ft_move.c \
 					ft_load_textures.c ft_raycast.c ft_key.c ft_draw.c ft_sort_sprites.c \
 					ft_raycast_sprites.c ft_draw_sprite.c ft_save_bitmap.c ft_close.c \
-					ft_draw_lifebar.c ft_draw_hud.c)
+					ft_draw_lifebar.c ft_draw_hud.c ft_draw_life_state.c ft_save_map.c)
 
 SRCS_PARSING	=	$(addprefix parsing/, ft_check_map.c ft_arg_error.c ft_arg_analyser.c \
 					ft_error.c ft_convert_line.c ft_set_struct.c ft_set_sprites.c)
@@ -56,7 +56,7 @@ CC				=	cc
 
 RM				=	rm -rf
 
-FLAG			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
+FLAG			=	-Wall -Wextra -Werror -g3 -fsanitize=address
 
 LIBFT			=	libft/libft.a
 
