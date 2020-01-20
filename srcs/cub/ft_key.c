@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:22:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 16:40:28 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 10:33:29 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -19,7 +19,7 @@ static void		ft_edit_map(int keycode, t_cub *c)
 
 	if (keycode == KEY_0)
 		square = '0';
-	if (keycode == KEY_5)
+	else if (keycode == KEY_5)
 		square = '5';
 	else
 		square = '0' + (int)keycode - 17;

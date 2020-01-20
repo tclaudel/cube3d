@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 16:07:24 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 09:47:14 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 13:20:21 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -50,7 +50,7 @@ void			ft_exit_load(t_cub *c)
 	i = 0;
 	ft_dprintf(2, "\033[0;31m");
 	ft_dprintf(2, "Error\n%s\n", "Failed to load textures");
-	dprintf(2, "\033[0m");
+	ft_dprintf(2, "\033[0m");
 	ft_free_path(c);
 	while (i < c->map_height)
 	{

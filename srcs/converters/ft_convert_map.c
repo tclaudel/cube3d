@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 12:09:10 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 15:28:31 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 10:53:36 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -97,6 +97,8 @@ void	ft_pos(t_cub *cub)
 		}
 		j++;
 	}
+	if (cub->map.x == 0)
+		ft_error("Can't find a player");
 	ft_printf("player\t\t: X = %u  Y = %u  oriented : %c\n",
 		cub->map.x, cub->map.y, cub->orientation);
 }
@@ -109,11 +111,11 @@ void	ft_convert_map(char *strcub, t_cub *cub)
 	i = 1;
 	cub->tabmap = malloc(sizeof(char *) * cub->map_height);
 	tmap = ft_strtok(strcub, "\n");
-	cub->tabmap[0] = ft_stroutcharset(tmap, " ");
+	cub->tabmap[0] = ft_stroutcharset(tmap, " \t");
 	cub->map_width = ft_strlen(cub->tabmap[0]);
 	while ((tmap = ft_strtok(NULL, "\n")))
 	{
-		tmap = ft_stroutcharset(tmap, " ");
+		tmap = ft_stroutcharset(tmap, " \t");
 		if (ft_strlen(tmap) != cub->map_width)
 			ft_error("problem with cub size");
 		cub->tabmap[i] = ft_strdup(tmap);

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 17:22:39 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 10:26:56 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,7 @@ void		ft_display_map(t_cub *c)
 static int	ft_load_life_screen(t_cub *c)
 {
 	if (!(c->text[9].img =
-		mlx_xpm_file_to_image(c->mlx_ptr, "./textures/gicler.xpm",
+		mlx_xpm_file_to_image(c->mlx_ptr, "./textures/death.xpm",
 		&c->text[9].width, &c->text[9].height)))
 		return (EXIT_FAILURE);
 	if (!(c->text[9].img_data =
@@ -82,12 +82,7 @@ void		ft_copy_tab(t_cub *c)
 		c->mapcp[i] = (char *)malloc(sizeof(char) * c->map_width + 1);
 		while (j < c->map_width)
 		{
-			if (c->tabmap[i][j] == '0')
-				c->mapcp[i][j] = ' ';
-			else if (c->tabmap[i][j] == '1')
-				c->mapcp[i][j] = '0';
-			else
-				c->mapcp[i][j] = c->tabmap[i][j];
+			c->mapcp[i][j] = c->tabmap[i][j];
 			j++;
 		}
 		c->mapcp[i][c->map_width] = 0;

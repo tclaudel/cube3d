@@ -1,4 +1,4 @@
-R 1280 720
+R 720 480
 
 NO ./textures/wood.xpm
 SO ./textures/greystone.xpm
