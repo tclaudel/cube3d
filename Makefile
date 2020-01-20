@@ -6,7 +6,7 @@
 #    By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/12/02 14:12:32 by tclaudel     #+#   ##    ##    #+#        #
-#    Updated: 2020/01/20 13:38:47 by tclaudel    ###    #+. /#+    ###.fr      #
+#    Updated: 2020/01/20 15:05:18 by tclaudel    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -56,7 +56,7 @@ CC				=	cc
 
 RM				=	rm -rf
 
-FLAG			=	-Wall -Wextra -Werror #-g3 -fsanitize=address
+FLAG			=	-Wall -Wextra -Werror -g3 #-fsanitize=address
 
 LIBFT			=	libft/libft.a
 
