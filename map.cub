@@ -1,7 +1,7 @@
 R 720 480
 
 NO ./textures/wood.xpm
-SO ./textures/greystone.xpm
+SO ./textures/wood.xpm
 WE ./textures/redbrick.xpm
 EA ./textures/eagle.xpm
 S ./textures/pillar.xpm
