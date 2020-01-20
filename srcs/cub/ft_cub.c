@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 16:55:28 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/17 17:22:39 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -30,7 +30,7 @@ void		ft_display_map(t_cub *c)
 static int	ft_load_life_screen(t_cub *c)
 {
 	if (!(c->text[9].img =
-		mlx_xpm_file_to_image(c->mlx_ptr, "./textures/death.xpm",
+		mlx_xpm_file_to_image(c->mlx_ptr, "./textures/gicler.xpm",
 		&c->text[9].width, &c->text[9].height)))
 		return (EXIT_FAILURE);
 	if (!(c->text[9].img_data =

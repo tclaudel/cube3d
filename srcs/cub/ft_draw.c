@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 16:28:08 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 10:00:02 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 09:43:06 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -20,10 +20,9 @@ void	ft_draw_floor(t_cub *c, int x)
 	double		darker;
 	int			dist;
 
-	i = ft_abs(c->draw_end);
 	color.color = c->f;
 	i = c->res[1] - 1;
-	while (i >= c->draw_end)
+	while (i >= c->draw_end && i > 0)
 	{
 		dist = (i - c->res[1] / 2);
 		darker = dist < RENDERDIST * 5 ? (double)dist / (RENDERDIST * 5) : 1.0;
