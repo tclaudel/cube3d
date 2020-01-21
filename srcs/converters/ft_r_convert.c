@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/06 15:01:59 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 13:16:58 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 17:50:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -37,7 +37,8 @@ static void		ft_resize(t_cub *cub)
 	if (cub->res[0] < cub->res[1])
 	{
 		cub->res[0] = cub->res[1];
-		ft_dprintf(1, "\nMap has been resize cause entry is too small\n\n");
+		ft_dprintf(1, "\nMap has been resize as a square");
+		ft_dprintf(1, "cause width is bigger than height\n\n");
 	}
 	ft_dprintf(1, "\033[0m");
 }

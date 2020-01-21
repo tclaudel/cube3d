@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/06 13:25:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 10:47:16 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/20 17:53:31 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -83,11 +83,11 @@ void			ft_move_ad(t_cub *c)
 
 void			ft_move(t_cub *c)
 {
-	if (c->flag == 'm')
-	{
+	// if (c->flag == 'm')
+	// {
 		ft_copy_tab(c);
 		ft_display_map(c);
-	}
+	// }
 	if (c->move == 'W')
 	{
 		c->pos.x += c->dir.x * MOVSPEED * c->sprint;
