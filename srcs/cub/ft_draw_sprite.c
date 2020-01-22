@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 14:42:56 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 17:46:33 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 10:53:00 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -16,7 +16,7 @@
 void	ft_draw_sprite_on_display(t_cub *c, int i)
 {
 	t_color		color;
-	int			d;
+	size_t		d;
 	int			y;
 	double		darker;
 

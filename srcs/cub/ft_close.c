@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 16:07:24 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 15:17:56 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 10:32:03 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,8 @@ int				ft_close(t_cub *c, int ret_exit)
 
 	i = 0;
 	ft_free_path(c);
-	ft_save_map(c);
+	if (c->flag == 'e')
+		ft_save_map(c);
 	while (i < c->map_height)
 	{
 		free(c->tabmap[i]);

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 15:22:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 13:51:48 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 10:21:57 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -23,7 +23,7 @@ static void		ft_edit_map(int keycode, t_cub *c)
 		square = '5';
 	else
 		square = '0' + (int)keycode - 17;
-	if ((c->pos.x + c->dir.x > 0 && c->pos.y + c->dir.y > 0 &&
+	if ((c->pos.x + c->dir.x > 1 && c->pos.y + c->dir.y > 1 &&
 		c->pos.x + c->dir.x < (int)(c->map_height - 1) &&
 		c->pos.y + c->dir.y < (int)(c->map_width - 1)))
 		c->tabmap[(int)(c->pos.x + c->dir.x)]
