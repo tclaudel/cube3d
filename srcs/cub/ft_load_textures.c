@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/08 12:49:57 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 12:56:53 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:58:26 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -99,11 +99,11 @@ static int	ft_load_hud(t_cub *c)
 void		ft_load_textures(t_cub *c)
 {
 	if (ft_load_nose_textures(c))
-		ft_exit_load(c);
+		ft_error("Failed to load textures");
 	if (ft_load_eawe_textures(c))
-		ft_exit_load(c);
+		ft_error("Failed to load textures");
 	if (ft_load_sprites_textures(c, 5, NULL))
-		ft_exit_load(c);
+		ft_error("Failed to load textures");
 	if (ft_load_hud(c))
-		ft_exit_load(c);
+		ft_error("Failed to load textures");
 }

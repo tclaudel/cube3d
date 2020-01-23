@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 16:48:46 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 10:32:06 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 14:07:43 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -24,8 +24,6 @@ void	ft_save_map(t_cub *c)
 		ft_dprintf(2, "can't save map\n");
 		c->flag = 0;
 	}
-	if (c->flag != 's')
-		mlx_destroy_window(c->mlx_ptr, c->mlx_win);
 	if (c->flag == 'e')
 	{
 		ft_printf("\nHere is your edited map :\n\n");

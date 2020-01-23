@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/02 12:33:03 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 10:26:56 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:04:19 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -25,27 +25,10 @@ void		ft_display_map(t_cub *c)
 		ft_printf("%s\n", c->mapcp[i]);
 		i++;
 	}
-}
-
-static int	ft_load_life_screen(t_cub *c)
-{
-	if (!(c->text[9].img =
-		mlx_xpm_file_to_image(c->mlx_ptr, "./textures/death.xpm",
-		&c->text[9].width, &c->text[9].height)))
-		return (EXIT_FAILURE);
-	if (!(c->text[9].img_data =
-		(int *)mlx_get_data_addr(c->text[9].img, &c->text[9].bpp,
-		&c->text[9].size_line, &c->text[9].endian)))
-		return (EXIT_FAILURE);
-	if (!(c->text[10].img =
-		mlx_xpm_file_to_image(c->mlx_ptr, "./textures/win.xpm",
-		&c->text[10].width, &c->text[10].height)))
-		return (EXIT_FAILURE);
-	if (!(c->text[10].img_data =
-		(int *)mlx_get_data_addr(c->text[10].img, &c->text[10].bpp,
-		&c->text[10].size_line, &c->text[10].endian)))
-		return (EXIT_FAILURE);
-	return (0);
+	i = 0;
+	while (i < c->map_height)
+		free(c->mapcp[i++]);
+	free(c->mapcp);
 }
 
 int			main_loop(t_cub *c)
@@ -64,7 +47,7 @@ int			main_loop(t_cub *c)
 		ft_move_ad(c);
 	if (c->life && !c->victory)
 		ft_raycast(c);
-	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->dp.img, 0, 0);
+	mlx_put_image_to_window(c->mlx_ptr, c->mlx_win, c->screen.img, 0, 0);
 	return (0);
 }
 
@@ -96,14 +79,10 @@ int			ft_cub(t_cub *c)
 		return (EXIT_FAILURE);
 	init_player(c);
 	ft_launch_window(c);
-	ft_load_textures(c);
-	if (ft_load_life_screen(c))
-		ft_exit_load(c);
 	if (c->flag == 's')
 	{
 		ft_raycast(c);
 		ft_save_bitmap("screenshot.bmp", c);
-		ft_close(c, 1);
 	}
 	mlx_hook(c->mlx_win, 2, 0, &ft_key_press, c);
 	mlx_hook(c->mlx_win, 3, 0, &ft_key_release, c);

@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 13:20:20 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 17:01:13 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/22 14:07:00 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -69,6 +69,7 @@ void			ft_start(int ac, char **av, int i)
 	if (i >= 1)
 		ft_free_still(av);
 	ft_arg_analyser(fd, cub);
+	close(fd);
 	ft_cub(cub);
 }
 

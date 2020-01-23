@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/04 11:06:18 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 13:44:56 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:04:53 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -113,7 +113,6 @@ typedef struct		s_cub
 	double			camera_x;
 	size_t			map_width;
 	size_t			map_height;
-	t_pos			*start;
 	char			orientation;
 	t_vector		pos;
 	t_vector		plane;
@@ -135,7 +134,7 @@ typedef struct		s_cub
 	char			rot;
 	t_vector		o_dir;
 	t_vector		o_pla;
-	t_img			dp;
+	t_img			screen;
 	t_img			text[11];
 	int				life;
 	int				tex_nb;

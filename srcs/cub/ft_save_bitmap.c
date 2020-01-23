@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/13 13:30:00 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 17:20:18 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:57:41 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -27,7 +27,7 @@ static void		ft_bitmap_image(t_cub *c, int fd, t_bpm2 bih)
 		x = 0;
 		while (x < c->res[0])
 		{
-			ble = c->dp.img_data[y * c->res[0] + x];
+			ble = c->screen.img_data[y * c->res[0] + x];
 			color[0] = ble % 256;
 			ble /= 256;
 			color[1] = ble % 256;
@@ -66,5 +66,5 @@ void			ft_save_bitmap(const char *filename, t_cub *c)
 	fd = open(filename, O_RDWR);
 	write(fd, &bfh, 14);
 	ft_bitmap_image(c, fd, bih);
-	close(fd);
+	ft_close(c, 1);
 }

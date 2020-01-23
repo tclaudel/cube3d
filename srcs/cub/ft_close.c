@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 16:07:24 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 10:32:03 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:59:00 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -15,11 +15,11 @@
 
 static void		ft_free_path(t_cub *c)
 {
-	free(c->no);
-	free(c->so);
-	free(c->we);
-	free(c->ea);
-	free(c->s);
+	ft_strdel(&c->no);
+	ft_strdel(&c->so);
+	ft_strdel(&c->we);
+	ft_strdel(&c->ea);
+	ft_strdel(&c->s);
 	free(c->res);
 	free(c->sprites);
 	free(c->color);
@@ -33,6 +33,7 @@ int				ft_close(t_cub *c, int ret_exit)
 	ft_free_path(c);
 	if (c->flag == 'e')
 		ft_save_map(c);
+	mlx_destroy_window(c->mlx_ptr, c->mlx_win);
 	while (i < c->map_height)
 	{
 		free(c->tabmap[i]);
@@ -42,25 +43,6 @@ int				ft_close(t_cub *c, int ret_exit)
 	free(c->zbuffer);
 	free(c);
 	exit(ret_exit);
-}
-
-void			ft_exit_load(t_cub *c)
-{
-	size_t	i;
-
-	i = 0;
-	ft_dprintf(2, "\033[0;31m");
-	ft_dprintf(2, "Error\n%s\n", "Failed to load textures");
-	ft_dprintf(2, "\033[0m");
-	ft_free_path(c);
-	while (i < c->map_height)
-	{
-		free(c->tabmap[i]);
-		i++;
-	}
-	free(c->tabmap);
-	free(c);
-	exit(EXIT_FAILURE);
 }
 
 static char		**ft_select_level(char level, int *vic)

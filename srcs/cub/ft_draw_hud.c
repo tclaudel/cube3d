@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/15 16:32:32 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/16 17:40:53 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:04:19 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,7 @@ void	ft_draw_hud(t_cub *c)
 		{
 			color = c->text[4].img_data[tex.y * c->text[4].width + tex.x];
 			if ((color & 0xffffff) != 0)
-				c->dp.img_data[y * c->res[0] + x] = color;
+				c->screen.img_data[y * c->res[0] + x] = color;
 			y++;
 			tex.y++;
 		}

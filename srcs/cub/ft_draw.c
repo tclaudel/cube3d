@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 16:28:08 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 11:10:12 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:54:52 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -29,7 +29,7 @@ void	ft_draw_floor(t_cub *c, int x)
 		color.rgb.r *= darker;
 		color.rgb.b *= darker;
 		color.rgb.g *= darker;
-		c->dp.img_data[i * c->res[0] + x] = color.color;
+		c->screen.img_data[i * c->res[0] + x] = color.color;
 		i--;
 	}
 }
@@ -43,7 +43,7 @@ void	ft_draw_ceiling(t_cub *c, int x)
 	color.color = c->c;
 	while (i < c->draw_start)
 	{
-		c->dp.img_data[i * c->res[0] + x] = color.color;
+		c->screen.img_data[i * c->res[0] + x] = color.color;
 		i++;
 	}
 }
@@ -68,7 +68,7 @@ void	ft_draw_wall(t_cub *c, int x)
 		color.rgb.r *= darker;
 		color.rgb.b *= darker;
 		color.rgb.g *= darker;
-		c->dp.img_data[i * c->res[0] + x] = color.color;
+		c->screen.img_data[i * c->res[0] + x] = color.color;
 		c->zbuffer[x] = c->wall_dist;
 		i++;
 	}

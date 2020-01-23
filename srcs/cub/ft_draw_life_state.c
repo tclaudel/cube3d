@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/17 09:34:26 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/17 17:13:29 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:04:19 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -31,7 +31,7 @@ void	ft_draw_death(t_cub *c, int color)
 		{
 			color = c->text[9].img_data[(int)text.y * c->text[9].width +
 				(int)text.x];
-			c->dp.img_data[img.y * c->res[0] + img.x] = color;
+			c->screen.img_data[img.y * c->res[0] + img.x] = color;
 			img.y++;
 			text.y += ratio.y;
 		}
@@ -59,7 +59,7 @@ void	ft_draw_victory(t_cub *c)
 		{
 			color = c->text[10].img_data[(int)text.y *
 				c->text[10].width + (int)text.x];
-			c->dp.img_data[img.y * c->res[0] + img.x] = color;
+			c->screen.img_data[img.y * c->res[0] + img.x] = color;
 			img.y++;
 			text.y += ratio.y;
 		}

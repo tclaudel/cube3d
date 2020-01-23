@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/06 13:25:21 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 10:05:37 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:58:14 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -17,7 +17,7 @@ static int		ft_apply_sprites(t_cub *c)
 {
 	if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '2')
 		return (1);
-	else if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '3')
+	if (c->tabmap[(int)c->pos.x][(int)c->pos.y] == '3')
 	{
 		if (c->life < c->maxlife)
 			c->life++;
@@ -48,7 +48,7 @@ int				ft_hint_spr(t_cub *c)
 		(((c->pos.x - (int)c->pos.x) > 0.3 ||
 		(c->pos.x - (int)c->pos.x) > 0.7) &&
 		(((c->pos.y - (int)c->pos.y) > 0.3) ||
-		((c->pos.y - (int)c->pos.y) > 0.7))))
+		((c->pos.y - (int)c->pos.y) > 0.7))) && c->flag != 'e')
 		return (ft_apply_sprites(c));
 	else
 		return (0);

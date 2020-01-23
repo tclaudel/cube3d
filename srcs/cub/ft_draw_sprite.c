@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/10 14:42:56 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/22 10:53:00 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/23 09:54:10 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -35,7 +35,7 @@ void	ft_draw_sprite_on_display(t_cub *c, int i)
 		color.rgb.b *= darker;
 		color.rgb.g *= darker;
 		if ((color.color & 0xffffff) != 0)
-			c->dp.img_data[y * c->res[0] + c->stripe] = color.color;
+			c->screen.img_data[y * c->res[0] + c->stripe] = color.color;
 	}
 }
 
