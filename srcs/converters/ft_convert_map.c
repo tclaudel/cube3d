@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2019/12/11 12:09:10 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/20 10:53:36 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 09:56:04 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -73,7 +73,7 @@ void	set_player(t_cub *cub, size_t i, size_t j, char c)
 		cub->orientation = c;
 	}
 	else
-		ft_error("2 players detected");
+		ft_error("more than 1 players detected");
 }
 
 void	ft_pos(t_cub *cub)
