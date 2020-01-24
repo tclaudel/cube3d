@@ -6,7 +6,7 @@
 /*   By: tclaudel <tclaudel@student.le-101.fr>      +:+   +:    +:    +:+     */
 /*                                                 #+#   #+    #+    #+#      */
 /*   Created: 2020/01/09 16:28:08 by tclaudel     #+#   ##    ##    #+#       */
-/*   Updated: 2020/01/23 09:54:52 by tclaudel    ###    #+. /#+    ###.fr     */
+/*   Updated: 2020/01/24 10:01:51 by tclaudel    ###    #+. /#+    ###.fr     */
 /*                                                         /                  */
 /*                                                        /                   */
 /* ************************************************************************** */
@@ -51,7 +51,7 @@ void	ft_draw_ceiling(t_cub *c, int x)
 void	ft_draw_wall(t_cub *c, int x)
 {
 	int			i;
-	int			d;
+	size_t		d;
 	t_color		color;
 	double		darker;
 
